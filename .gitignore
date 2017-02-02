@@ -1,0 +1,13 @@
+# ignored Folders
+Cubes/Library/**
+Cubes/Temp/**
+Cubes/Target/**
+*.suo
+*.sln
+*.csproj
+*.userprefs
+
+# Others
+-*.meta
+Library
+Temp
