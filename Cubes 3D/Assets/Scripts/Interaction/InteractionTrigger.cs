@@ -4,16 +4,25 @@ using System.Collections;
 
 /// <summary>
 /// This script requires a 'trigger' collider to be attached.
-/// When a GameObject tagged with Tags.Player is inside the collider, the attached Renderer will be enabled.
 /// The interaction can then be triggered by pressing 'E'.
 /// </summary>
 [RequireComponent(typeof(Collider))]
-[RequireComponent(typeof(Renderer))]
 public class InteractionTrigger : MonoBehaviour {
 
     public UnityEvent triggerOnInteraction;
 
+    /// <summary>
+    /// GameObject that will be enabled iff the InteractionTrigger can be interacted with.
+    /// Can be null.
+    /// </summary>
+    public GameObject interactionIndicator;
+
     bool canInteract = false;
+
+    void Start() {
+        if(interactionIndicator != null)
+            interactionIndicator.SetActive(false);
+    }
 
     void Update() {
         if(canInteract && Input.GetKeyDown(KeyCode.E)) {
@@ -21,10 +30,19 @@ public class InteractionTrigger : MonoBehaviour {
         }
     }
 
+    void OnTriggerEnter(Collider other) {
+        if(other.tag == Tags.Player && !transform.IsChildOf(other.transform) && AcquireLock(other.transform.position)) {
+            EnableInteraction();
+        } else if(other.tag == Tags.Player && transform.IsChildOf(other.transform)) {
+            DisableInteraction();
+            ReleaseLock();
+        }
+    }
+
     void OnTriggerStay(Collider other) {
         if(other.tag == Tags.Player && !transform.IsChildOf(other.transform) && AcquireLock(other.transform.position)) {
             EnableInteraction();
-        } else {
+        } else if(other.tag == Tags.Player && transform.IsChildOf(other.transform)) {
             DisableInteraction();
             ReleaseLock();
         }
@@ -39,12 +57,14 @@ public class InteractionTrigger : MonoBehaviour {
 
     public void EnableInteraction() {
         canInteract = true;
-        GetComponent<Renderer>().enabled = true;
+        if(interactionIndicator != null)
+            interactionIndicator.SetActive(true);
     }
 
     public void DisableInteraction() {
         canInteract = false;
-        GetComponent<Renderer>().enabled = false;
+        if(interactionIndicator != null)
+            interactionIndicator.SetActive(false);
     }
 
     /// <summary>
