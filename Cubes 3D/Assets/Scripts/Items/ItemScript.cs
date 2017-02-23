@@ -11,8 +11,11 @@ public abstract class ItemScript : MonoBehaviour {
     /// </summary>
     /// <param name="player">The Player GameObject.</param>
     public virtual void OnEquipped(GameObject player) {
-        /* TODO
         transform.localRotation = Quaternion.identity;
+        Rigidbody r = GetComponent <Rigidbody>();
+        if(r != null)
+            r.isKinematic = true;
+        /* TODO
         Shader shader = Shader.Find(Shading.DEFAULT_SHADER);
         foreach(SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>(true)){
             int id = sr.material.GetInt(Shading.PARAM_ROOM_ID);
@@ -28,6 +31,14 @@ public abstract class ItemScript : MonoBehaviour {
     /// </summary>
     /// <param name="player">The Player GameObject.</param>
     public virtual void OnDropped(GameObject player) {
+        transform.localRotation = Quaternion.identity;
+        Vector3 pos = player.transform.position + player.transform.forward * 2;
+        pos.y = 0.5f;
+        transform.position = pos;
+
+        Rigidbody r = GetComponent <Rigidbody>();
+        if(r != null)
+            r.isKinematic = false;
         /* TODO
         Shader shader = Shader.Find(Shading.FADING_SHADER);
         foreach(SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>(true)){
