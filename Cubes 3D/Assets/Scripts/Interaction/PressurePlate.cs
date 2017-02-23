@@ -58,7 +58,8 @@ public class PressurePlate : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other) {
-        AddWeight(other.GetComponent<Weight>());
+        if(!other.isTrigger) //only 'solid' colliders should trigger
+            AddWeight(other.GetComponent<Weight>());
     }
 
     void OnTriggerExit(Collider other) {
