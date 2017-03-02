@@ -5,9 +5,10 @@ using System.Collections.Generic;
 /// <summary>
 /// Script for an item, that can interact with a defined set of other items.
 /// E.g. a key that can open certain locks.
-/// Once picked up, the player's colliders will be used to check whether a target is available.
+/// Needs a trigger collider to check whether a target is available.
 /// To unlock a target the player must Use the key.
 /// </summary>
+[RequireComponent(typeof(Collider))]
 public class Key : ItemScript {
     
     /// <summary>
@@ -35,8 +36,8 @@ public class Key : ItemScript {
     /// </summary>
     public bool destroyWhenUsedUp;
 
-    public void OnCollisionEnter(Collision coll) {
-        tryUnlock(coll.collider);
+    public void OnTriggerEnter(Collider coll) {
+        tryUnlock(coll);
     }
 
     /// <summary>
