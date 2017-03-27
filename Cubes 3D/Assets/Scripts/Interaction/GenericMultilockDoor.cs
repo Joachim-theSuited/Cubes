@@ -30,6 +30,7 @@ public class GenericMultilockDoor : GenericDoor {
             Debug.LogError("Too many locks!");
             lockCounter = numberOfLocks;
         }
+        //Debug.Log("Locked " + name + ", Counter at " + lockCounter);
     }
 
     override public void Unlock() {
@@ -41,6 +42,7 @@ public class GenericMultilockDoor : GenericDoor {
                 base.Unlock();
             }
         }
+        //Debug.Log("Unlocked " + name + ", Counter at " + lockCounter);
     }
 
 }

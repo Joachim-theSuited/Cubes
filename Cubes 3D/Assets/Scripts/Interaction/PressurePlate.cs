@@ -36,11 +36,12 @@ public class PressurePlate : MonoBehaviour {
         if(weight == null)
             return;
         
-        if(isFree) {
-            OnDown.Invoke();
-        }
-        if(!weights.Contains(weight))
+        if(!weights.Contains(weight)) {
+            if(isFree) {
+                OnDown.Invoke();
+            }
             weights.Add(weight);
+        }
     }
 
     /// <summary>
@@ -49,11 +50,12 @@ public class PressurePlate : MonoBehaviour {
     public void RemoveWeight(Weight weight) {
         if(weight == null)
             return;
-        
-        weights.Remove(weight);
 
-        if(isFree) {
-            OnUp.Invoke();
+        if(weights.Contains(weight)) {
+            weights.Remove(weight);
+            if(isFree) {
+                OnUp.Invoke();
+            }
         }
     }
 
