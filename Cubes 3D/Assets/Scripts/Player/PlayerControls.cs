@@ -6,13 +6,17 @@
 [RequireComponent (typeof (Rigidbody))]
 public class PlayerControls : MonoBehaviour {
     public float movementSpeed;
+    public Camera referenceCamera;
 
     private Rigidbody _rigidbody;
+    private LayerMask _floorLayerMask;
 
 	// Use this for initialization
 	void Start () {
         _rigidbody = GetComponent<Rigidbody>();
-	}
+        _floorLayerMask = 1 << LayerMask.NameToLayer("Floors");
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -30,5 +34,12 @@ public class PlayerControls : MonoBehaviour {
 
         // move it
         _rigidbody.MovePosition(_rigidbody.position + moveVector);
+
+        // rotate to cursor
+        // TOOD: not completely stable; can cause phasing through objects
+        RaycastHit hit;
+        Physics.Raycast(referenceCamera.ScreenPointToRay(Input.mousePosition), out hit, 1000f, _floorLayerMask);
+        Quaternion targetRotation = Quaternion.LookRotation(hit.point - transform.position);
+        _rigidbody.rotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
     }
 }
