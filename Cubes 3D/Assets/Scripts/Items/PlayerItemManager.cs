@@ -28,7 +28,7 @@ public class PlayerItemManager : MonoBehaviour {
         DropEquipped();
 
         item.transform.SetParent(transform, false);
-        item.transform.localPosition = new Vector3(0.5f, 0, 0.5f);
+        item.transform.localPosition = new Vector3(0, 1, 0.5f);
         equipped = item;
         item.OnEquipped(gameObject);
     }

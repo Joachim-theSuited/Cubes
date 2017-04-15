@@ -9,8 +9,6 @@ using System.Collections;
 [RequireComponent(typeof(Collider))]
 public class InteractionTrigger : MonoBehaviour {
 
-    public UnityEvent triggerOnInteraction;
-
     /// <summary>
     /// GameObject that will be enabled iff the InteractionTrigger can be interacted with.
     /// Can be null.
@@ -19,14 +17,14 @@ public class InteractionTrigger : MonoBehaviour {
 
     bool canInteract = false;
 
-    void Start() {
+    public void Start() {
         if(interactionIndicator != null)
             interactionIndicator.SetActive(false);
     }
 
     void Update() {
         if(canInteract && Input.GetKeyDown(KeyCode.E)) {
-            triggerOnInteraction.Invoke();
+            SendMessage("Interact", SendMessageOptions.DontRequireReceiver);
         }
     }
 

@@ -7,27 +7,16 @@ public abstract class ItemScript : MonoBehaviour {
 
     /// <summary>
     /// Will be called after the player equipped the item.
-    /// Base implementation resets local rotation and sets the shader to Sprites/Default.
+    /// Base implementation resets local position and rotation.
     /// </summary>
     /// <param name="player">The Player GameObject.</param>
     public virtual void OnEquipped(GameObject player) {
         transform.localRotation = Quaternion.identity;
-        Rigidbody r = GetComponent <Rigidbody>();
-        if(r != null)
-            r.isKinematic = true;
-        /* TODO
-        Shader shader = Shader.Find(Shading.DEFAULT_SHADER);
-        foreach(SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>(true)){
-            int id = sr.material.GetInt(Shading.PARAM_ROOM_ID);
-            sr.material = new Material(shader);
-            sr.material.SetInt(Shading.PARAM_ROOM_ID, id);
-        }
-        */
     }
 
     /// <summary>
     /// Will be called after the player drops the item.
-    /// Base implementation sets the Shader to FadingShader.
+    /// Base implementation resets rotation and places item in front of the player.
     /// </summary>
     /// <param name="player">The Player GameObject.</param>
     public virtual void OnDropped(GameObject player) {
@@ -35,26 +24,6 @@ public abstract class ItemScript : MonoBehaviour {
         Vector3 pos = player.transform.position + player.transform.forward * 2;
         pos.y = 0.5f;
         transform.position = pos;
-
-        Rigidbody r = GetComponent <Rigidbody>();
-        if(r != null)
-            r.isKinematic = false;
-        /* TODO
-        Shader shader = Shader.Find(Shading.FADING_SHADER);
-        foreach(SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>(true)){
-            int id = sr.material.GetInt(Shading.PARAM_ROOM_ID);
-            sr.material = new Material(shader);
-            sr.material.SetInt(Shading.PARAM_ROOM_ID, id);
-        }
-        */
-    }
-
-    /// <summary>
-    /// Sends a message to the player, triggering the picking up of this item.
-    /// </summary>
-    public virtual void PickUp() {
-        GameObject player = GameObject.FindWithTag(Tags.Player);
-        player.SendMessage(Messages.EQUIP_ITEM, this);
     }
 
     /// <summary>
