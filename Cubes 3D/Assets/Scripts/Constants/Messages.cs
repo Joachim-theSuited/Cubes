@@ -1,7 +1,7 @@
 ﻿/// <summary>
 /// Custom messages with usage information.
 /// 
-/// From: who will usually send this message
+/// From: who will (usually) send this message
 /// To: who is the intended receiver
 /// Param: what is the type of the parameter
 /// </summary>
@@ -34,6 +34,13 @@ public static class Messages {
     /// Param: none
     /// </summary>
     public const string DROP_EQUIPPED = "DropEquipped";
+
+    /// <summary>
+    /// From: InteractionTrigger
+    /// To: any
+    /// Param: none
+    /// </summary>
+    public const string INTERACT = "Interact";
 
     /// <summary>
     /// From: Any

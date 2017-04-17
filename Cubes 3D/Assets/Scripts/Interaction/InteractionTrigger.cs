@@ -5,6 +5,7 @@ using System.Collections;
 /// <summary>
 /// This script requires a 'trigger' collider to be attached.
 /// The interaction can then be triggered by pressing 'E'.
+/// This causes the message 'Interact' to be sent to other Script on its GameObject.
 /// </summary>
 [RequireComponent(typeof(Collider))]
 public class InteractionTrigger : MonoBehaviour {
@@ -24,7 +25,7 @@ public class InteractionTrigger : MonoBehaviour {
 
     void Update() {
         if(canInteract && Input.GetKeyDown(KeyCode.E)) {
-            SendMessage("Interact", SendMessageOptions.DontRequireReceiver);
+            SendMessage(Messages.INTERACT, SendMessageOptions.DontRequireReceiver);
         }
     }
 
