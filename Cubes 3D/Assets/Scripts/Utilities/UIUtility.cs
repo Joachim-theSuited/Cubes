@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿#if (UNITY_EDITOR)
+// macro needed to exclude from build
+using UnityEngine;
 using UnityEditor;
 
 /// <summary>
@@ -108,3 +110,4 @@ public static class UIUtility {
     }
 
 }
+#endif

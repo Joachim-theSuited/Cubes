@@ -1,7 +1,4 @@
 # ignored Folders
-Cubes/Library/**
-Cubes/Temp/**
-Cubes/Target/**
 *.suo
 *.sln
 *.csproj
@@ -11,3 +8,6 @@ Cubes/Target/**
 -*.meta
 Library
 Temp
+
+# created binaries
+Target
