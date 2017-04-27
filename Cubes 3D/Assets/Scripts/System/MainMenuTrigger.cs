@@ -1,11 +1,22 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Canvas))]
 public class MainMenuTrigger : MonoBehaviour {
 	
-	// Update is called once per frame
 	void Update () {
-		if (Input.GetAxis("Cancel") > 0) {
-			Application.Quit();
+		// TODO: does not use generic Input Axis; only viable on computers
+		if (Input.GetKey(KeyCode.Escape)) {
+			GetComponent<Canvas>().enabled = true;
+			Time.timeScale = 0;
 		}
+	}
+
+	public void ResumeGame() {
+		Time.timeScale = 1;
+		GetComponent<Canvas>().enabled = false;
+	}
+
+	public void ExitGame() {
+		Application.Quit();
 	}
 }
