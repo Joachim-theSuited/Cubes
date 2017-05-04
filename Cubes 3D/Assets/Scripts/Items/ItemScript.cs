@@ -77,10 +77,11 @@ public abstract class ItemScript : MonoBehaviour {
         transform.position = pos;
 
         Rigidbody newRB = gameObject.AddComponent<Rigidbody>();
-        if(rbBackup != null)
-            foreach(PropertyInfo field in backupProps) {
-                field.SetValue(newRB, field.GetValue(rbBackup, null), null);
-            }
+		if (rbBackup != null) {
+			foreach (PropertyInfo field in backupProps) {
+				field.SetValue(newRB, field.GetValue(rbBackup, null), null);
+			}
+		}
     }
 
     /// <summary>

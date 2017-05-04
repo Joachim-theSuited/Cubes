@@ -22,7 +22,7 @@ public class PlayerControls : MonoBehaviour {
     void Update()
     {
         // get inputs
-        Vector3 inputVector = new Vector3(Input.GetAxis("Horizontal") * 10 / 3f, 0f, Input.GetAxis("Vertical"));
+        Vector3 inputVector = new Vector3(Input.GetAxis(Inputs.Horizontal) * 10 / 3f, 0f, Input.GetAxis(Inputs.Vertical));
         // set inputVector /= max(1, inputVector.magnitude) to disallow movement faster than 1 but allow smooth transitions
         if (inputVector.magnitude > 0)
         {

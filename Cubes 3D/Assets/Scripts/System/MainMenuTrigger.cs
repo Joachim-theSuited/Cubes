@@ -5,7 +5,7 @@ public class MainMenuTrigger : MonoBehaviour {
 	
 	void Update () {
 		// TODO: does not use generic Input Axis; only viable on computers
-		if (Input.GetKey(KeyCode.Escape)) {
+		if (Input.GetButtonDown(Inputs.Cancel)) {
 			GetComponent<Canvas>().enabled = true;
 			Time.timeScale = 0;
 		}
