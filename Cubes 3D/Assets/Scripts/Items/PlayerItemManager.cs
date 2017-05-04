@@ -10,10 +10,10 @@ public class PlayerItemManager : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if(equipped != null) {
-            if(Input.GetButtonDown("Fire1")) {
+			if(Input.GetButtonDown(Inputs.Fire1)) {
                 equipped.Use(gameObject);
             }
-            if(Input.GetKeyDown(KeyCode.Q)) {
+			if(Input.GetButtonDown(Inputs.Fire2)) {
                 DropEquipped();
             }
         }

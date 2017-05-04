@@ -380,6 +380,7 @@ GameObject:
   - component: {fileID: 92664241313697662}
   - component: {fileID: 124289779457563874}
   - component: {fileID: 81506504397666834}
+  - component: {fileID: 114004379484681966}
   - component: {fileID: 114620759922710760}
   m_Layer: 0
   m_Name: Main Camera
@@ -1051,7 +1052,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!81 &81506504397666834
 AudioListener:
@@ -1084,6 +1085,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114004379484681966
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1739284707206218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b66362042295e544fbabcba6bfb7f052, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToFollow: {fileID: 4612295136830942}
+  offset: {x: 0, y: 10, z: -10}
 --- !u!114 &114152681015867578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1120,7 +1134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &114620759922710760
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1739284707206218}
