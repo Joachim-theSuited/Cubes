@@ -6,7 +6,7 @@ using UnityEngine;
 /// Changes the material color of the attached Renderer when damage is received.
 /// </summary>
 [RequireComponent(typeof(Renderer))]
-public class DamageColor : MonoBehaviour {
+public class DamageColor : AbstractDamageReceiver {
 
     /// <summary>
     /// The color to change to, upon taking damage.
@@ -29,7 +29,7 @@ public class DamageColor : MonoBehaviour {
     //the coroutine is stored, to avoid animation overlap
     Coroutine colorBlend;
 
-    public void ReceiveDamage(float dam) {
+    public override void ReceiveDamage(float dam) {
         if(colorBlend == null) // we don't want overlapping animation for now
             colorBlend = StartCoroutine(ColorBlend());
     }

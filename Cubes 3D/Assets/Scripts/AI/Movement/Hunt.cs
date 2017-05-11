@@ -22,19 +22,18 @@ public class Hunt : MonoBehaviour {
     public void enable()
     {
         repath();
-        _navMeshAgent.Resume();
+		getNavMeshAgent().Resume();
         enabled = true;
     }
 
     public void disable()
     {
-        _navMeshAgent.Stop();
+		getNavMeshAgent().Stop();
         enabled = false;
     }
 
 	// Use this for initialization
 	void Start () {
-        _navMeshAgent = GetComponent<NavMeshAgent>();
         _rigidbody = GetComponent<Rigidbody>();
         repath();
     }
@@ -56,12 +55,12 @@ public class Hunt : MonoBehaviour {
         if((target.position-_rigidbody.position).magnitude < innerBoundary)
         {
             // back away from target
-            _navMeshAgent.Stop();
+			getNavMeshAgent().Stop();
             backAway();
         }
         else
         {
-            _navMeshAgent.Resume();
+			getNavMeshAgent().Resume();
         }
 	}
     
@@ -70,4 +69,11 @@ public class Hunt : MonoBehaviour {
         Vector3 moveVector = (_rigidbody.position - target.position).normalized * Time.deltaTime * backingUpSpeed;
         _rigidbody.MovePosition(_rigidbody.position + moveVector);
     }
+
+	private NavMeshAgent getNavMeshAgent() {
+		if(_navMeshAgent == null) {
+			_navMeshAgent = GetComponent<NavMeshAgent>();
+		}
+		return _navMeshAgent;
+	}
 }
