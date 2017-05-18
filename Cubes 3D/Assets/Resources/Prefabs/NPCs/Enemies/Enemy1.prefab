@@ -30,6 +30,7 @@ GameObject:
   - component: {fileID: 114570125091524120}
   - component: {fileID: 114411852758889604}
   - component: {fileID: 114587450020940584}
+  - component: {fileID: 114670650677946606}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Untagged
@@ -82,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1028737667687810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.7929907, y: 0.5, z: 28.165318}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4377103349183100}
@@ -353,6 +354,17 @@ MonoBehaviour:
   trigger: {fileID: 114411852758889604}
   attackCooldown: 3
   weapon: {fileID: 114015234332969034}
+--- !u!114 &114670650677946606
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1028737667687810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02709b69ef9104f92a5e73ae40ee13a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114775648531032456
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -12,7 +12,7 @@ public class AnimatedClub : ItemScript {
 
     void OnCollisionEnter(Collision coll) {
         if(isSwinging)
-            coll.gameObject.SendMessage(Messages.DAMAGE, damage, SendMessageOptions.DontRequireReceiver);
+            coll.gameObject.SendMessageUpwards(Messages.DAMAGE, damage, SendMessageOptions.DontRequireReceiver);
     }
 
     bool isSwinging = false;
