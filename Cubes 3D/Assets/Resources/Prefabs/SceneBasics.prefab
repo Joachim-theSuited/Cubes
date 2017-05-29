@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 114713002932631254}
   - component: {fileID: 114699491976402072}
   - component: {fileID: 114191490869345884}
+  - component: {fileID: 114411889578168744}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1129,6 +1130,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastTeleportedTo: {fileID: 0}
+--- !u!114 &114411889578168744
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1203575018206492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 043fc789d8d8747e6a938d7866edb839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  corpse: {fileID: 1315495003410378, guid: 2ea3fb26ec3d6490f90fe343941eaf56, type: 2}
 --- !u!114 &114441056590219024
 MonoBehaviour:
   m_ObjectHideFlags: 1
