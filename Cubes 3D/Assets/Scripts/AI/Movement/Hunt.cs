@@ -58,10 +58,15 @@ public class Hunt : MonoBehaviour {
 			getNavMeshAgent().Stop();
             backAway();
         }
-        else
+		else if((target.position-_rigidbody.position).magnitude > outerBoundary)
         {
 			getNavMeshAgent().Resume();
-        }
+		} else {
+			// turn towards target
+			Vector3 targetPoint = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z) - transform.position;
+			Quaternion targetRotation = Quaternion.LookRotation(targetPoint, Vector3.up);
+			transform.rotation = targetRotation;
+		}
 	}
     
     private void backAway()
