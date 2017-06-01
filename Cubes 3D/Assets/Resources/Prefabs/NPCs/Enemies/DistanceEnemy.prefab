@@ -264,6 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missile: {fileID: 54395670557443070, guid: 2bcb5e6899c54a34689efe49027b7744, type: 2}
+  missileDespawnTime: 5
 --- !u!114 &114239942159179084
 MonoBehaviour:
   m_ObjectHideFlags: 1

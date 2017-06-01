@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Allows AI to use weapons in melee combat. They are not very clever ans more or less just swing wildly.
+/// </summary>
 public class MeleeAttack : MonoBehaviour {
 
 	public AbstractSensor trigger;
@@ -20,7 +23,6 @@ public class MeleeAttack : MonoBehaviour {
 		runningCooldown += Time.deltaTime;
 		if(trigger.getTriggered()) {
 			if(runningCooldown > attackCooldown) {
-				// TODO: swing weapon
 				weapon.Use(gameObject);
 				runningCooldown = 0;
 			}

@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Allows AI to use distance weapons like bows.
+/// They will rain down a hail of missiles as fast as they are allowed and not aim very accurately.
+/// </summary>
 [RequireComponent(typeof(Rigidbody))]
 public class DistanceAttackScript : MonoBehaviour {
 
