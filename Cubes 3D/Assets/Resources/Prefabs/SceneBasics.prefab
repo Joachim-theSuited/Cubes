@@ -34,7 +34,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4481258108967770}
-  - component: {fileID: 114441056590219024}
   m_Layer: 0
   m_Name: SceneBasics
   m_TagString: Untagged
@@ -1143,17 +1142,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   corpse: {fileID: 1315495003410378, guid: 2ea3fb26ec3d6490f90fe343941eaf56, type: 2}
---- !u!114 &114441056590219024
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1112226478836808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5169e669392deaf44a1f67d3333e4a86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114620759922710760
 MonoBehaviour:
   m_ObjectHideFlags: 1

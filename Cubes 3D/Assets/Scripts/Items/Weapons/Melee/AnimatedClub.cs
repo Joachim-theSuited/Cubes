@@ -10,9 +10,17 @@ public class AnimatedClub : ItemScript {
     public float damage = 1;
     public float duration = 1;
 
+    List<Rigidbody> hits;
+
+    void Awake() {
+        hits = new List<Rigidbody>();
+    }
+
     void OnCollisionEnter(Collision coll) {
-        if(isSwinging)
+        if(isSwinging && !hits.Contains(coll.rigidbody)) {
             coll.gameObject.SendMessage(Messages.DAMAGE, damage, SendMessageOptions.DontRequireReceiver);
+            hits.Add(coll.rigidbody);
+        }
     }
 
     bool isSwinging = false;
@@ -38,7 +46,7 @@ public class AnimatedClub : ItemScript {
             yield return new WaitForFixedUpdate();
             transform.localRotation = quatLerp.Current();
         }
-
+        hits.Clear();
         isSwinging = false;
     }
 
