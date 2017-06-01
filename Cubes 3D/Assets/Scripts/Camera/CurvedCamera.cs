@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+#if (UNITY_EDITOR)
 using UnityEditor;
+#endif
 
 /// <summary>
 /// Script for a camera that follows an object.
@@ -39,6 +42,7 @@ public class CurvedCamera : MonoBehaviour {
 
 }
 
+#if (UNITY_EDITOR)
 [CustomEditor(typeof(CurvedCamera))]
 public class CurvedCameraeditor : Editor {
 
@@ -58,3 +62,4 @@ public class CurvedCameraeditor : Editor {
     }
 
 }
+#endif
