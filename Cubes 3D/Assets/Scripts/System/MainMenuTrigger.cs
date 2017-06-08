@@ -1,21 +1,29 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// An input listener that can activate the main game menu and pause/unpause the game.
+/// </summary>
 [RequireComponent(typeof(Canvas))]
 public class MainMenuTrigger : MonoBehaviour {
-	
+
 	void Update () {
-		// TODO: does not use generic Input Axis; only viable on computers
 		if (Input.GetButtonDown(Inputs.Cancel)) {
+			GameFlow.PauseGame();
 			GetComponent<Canvas>().enabled = true;
-			Time.timeScale = 0;
 		}
 	}
 
+	/// <summary>
+	/// Resumes the game.
+	/// </summary>
 	public void ResumeGame() {
-		Time.timeScale = 1;
+		GameFlow.ResumeGame();
 		GetComponent<Canvas>().enabled = false;
 	}
 
+	/// <summary>
+	/// Exits the game.
+	/// </summary>
 	public void ExitGame() {
 		Application.Quit();
 	}

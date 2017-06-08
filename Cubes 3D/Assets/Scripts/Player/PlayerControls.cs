@@ -10,9 +10,18 @@ public class PlayerControls : MonoBehaviour {
 
     Rigidbody _rigidbody;
 
+	/// <summary>
+	/// The camera rotation speed. Could be modified by user preferences.
+	/// </summary>
+	public float cameraRotationSpeed = 5f;
+
     // Use this for initialization
     void Start() {
         _rigidbody = GetComponent<Rigidbody>();
+
+		// hide and lock cursor for player rotation
+		Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -32,13 +41,9 @@ public class PlayerControls : MonoBehaviour {
         // move it
         _rigidbody.MovePosition(_rigidbody.position + moveVector);
 
-        //rotate, when the mouse is near the screen's edge
-        Quaternion rotation = Quaternion.identity;
-        if(Input.mousePosition.x < Screen.width / 10)
-            rotation = Quaternion.Euler(0, -10, 0);
-        else if(Input.mousePosition.x > Screen.width - Screen.width / 10)
-            rotation = Quaternion.Euler(0, 10, 0);
+        // rotate player with mouse movement
+		Vector3 rotateBy = new Vector3(0, Input.GetAxis(Inputs.MouseX), 0) * cameraRotationSpeed;
+		_rigidbody.MoveRotation(_rigidbody.rotation * Quaternion.Euler(rotateBy));
 
-        _rigidbody.MoveRotation(_rigidbody.rotation * rotation);
     }
 }
