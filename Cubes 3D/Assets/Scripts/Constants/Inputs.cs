@@ -14,5 +14,8 @@ public static class Inputs
 	public static readonly string Fire3 = "Fire3";
 
 	public static readonly string Cancel = "Cancel";
+
+	public static readonly string MouseX = "Mouse X";
+	public static readonly string MouseY = "Mouse Y";
 }
 
