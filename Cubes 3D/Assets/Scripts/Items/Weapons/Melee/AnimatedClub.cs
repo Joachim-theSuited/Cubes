@@ -18,7 +18,15 @@ public class AnimatedClub : ItemScript {
 
     void OnCollisionEnter(Collision coll) {
         if(isSwinging && !hits.Contains(coll.rigidbody)) {
-            coll.gameObject.SendMessage(Messages.DAMAGE, damage, SendMessageOptions.DontRequireReceiver);
+            try {
+                //check if the collider should be hit directly
+                //RequireReceiver, to cause an Exception
+                coll.collider.SendMessage(Messages.DAMAGE, damage, SendMessageOptions.RequireReceiver);
+            } catch(UnityException e) {
+                //if no direct hit was triggered, send to main rigidbody
+                coll.rigidbody.SendMessage(Messages.DAMAGE, damage, SendMessageOptions.DontRequireReceiver);
+            }
+
             hits.Add(coll.rigidbody);
         }
     }
