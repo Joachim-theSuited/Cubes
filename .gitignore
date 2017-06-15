@@ -8,6 +8,7 @@
 -*.meta
 Library
 Temp
+*/obj/Debug
 
 # created binaries
 Target
