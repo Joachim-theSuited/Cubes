@@ -24,8 +24,13 @@ public class HitPoints : AbstractDamageReceiver {
         currentHealth -= dam;
         Debug.Log(name + " health now at " + currentHealth);
         if(currentHealth <= 0) {
-            gameObject.SetActive(false);
-            Instantiate(corpse, transform.position, Quaternion.identity);
+            if(gameObject.tag != Tags.Player)
+                Destroy(gameObject);
+            else // the camera depends on the player object, so it is only deactivated
+                gameObject.SetActive(false);
+            
+            if(corpse != null)
+                Instantiate(corpse, transform.position, Quaternion.identity);
         }
     }
 
