@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitPoints : AbstractDamageReceiver {
+public class HitPoints : MonoBehaviour, AbstractDamageReceiver {
 
     /// <summary>
     /// The initial/maximum health.
@@ -20,7 +20,7 @@ public class HitPoints : AbstractDamageReceiver {
         currentHealth = maxHealth;
     }
 
-    public override void ReceiveDamage(float dam) {
+    public void ReceiveDamage(float dam) {
         currentHealth -= dam;
         Debug.Log(name + " health now at " + currentHealth);
         if(currentHealth <= 0) {

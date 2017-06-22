@@ -17,7 +17,7 @@ public class AnimatedClub : ItemScript {
     }
 
     void OnCollisionEnter(Collision coll) {
-		if(isSwinging && !hits.Contains(coll.rigidbody) && coll.gameObject.GetComponent<AbstractDamageReceiver>() != null) {
+		if(isSwinging && !hits.Contains(coll.rigidbody) && coll.collider.GetComponent<AbstractDamageReceiver>() != null) {
             try {
                 //check if the collider should be hit directly
                 //RequireReceiver, to cause an Exception

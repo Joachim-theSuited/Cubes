@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
-public abstract class AbstractDamageReceiver : MonoBehaviour {
+public interface AbstractDamageReceiver {
 
-	public abstract void ReceiveDamage(float dam);
+	void ReceiveDamage(float dam);
 
 }
