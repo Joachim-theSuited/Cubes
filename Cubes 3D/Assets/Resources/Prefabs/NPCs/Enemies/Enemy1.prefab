@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
-  corpse: {fileID: 0}
+  corpse: {fileID: 1435306814065576, guid: 930d673c4baa5426b83101b761290813, type: 2}
 --- !u!114 &114145229220995876
 MonoBehaviour:
   m_ObjectHideFlags: 1
