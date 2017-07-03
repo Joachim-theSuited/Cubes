@@ -6,7 +6,7 @@ public class ProjectBuildScript
 {
     public static readonly string SCENELOCATION = "Assets/Scenes/";
 
-    public static readonly string[] scenes = { SCENELOCATION + "Develop/Sandbox.unity", SCENELOCATION + "Develop/Neighborhood.unity" };
+	public static readonly string[] scenes = { SCENELOCATION + "Menu/MainMenu.unity", SCENELOCATION + "Develop/Sandbox.unity", SCENELOCATION + "Develop/Neighborhood.unity" };
 
     [MenuItem("Build Tools/Experimental Android Build")]
     static void BuildAndroid()
