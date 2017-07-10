@@ -3,18 +3,55 @@
 /// <summary>
 /// Manages use of items for the player.
 /// </summary>
+[RequireComponent(typeof(LineRenderer))] // for the throwing preview
 public class PlayerItemManager : MonoBehaviour {
 
     public ItemScript equipped;
 
+    /// <summary>
+    /// How long the player needs to hold the drop button to switch to throwing.
+    /// </summary>
+    public float throwTimeThreshold;
+    /// <summary>
+    /// How fast the throw distance will increase.
+    /// </summary>
+    public float throwSpeedup;
+    public float minThrowDistance;
+    public float maxThrowDistance;
+
+    readonly int throwPreviewLOD = 5;
+
+    /// <summary>
+    /// The last time the drop button was pressed.
+    /// </summary>
+    float dropPressed = 0;
+
+    LineRenderer throwingPreview;
+
+    void Start() {
+        throwingPreview = GetComponent<LineRenderer>();
+        throwingPreview.enabled = false;
+        throwingPreview.useWorldSpace = false;
+        throwingPreview.numPositions = throwPreviewLOD;
+    }
+
     // Update is called once per frame
     void Update() {
         if(equipped != null) {
-			if(Input.GetButtonDown(Inputs.Fire1)) {
+            if(Input.GetButtonDown(Inputs.UseItem)) {
                 equipped.Use(gameObject);
             }
-			if(Input.GetButtonDown(Inputs.Fire2)) {
-                DropEquipped();
+            if(Input.GetButtonDown(Inputs.DropItem)) {
+                dropPressed = Time.time;
+            }
+            if(Input.GetButtonUp(Inputs.DropItem)) {
+                if(Time.time - dropPressed < throwTimeThreshold)
+                    DropEquipped();
+                else
+                    ThrowEquipped();
+                throwingPreview.enabled = false;
+            } else if(Input.GetButton(Inputs.DropItem)) {
+                UpdateThrowPreview();
             }
         }
     }
@@ -53,5 +90,46 @@ public class PlayerItemManager : MonoBehaviour {
         equipped.transform.SetParent(null);
         equipped.OnDropped(gameObject);
         equipped = null;
+    }
+
+    /// <summary>
+    /// In addition to the effects of DropEquipped, a velocity is applied to the dropped item.
+    /// (If a Rigidbody is present)
+    /// </summary>
+    void ThrowEquipped() {
+        if(equipped == null)
+            return;
+
+        ItemScript tmp = equipped; // will be removed by dropping
+        DropEquipped();
+
+        // throw
+        Rigidbody rb = tmp.GetComponent<Rigidbody>();
+        if(rb != null) {
+            rb.AddForce(-Physics.gravity / 2, ForceMode.VelocityChange); // -> about .6 seconds airtime, as the item starts at a height
+            rb.AddForce(transform.forward * GetThrowTargetDistance() / 0.6f, ForceMode.VelocityChange);
+        }
+    }
+
+    float GetThrowTargetDistance() {
+        return Mathf.Clamp(minThrowDistance + (Time.time - dropPressed - throwTimeThreshold) * throwSpeedup, minThrowDistance, maxThrowDistance);
+    }
+
+    /// <summary>
+    /// Updates the LineRenderer used for the throwing preview.
+    /// </summary>
+    void UpdateThrowPreview() {
+        if(Time.time - dropPressed < throwTimeThreshold)
+            return;
+        Vector3 _start = new Vector3(0, 1, 0.5f);
+
+        throwingPreview.enabled = true;
+        for(int i = 0; i < throwPreviewLOD; ++i) {
+            float t = (i / (throwPreviewLOD - 1f)) * 0.6f;
+            throwingPreview.SetPosition(i, _start//
+            + Vector3.forward * GetThrowTargetDistance() / 0.6f * t//
+            - Physics.gravity * t / 2 + Physics.gravity * t * t//
+            );
+        }
     }
 }

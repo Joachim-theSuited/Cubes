@@ -66,22 +66,19 @@ public abstract class ItemScript : MonoBehaviour {
 
     /// <summary>
     /// Will be called after the player drops the item.
-    /// Base implementation resets rotation and places item in front of the player.
+    /// Base implementation resets rotation.
     /// It also restores the Rigidbody.
     /// </summary>
     /// <param name="player">The Player GameObject.</param>
     public virtual void OnDropped(GameObject player) {
         transform.localRotation = Quaternion.identity;
-        Vector3 pos = player.transform.position + player.transform.forward * 2;
-        pos.y = 0.5f;
-        transform.position = pos;
 
         Rigidbody newRB = gameObject.AddComponent<Rigidbody>();
-		if (rbBackup != null) {
-			foreach (PropertyInfo field in backupProps) {
-				field.SetValue(newRB, field.GetValue(rbBackup, null), null);
-			}
-		}
+        if(rbBackup != null) {
+            foreach(PropertyInfo field in backupProps) {
+                field.SetValue(newRB, field.GetValue(rbBackup, null), null);
+            }
+        }
     }
 
     /// <summary>
