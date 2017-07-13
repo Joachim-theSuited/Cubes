@@ -18,6 +18,7 @@ public class CurvedCamera : MonoBehaviour {
 
     public Vector3 nearPoint;
     public Vector3 farPoint;
+    public Vector3 sideOffset;
 
     Vector3 delta {
         get { return farPoint - nearPoint; }
@@ -37,7 +38,7 @@ public class CurvedCamera : MonoBehaviour {
     }
 
     public Vector3 getOffset(float zoomFactor) {
-        return objectToFollow.rotation * (nearPoint + new Vector3(delta.x * zoomFactor, delta.y * zoomFactor * zoomFactor, delta.z * zoomFactor));
+        return objectToFollow.rotation * (sideOffset + nearPoint + new Vector3(delta.x * zoomFactor, delta.y * zoomFactor * zoomFactor, delta.z * zoomFactor));
     }
 
 }

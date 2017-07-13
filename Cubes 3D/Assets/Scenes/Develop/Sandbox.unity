@@ -940,32 +940,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4090048279224594, guid: 9e8f2dd76cec6164094b5bceb7434148, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0.40297264
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090048279224594, guid: 9e8f2dd76cec6164094b5bceb7434148, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0.55457366
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090048279224594, guid: 9e8f2dd76cec6164094b5bceb7434148, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0.56125635
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090048279224594, guid: 9e8f2dd76cec6164094b5bceb7434148, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.46373755
-      objectReference: {fileID: 0}
-    - target: {fileID: 54274272560265970, guid: 9e8f2dd76cec6164094b5bceb7434148,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
-    - target: {fileID: 114152681015867578, guid: 9e8f2dd76cec6164094b5bceb7434148,
-        type: 2}
-      propertyPath: maxThrowDistance
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9e8f2dd76cec6164094b5bceb7434148, type: 2}
   m_IsPrefabParent: 0
