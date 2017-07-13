@@ -32,7 +32,7 @@ public class PlayerItemManager : MonoBehaviour {
         throwingPreview = GetComponent<LineRenderer>();
         throwingPreview.enabled = false;
         throwingPreview.useWorldSpace = false;
-        throwingPreview.numPositions = throwPreviewLOD;
+        throwingPreview.positionCount = throwPreviewLOD;
     }
 
     // Update is called once per frame
@@ -106,8 +106,8 @@ public class PlayerItemManager : MonoBehaviour {
         // throw
         Rigidbody rb = tmp.GetComponent<Rigidbody>();
         if(rb != null) {
-            rb.AddForce(-Physics.gravity / 2, ForceMode.VelocityChange); // -> about .6 seconds airtime, as the item starts at a height
-            rb.AddForce(transform.forward * GetThrowTargetDistance() / 0.6f, ForceMode.VelocityChange);
+            rb.AddForce(-Physics.gravity / 2, ForceMode.VelocityChange); // -> about .65 seconds airtime, as the item starts at a height
+            rb.AddForce(transform.forward * GetThrowTargetDistance() / 1.2f, ForceMode.VelocityChange); // 1.2 because unity physics is weird :/
         }
     }
 
@@ -125,9 +125,9 @@ public class PlayerItemManager : MonoBehaviour {
 
         throwingPreview.enabled = true;
         for(int i = 0; i < throwPreviewLOD; ++i) {
-            float t = (i / (throwPreviewLOD - 1f)) * 0.6f;
+            float t = (i / (throwPreviewLOD - 1f)) * 0.65f; //approximate airtime (see above)
             throwingPreview.SetPosition(i, _start//
-            + Vector3.forward * GetThrowTargetDistance() / 0.6f * t//
+            + Vector3.forward * GetThrowTargetDistance() / 0.65f * t//
             - Physics.gravity * t / 2 + Physics.gravity * t * t//
             );
         }
