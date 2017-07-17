@@ -9,6 +9,16 @@ using System.Reflection;
 public abstract class ItemScript : MonoBehaviour {
 
     /// <summary>
+    /// Call back for events related to this item.
+    /// </summary>
+    public delegate void CallBack();
+
+    /// <summary>
+    /// The event of the item getting picked up.
+    /// </summary>
+    public CallBack EventPickedUp;
+
+    /// <summary>
     /// The properties of the Rigidbody to back up.
     /// We cannot simply use GetProperties(), as this would include position, for example.
     /// </summary>
@@ -44,6 +54,9 @@ public abstract class ItemScript : MonoBehaviour {
     /// </summary>
     /// <param name="player">The Player GameObject.</param>
     public virtual void OnEquipped(GameObject player) {
+        if(EventPickedUp != null)
+            EventPickedUp();
+
         transform.localRotation = Quaternion.identity;
 
         Rigidbody oldRB = GetComponent<Rigidbody>();

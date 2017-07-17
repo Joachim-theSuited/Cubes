@@ -40,6 +40,7 @@ public class PressurePlate : MonoBehaviour {
             if(isFree) {
                 OnDown.Invoke();
             }
+            weight.EventPickedUp += () => RemoveWeight(weight); //!! delegate gets never cleaned up !!
             weights.Add(weight);
         }
     }
