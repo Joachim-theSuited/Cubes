@@ -41,6 +41,10 @@ public class PlayerControls : MonoBehaviour {
         // move it
         _rigidbody.MovePosition(_rigidbody.position + moveVector);
 
+		// activate animation
+		Animator modelAnimator = GetComponentInChildren<Animator>();
+		modelAnimator.SetBool("Moving", moveVector.magnitude > 0);
+
         // rotate player with mouse movement
 		Vector3 rotateBy = new Vector3(0, Input.GetAxis(Inputs.MouseX), 0) * cameraRotationSpeed;
 		_rigidbody.MoveRotation(_rigidbody.rotation * Quaternion.Euler(rotateBy));
