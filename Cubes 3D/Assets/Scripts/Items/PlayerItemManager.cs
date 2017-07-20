@@ -19,7 +19,7 @@ public class PlayerItemManager : MonoBehaviour {
     public float minThrowDistance;
     public float maxThrowDistance;
 
-    readonly int throwPreviewLOD = 5;
+    public int throwPreviewLOD = 5;
 
     /// <summary>
     /// The last time the drop button was pressed.
