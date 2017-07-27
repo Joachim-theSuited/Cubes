@@ -19,66 +19,58 @@ public class Hunt : MonoBehaviour {
     private Rigidbody _rigidbody;
     private NavMeshAgent _navMeshAgent;
 
-    public void enable()
-    {
+    public void enable() {
         repath();
-		getNavMeshAgent().Resume();
+        getNavMeshAgent().isStopped = false;
         enabled = true;
     }
 
-    public void disable()
-    {
-		getNavMeshAgent().Stop();
+    public void disable() {
+        getNavMeshAgent().isStopped = true;
         enabled = false;
     }
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         _rigidbody = GetComponent<Rigidbody>();
         repath();
     }
 
-    private void repath()
-    {
+    private void repath() {
         GetComponent<NavMeshAgent>().destination = target.position;
         timeLastRepath = 0;
     }
 	
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update() {
         timeLastRepath += Time.deltaTime;
-        if(timeLastRepath > REPATHINTERVAL)
-        {
+        if(timeLastRepath > REPATHINTERVAL) {
             repath();
         }
 
-        if((target.position-_rigidbody.position).magnitude < innerBoundary)
-        {
+        if((target.position - _rigidbody.position).magnitude < innerBoundary) {
             // back away from target
-			getNavMeshAgent().Stop();
+            getNavMeshAgent().isStopped = true;
             backAway();
+        } else if((target.position - _rigidbody.position).magnitude > outerBoundary) {
+            getNavMeshAgent().isStopped = false;
+        } else {
+            // turn towards target
+            Vector3 targetPoint = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z) - transform.position;
+            Quaternion targetRotation = Quaternion.LookRotation(targetPoint, Vector3.up);
+            transform.rotation = targetRotation;
         }
-		else if((target.position-_rigidbody.position).magnitude > outerBoundary)
-        {
-			getNavMeshAgent().Resume();
-		} else {
-			// turn towards target
-			Vector3 targetPoint = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z) - transform.position;
-			Quaternion targetRotation = Quaternion.LookRotation(targetPoint, Vector3.up);
-			transform.rotation = targetRotation;
-		}
-	}
-    
-    private void backAway()
-    {
+    }
+
+    private void backAway() {
         Vector3 moveVector = (_rigidbody.position - target.position).normalized * Time.deltaTime * backingUpSpeed;
         _rigidbody.MovePosition(_rigidbody.position + moveVector);
     }
 
-	private NavMeshAgent getNavMeshAgent() {
-		if(_navMeshAgent == null) {
-			_navMeshAgent = GetComponent<NavMeshAgent>();
-		}
-		return _navMeshAgent;
-	}
+    private NavMeshAgent getNavMeshAgent() {
+        if(_navMeshAgent == null) {
+            _navMeshAgent = GetComponent<NavMeshAgent>();
+        }
+        return _navMeshAgent;
+    }
 }

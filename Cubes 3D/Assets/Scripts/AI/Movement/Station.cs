@@ -17,39 +17,36 @@ public class Station : MonoBehaviour {
 
     private NavMeshAgent _navMeshAgent;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         _navMeshAgent = GetComponent<NavMeshAgent>();
         repath();
-	}
+    }
 	
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update() {
         
-	}
+    }
 
     /// <summary>
     /// Enabled this MonoBehaviour but also does some housekeeping like recalculating pathing.
     /// Please use this method instead of setting enabled to true by hand.
     /// </summary>
-    public void enable()
-    {
+    public void enable() {
         repath();
-        _navMeshAgent.Resume();
+        _navMeshAgent.isStopped = false;
         enabled = true;
     }
 
-    public void disable()
-    {
-        _navMeshAgent.Stop();
+    public void disable() {
+        _navMeshAgent.isStopped = true;
         enabled = false;
     }
 
     /// <summary>
     /// Run a new A* search for the path to the target and reset the timer.
     /// </summary>
-    private void repath()
-    {
+    private void repath() {
         _navMeshAgent.destination = station;
     }
 }
