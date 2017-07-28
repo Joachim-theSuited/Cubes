@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 
 /// <summary>
 /// Basic controls for the player handles movement and rotation. Additional interaction with objects may be registered here but should be handled elsewhere.
@@ -27,8 +28,8 @@ public class PlayerControls : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         // get inputs; movement relative to camera
-        Vector3 inputVector = referenceCamera.transform.right * Input.GetAxis("Horizontal") * 10 / 3f
-                              + referenceCamera.transform.forward * Input.GetAxis("Vertical");
+		Vector3 inputVector = referenceCamera.transform.right * Input.GetAxis(Inputs.Horizontal) * 10 / 3f
+			+ referenceCamera.transform.forward * Input.GetAxis(Inputs.Vertical);
         inputVector.y = 0; //move horizontally only
         // set inputVector /= max(1, inputVector.magnitude) to disallow movement faster than 1 but allow smooth transitions
         if(inputVector.magnitude > 0) {
@@ -43,7 +44,8 @@ public class PlayerControls : MonoBehaviour {
 
 		// activate animation
 		Animator modelAnimator = GetComponentInChildren<Animator>();
-		modelAnimator.SetBool("Moving", moveVector.magnitude > 0);
+		modelAnimator.SetInteger("X", Mathf.CeilToInt(Input.GetAxis(Inputs.Horizontal)));
+		modelAnimator.SetInteger("Y", Mathf.CeilToInt(Input.GetAxis(Inputs.Vertical)));
 
         // rotate player with mouse movement
 		Vector3 rotateBy = new Vector3(0, Input.GetAxis(Inputs.MouseX), 0) * cameraRotationSpeed;
