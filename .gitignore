@@ -12,3 +12,7 @@ Temp
 
 # created binaries
 Target
+
+# temp Blender files but not Blender files themself
+*.blend*
+!*.blend
