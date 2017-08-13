@@ -1950,17 +1950,17 @@ Cloth:
     collisionSphereDistance: 0
   - maxDistance: 0
     collisionSphereDistance: 0
-  - maxDistance: 0.2
+  - maxDistance: 0.1
     collisionSphereDistance: 0
   - maxDistance: 0.2
     collisionSphereDistance: 0
   - maxDistance: 0.2
     collisionSphereDistance: 0
-  - maxDistance: 0.2
+  - maxDistance: 0.1
     collisionSphereDistance: 0
-  - maxDistance: 0.2
+  - maxDistance: 0.1
     collisionSphereDistance: 0
-  - maxDistance: 0.2
+  - maxDistance: 0.1
     collisionSphereDistance: 0
   - maxDistance: 0
     collisionSphereDistance: 0
@@ -2086,7 +2086,7 @@ Cloth:
     collisionSphereDistance: 0
   - maxDistance: 0.2
     collisionSphereDistance: 0
-  - maxDistance: 0.2
+  - maxDistance: 0.1
     collisionSphereDistance: 0
   - maxDistance: 0.02
     collisionSphereDistance: 0
