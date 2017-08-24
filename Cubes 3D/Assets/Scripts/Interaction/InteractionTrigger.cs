@@ -24,7 +24,7 @@ public class InteractionTrigger : MonoBehaviour {
     }
 
     void Update() {
-		if(canInteract && Input.GetButtonDown(Inputs.Fire3)) {
+		if(canInteract && Input.GetButtonDown(Inputs.Interact)) {
             SendMessage(Messages.INTERACT, SendMessageOptions.DontRequireReceiver);
         }
     }
