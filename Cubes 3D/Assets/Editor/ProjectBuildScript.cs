@@ -20,6 +20,7 @@ public class ProjectBuildScript
 
 	[MenuItem("Build Tools/Open File Explorer in Target Directory")]
 	static void OpenInTarget() {
+		Directory.CreateDirectory(Path.GetFullPath("./Target"));
 		Process.Start(Path.GetFullPath("./Target"));
 	}
 
