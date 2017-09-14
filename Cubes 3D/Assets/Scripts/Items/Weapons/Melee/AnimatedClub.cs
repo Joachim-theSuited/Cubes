@@ -17,12 +17,12 @@ public class AnimatedClub : ItemScript {
     }
 
     void OnCollisionEnter(Collision coll) {
-		if(isSwinging && !hits.Contains(coll.rigidbody) && coll.collider.GetComponent<AbstractDamageReceiver>() != null) {
+        if(isSwinging && !hits.Contains(coll.rigidbody) && coll.collider.GetComponent<AbstractDamageReceiver>() != null) {
             try {
                 //check if the collider should be hit directly
                 //RequireReceiver, to cause an Exception
                 coll.collider.SendMessage(Messages.DAMAGE, damage, SendMessageOptions.RequireReceiver);
-            } catch(UnityException e) {
+            } catch(UnityException) {
                 //if no direct hit was triggered, send to main rigidbody
                 coll.rigidbody.SendMessage(Messages.DAMAGE, damage, SendMessageOptions.DontRequireReceiver);
             }
