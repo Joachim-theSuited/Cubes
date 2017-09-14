@@ -15,6 +15,8 @@ Currently our character can only hold one item at the time. So in order to pick 
 
 If your character holds a weapon (for example the red stick) you may use it by clicking the left mouse button.
 
+You can move faster by holding left shift down (your stamina is limited, but will recover).
+
 ## Controls for Controllers
 Controllers for PCs are extremely diverse an come in numerous shapes. It is very tricky to provide users with a keybinding, that works for everyone, so you will have to configure the bindings yourself in the Unity game launcher.
 
