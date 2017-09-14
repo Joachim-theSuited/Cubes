@@ -24,4 +24,3 @@ Used keybindings are:
 - Fire 3: drop/throw held item
 - Horizontal and Vertical axis: character movement
 
-We currently do not support zooming (as with the mousewheel) with controllers.
