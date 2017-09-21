@@ -847,7 +847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenSpawns: 10
-  circleTemplate: {fileID: 4000042806766120, guid: c38e461d266a8854a9ab69874dbf32f2,
+  circleTemplate: {fileID: 4750312709483746, guid: 7cfc4149c0348aa41b585eb86c1b0880,
     type: 2}
 --- !u!1 &1785706357
 GameObject:

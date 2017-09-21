@@ -20,8 +20,8 @@ public class CircleSpawner : MonoBehaviour {
 		timeSinceLastSpawn += Time.deltaTime;
 
 		if(timeSinceLastSpawn >= timeBetweenSpawns) {
-			Transform circle = (Transform)Instantiate(circleTemplate, transform.position, Quaternion.LookRotation(transform.up));
-			circle.localScale = new Vector3(1000f, 1000f, 1f);
+			Transform circle = (Transform)Instantiate(circleTemplate, transform.position, Quaternion.LookRotation(transform.forward));
+			circle.localScale = new Vector3(1000f, 1f, 1000f);
 			timeSinceLastSpawn = 0f;
 
 			StartCoroutine(shrinkCircle(circle.gameObject, circle.localScale, Vector3.one, 60f));
