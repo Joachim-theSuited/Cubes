@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerControls))]
-public class PlayerSprintBehaviour : MonoBehaviour {
+public class PlayerSprintBehaviour : MonoBehaviour, IExpressibleAsFraction {
 
     /// How much faster than normal movement is sprinting?
     public float speedup;
@@ -60,4 +60,9 @@ public class PlayerSprintBehaviour : MonoBehaviour {
             controls.movementSpeed /= speedup;
         }
     }
+
+    float IExpressibleAsFraction.GetFraction() {
+        return stamina / maxStamina;
+    }
+
 }

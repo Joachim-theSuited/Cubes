@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitPoints : MonoBehaviour, AbstractDamageReceiver {
+public class HitPoints : MonoBehaviour, AbstractDamageReceiver, IExpressibleAsFraction {
 
     /// <summary>
     /// The initial/maximum health.
@@ -32,6 +32,10 @@ public class HitPoints : MonoBehaviour, AbstractDamageReceiver {
             if(corpse != null)
                 Instantiate(corpse, transform.position, Quaternion.identity);
         }
+    }
+
+    float IExpressibleAsFraction.GetFraction() {
+        return currentHealth / maxHealth;
     }
 
 }
