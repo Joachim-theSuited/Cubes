@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerControls))]
 public class PlayerSprintBehaviour : MonoBehaviour {
 
-    /// How much faster than normal movement is spinting?
+    /// How much faster than normal movement is sprinting?
     public float speedup;
 
     /// Maximum stamina
@@ -39,9 +39,9 @@ public class PlayerSprintBehaviour : MonoBehaviour {
         }
 
         // check whether sprinting was toggled and apply/remove speedup
-        if(Input.GetButtonDown("Sprint Toggle"))
+		if(Input.GetButtonDown(Inputs.SprintToggle))
             Activate();
-        if(Input.GetButtonUp("Sprint Toggle"))
+		if(Input.GetButtonUp(Inputs.SprintToggle))
             Deactivate();
     }
 

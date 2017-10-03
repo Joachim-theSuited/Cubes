@@ -20,5 +20,9 @@ public static class Inputs {
     public static readonly string UseItem = "Fire1";
 	public static readonly string Interact = "Fire2";
     public static readonly string DropItem = "Fire3";
+
+	public static readonly string SprintToggle = "Sprint Toggle";
+
+	public static readonly string Jump = "Jump";
 }
 

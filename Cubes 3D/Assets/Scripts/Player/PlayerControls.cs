@@ -11,6 +11,8 @@ public class PlayerControls : MonoBehaviour {
 
     Rigidbody _rigidbody;
 
+	private Vector3 lastMovement;
+
 	/// <summary>
 	/// The camera rotation speed. Could be modified by user preferences.
 	/// </summary>
@@ -51,5 +53,10 @@ public class PlayerControls : MonoBehaviour {
 		Vector3 rotateBy = new Vector3(0, Input.GetAxis(Inputs.MouseX), 0) * cameraRotationSpeed;
 		_rigidbody.MoveRotation(_rigidbody.rotation * Quaternion.Euler(rotateBy));
 
+		lastMovement = moveVector;
     }
+
+	public Vector3 getLastMovement() {
+		return lastMovement;
+	}
 }
