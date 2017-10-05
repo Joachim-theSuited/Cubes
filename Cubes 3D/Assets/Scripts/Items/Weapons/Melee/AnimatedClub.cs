@@ -17,16 +17,12 @@ public class AnimatedClub : ItemScript {
     }
 
     void OnCollisionEnter(Collision coll) {
-        if(isSwinging && !hits.Contains(coll.rigidbody) && coll.collider.GetComponent<AbstractDamageReceiver>() != null) {
-            try {
-                //check if the collider should be hit directly
-                //RequireReceiver, to cause an Exception
-                coll.collider.SendMessage(Messages.DAMAGE, damage, SendMessageOptions.RequireReceiver);
-            } catch(UnityException) {
-                //if no direct hit was triggered, send to main rigidbody
-                coll.rigidbody.SendMessage(Messages.DAMAGE, damage, SendMessageOptions.DontRequireReceiver);
-            }
-
+        if(isSwinging && !hits.Contains(coll.rigidbody)) {
+            var damageReciever = coll.collider.GetComponentInParent<AbstractDamageReceiver>();
+            if(damageReciever != null)
+                //using this.gameObject directly is problematic, when the weapon is above the target
+                //so we fall back onto the rigidbody - and hope there is one
+                damageReciever.ReceiveDamage(damage, GetComponentInParent<Rigidbody>().gameObject);
             hits.Add(coll.rigidbody);
         }
     }
