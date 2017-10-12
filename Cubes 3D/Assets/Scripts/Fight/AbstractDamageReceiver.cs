@@ -2,6 +2,6 @@
 
 public interface AbstractDamageReceiver {
 
-	void ReceiveDamage(float dam);
+    void ReceiveDamage(float dam, GameObject source);
 
 }

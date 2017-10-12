@@ -44,8 +44,8 @@ public static class Messages {
 
     /// <summary>
     /// From: Any
-    /// To: Any
-    /// Param: float
+    /// To: AbstractDamageReceiver
+    /// Param: float, GameObject
     /// </summary>
     public const string DAMAGE = "ReceiveDamage";
 }

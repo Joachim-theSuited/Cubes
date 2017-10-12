@@ -14,13 +14,17 @@ public class HitPoints : MonoBehaviour, AbstractDamageReceiver, IExpressibleAsFr
     /// </summary>
     public GameObject corpse;
 
+
+    public float knockBack;
+    public bool knockBackScalesWithDamage;
+
     float currentHealth;
 
     void Start() {
         currentHealth = maxHealth;
     }
 
-    public void ReceiveDamage(float dam) {
+    public void ReceiveDamage(float dam, GameObject source) {
         currentHealth -= dam;
         Debug.Log(name + " health now at " + currentHealth);
         if(currentHealth <= 0) {
@@ -31,6 +35,13 @@ public class HitPoints : MonoBehaviour, AbstractDamageReceiver, IExpressibleAsFr
             
             if(corpse != null)
                 Instantiate(corpse, transform.position, Quaternion.identity);
+        } else {
+            var rb = GetComponent<Rigidbody>();
+            if(rb != null) {
+                var horizontalDirection = transform.position - source.transform.position;
+                horizontalDirection.y = 0;
+                rb.AddForce(horizontalDirection.normalized * knockBack, ForceMode.VelocityChange);
+            }
         }
     }
 

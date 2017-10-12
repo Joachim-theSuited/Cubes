@@ -148,6 +148,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23880649150976510
 MeshRenderer:
@@ -179,6 +180,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33293941188678860
 MeshFilter:
@@ -228,7 +230,7 @@ Light:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1908557745439666}
   m_Enabled: 1
-  serializedVersion: 7
+  serializedVersion: 8
   m_Type: 0
   m_Color: {r: 0.9705882, g: 0.08564016, b: 0.08564016, a: 1}
   m_Intensity: 8
@@ -253,6 +255,22 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 8
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!114 &114015234332969034
@@ -279,8 +297,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 043fc789d8d8747e6a938d7866edb839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 2
   corpse: {fileID: 1435306814065576, guid: 930d673c4baa5426b83101b761290813, type: 2}
+  knockBack: 10
+  knockBackScalesWithDamage: 0
 --- !u!114 &114145229220995876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -423,6 +443,7 @@ NavMeshAgent:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1028737667687810}
   m_Enabled: 1
+  m_AgentTypeID: 0
   m_Radius: 0.5000001
   m_Speed: 3.5
   m_Acceleration: 8
