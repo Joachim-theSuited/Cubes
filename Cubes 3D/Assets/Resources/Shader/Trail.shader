@@ -1,7 +1,6 @@
 ﻿Shader "Custom/Trail"
 {
 	Properties {
-		_Color ("Color", Color) = (1,1,1,.5)
         _OffsetX ("X Offset", float) = 0.2
         _ScaleY ("Y Scale", float) = 4
 	}
@@ -21,10 +20,10 @@
 
 			struct appdata {
 				float4 vertex : POSITION;
-				float2 uv : TEXCOORD0;
+				float2 uv : TEXCOORD0;            
+                float4 vertexColor : COLOR;
 			};
                      
-			float4 _Color;
             float _ScaleY;
             float _OffsetX;
 			
@@ -33,7 +32,7 @@
 			}
 
             fixed4 frag (appdata i) : SV_Target {
-                float4 c = _Color;
+                float4 c = i.vertexColor;
                 float2 pq = i.uv - float2(_OffsetX, 0.5);
                 pq.y *= _ScaleY;
                 if(pq.x < 0)
