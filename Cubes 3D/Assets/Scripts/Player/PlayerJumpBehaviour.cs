@@ -11,18 +11,22 @@ using System;
 public class PlayerJumpBehaviour : MonoBehaviour {
 
 	private Rigidbody _rigidbody;
+	private ParticleSystem _jumpParticles;
 	private bool canJump = true;
 
 	public float jumpForce = 250f;
+	public int jumpParticleCount = 50;
 
 	// Use this for initialization
 	void Start () {
 		_rigidbody = GetComponent<Rigidbody>();
+		_jumpParticles = GetComponent<ParticleSystem>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(canJump && Input.GetButtonDown(Inputs.Jump)) {
+			_jumpParticles.Emit(jumpParticleCount);
 			_rigidbody.AddForce(Vector3.up * jumpForce);
 			canJump = false;
 		}
@@ -32,8 +36,7 @@ public class PlayerJumpBehaviour : MonoBehaviour {
 		// when landing on a floor reenable jumping
 		if(1 << collision.gameObject.layer == LayerMask.GetMask("Floors")){
 			canJump = true;
+			_jumpParticles.Emit(jumpParticleCount);
 		}
 	}
-
-
 }

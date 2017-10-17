@@ -17,6 +17,8 @@ If your character holds a weapon (for example the red stick) you may use it by c
 
 You can move faster by holding left shift down (your stamina is limited, but will recover).
 
+To traverse holes in the ground, small obstacles or dodge some other danger you may jump using the space bar. After a jump you may not jump again, until you touched the floor again.
+
 ## Controls for Controllers
 Controllers for PCs are extremely diverse an come in numerous shapes. It is very tricky to provide users with a keybinding, that works for everyone, so you will have to configure the bindings yourself in the Unity game launcher.
 
@@ -25,4 +27,3 @@ Used keybindings are:
 - Fire 2: pick up nearby object
 - Fire 3: drop/throw held item
 - Horizontal and Vertical axis: character movement
-
