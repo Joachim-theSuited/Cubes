@@ -14,6 +14,11 @@ public class HitPoints : MonoBehaviour, AbstractDamageReceiver, IExpressibleAsFr
     /// </summary>
     public GameObject corpse;
 
+    /// <summary>
+    /// The animation trigger to set upon receiving damage.
+    /// </summary>
+    public string hitAnimationTrigger;
+    Animator animator;
 
     public float knockBack;
     public bool knockBackScalesWithDamage;
@@ -22,11 +27,13 @@ public class HitPoints : MonoBehaviour, AbstractDamageReceiver, IExpressibleAsFr
 
     void Start() {
         currentHealth = maxHealth;
+        animator = GetComponentInChildren<Animator>();
     }
 
     public void ReceiveDamage(float dam, GameObject source) {
         currentHealth -= dam;
         Debug.Log(name + " health now at " + currentHealth);
+
         if(currentHealth <= 0) {
             if(gameObject.tag != Tags.Player)
                 Destroy(gameObject);
@@ -41,6 +48,9 @@ public class HitPoints : MonoBehaviour, AbstractDamageReceiver, IExpressibleAsFr
                 var horizontalDirection = transform.position - source.transform.position;
                 horizontalDirection.y = 0;
                 rb.AddForce(horizontalDirection.normalized * knockBack, ForceMode.VelocityChange);
+            }
+            if(animator != null && hitAnimationTrigger != "") {
+                animator.SetTrigger(hitAnimationTrigger);
             }
         }
     }

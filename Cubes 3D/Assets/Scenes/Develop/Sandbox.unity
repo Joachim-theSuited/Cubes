@@ -147,6 +147,46 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 137950213906230204, guid: 9e8f2dd76cec6164094b5bceb7434148,
+        type: 2}
+      propertyPath: m_AABB.m_Center.x
+      value: -0.0064350087
+      objectReference: {fileID: 0}
+    - target: {fileID: 137950213906230204, guid: 9e8f2dd76cec6164094b5bceb7434148,
+        type: 2}
+      propertyPath: m_AABB.m_Center.y
+      value: -0.0034874827
+      objectReference: {fileID: 0}
+    - target: {fileID: 137950213906230204, guid: 9e8f2dd76cec6164094b5bceb7434148,
+        type: 2}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.015737057
+      objectReference: {fileID: 0}
+    - target: {fileID: 137950213906230204, guid: 9e8f2dd76cec6164094b5bceb7434148,
+        type: 2}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.532145
+      objectReference: {fileID: 0}
+    - target: {fileID: 137950213906230204, guid: 9e8f2dd76cec6164094b5bceb7434148,
+        type: 2}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.3428421
+      objectReference: {fileID: 0}
+    - target: {fileID: 137950213906230204, guid: 9e8f2dd76cec6164094b5bceb7434148,
+        type: 2}
+      propertyPath: m_AABB.m_Extent.z
+      value: 1.7989893
+      objectReference: {fileID: 0}
+    - target: {fileID: 114411889578168744, guid: 9e8f2dd76cec6164094b5bceb7434148,
+        type: 2}
+      propertyPath: animationTrigger
+      value: gotHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 114411889578168744, guid: 9e8f2dd76cec6164094b5bceb7434148,
+        type: 2}
+      propertyPath: hitAnimationTrigger
+      value: gotHit
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9e8f2dd76cec6164094b5bceb7434148, type: 2}
   m_IsPrefabParent: 0
