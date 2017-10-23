@@ -22,7 +22,7 @@ public class PlayerJumpBehaviour : MonoBehaviour {
     void Start() {
         _rigidbody = GetComponent<Rigidbody>();
         _jumpParticles = GetComponent<ParticleSystem>();
-        _animator = GetComponent<Animator>();
+        _animator = GetComponentInChildren<Animator>();
     }
 	
     // Update is called once per frame
