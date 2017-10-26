@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: f5db2379277a64f50a6424e4998117c9
+timeCreated: 1509043312
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - animationController: {fileID: 9100000, guid: 7e57c79446ea3684d849196a4d258d60,
+      type: 2}
+  - male: {fileID: 100014, guid: 48db7edc9ee6f4efe9dd1e5411aec58b, type: 3}
+  - female: {fileID: 100048, guid: 8aa1a51751a49d4439465f7fe90524da, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

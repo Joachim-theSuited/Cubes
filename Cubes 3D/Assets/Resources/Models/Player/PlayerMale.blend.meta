@@ -1,0 +1,182 @@
+fileFormatVersion: 2
+guid: 48db7edc9ee6f4efe9dd1e5411aec58b
+timeCreated: 1509040756
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Arm_L
+    100002: Arm_R
+    100004: Bauch
+    100006: Body-Rig
+    100008: Bone
+    100010: Bone_001
+    100012: Brust
+    100014: //RootNode
+    100016: Controllbone
+    100018: Dagger
+    100020: Fuss_L
+    100022: Fuss_R
+    100024: H_fte
+    100026: Hals
+    100028: Hand_L
+    100030: Hand_R
+    100032: Koerper
+    100034: Kopf
+    100036: Kopf_0
+    100038: Oberarm_L
+    100040: Oberarm_R
+    100042: Oberschenkel_L
+    100044: Oberschenkel_R
+    100046: Schulter_L
+    100048: Schulter_R
+    100050: Shield
+    100052: Steuerbone
+    100054: Umhang
+    100056: Unterarm_L
+    100058: Unterarm_R
+    100060: Unterschenkel_L
+    100062: Unterschenkel_R
+    400000: Arm_L
+    400002: Arm_R
+    400004: Bauch
+    400006: Body-Rig
+    400008: Bone
+    400010: Bone_001
+    400012: Brust
+    400014: //RootNode
+    400016: Controllbone
+    400018: Dagger
+    400020: Fuss_L
+    400022: Fuss_R
+    400024: H_fte
+    400026: Hals
+    400028: Hand_L
+    400030: Hand_R
+    400032: Koerper
+    400034: Kopf
+    400036: Kopf_0
+    400038: Oberarm_L
+    400040: Oberarm_R
+    400042: Oberschenkel_L
+    400044: Oberschenkel_R
+    400046: Schulter_L
+    400048: Schulter_R
+    400050: Shield
+    400052: Steuerbone
+    400054: Umhang
+    400056: Unterarm_L
+    400058: Unterarm_R
+    400060: Unterschenkel_L
+    400062: Unterschenkel_R
+    2300000: Shield
+    2300002: Steuerbone
+    3300000: Shield
+    3300002: Steuerbone
+    4300000: Shield
+    4300002: Steuerbone
+    4300004: Arm_R
+    4300006: Kopf
+    4300008: Arm_L
+    4300010: Koerper
+    4300012: Umhang
+    4300014: Dagger
+    7400000: Default Take
+    7400002: aufprall
+    7400004: aufprall-fliegen
+    7400006: fliegen1
+    7400008: fliegen2
+    7400010: landen
+    7400012: pose-01
+    7400014: pose-02
+    7400016: r_ckw_rts
+    7400018: schlagen-stand
+    7400020: seitw_rts_L
+    7400022: seitw_rts_R
+    7400024: springen-flug-1
+    7400026: springen-flug-2
+    7400028: springen-stand
+    7400030: T-Pose
+    7400032: vorw_rts
+    9500000: //RootNode
+    13700000: Arm_L
+    13700002: Arm_R
+    13700004: Dagger
+    13700006: Koerper
+    13700008: Kopf
+    13700010: Umhang
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
