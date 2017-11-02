@@ -29,7 +29,7 @@ public class DamageColor : MonoBehaviour, AbstractDamageReceiver {
     //the coroutine is stored, to avoid animation overlap
     Coroutine colorBlend;
 
-    public void ReceiveDamage(float dam, GameObject src) {
+    public void ReceiveDamage(DamageInfo di) {
         if(colorBlend == null) // we don't want overlapping animation for now
             colorBlend = StartCoroutine(ColorBlend());
     }

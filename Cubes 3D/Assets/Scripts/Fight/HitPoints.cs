@@ -30,8 +30,8 @@ public class HitPoints : MonoBehaviour, AbstractDamageReceiver, IExpressibleAsFr
         animator = GetComponentInChildren<Animator>();
     }
 
-    public void ReceiveDamage(float dam, GameObject source) {
-        currentHealth -= dam;
+    public void ReceiveDamage(DamageInfo di) {
+        currentHealth -= di.damageAmount;
         Debug.Log(name + " health now at " + currentHealth);
 
         if(currentHealth <= 0) {
@@ -45,7 +45,7 @@ public class HitPoints : MonoBehaviour, AbstractDamageReceiver, IExpressibleAsFr
         } else {
             var rb = GetComponent<Rigidbody>();
             if(rb != null) {
-                var horizontalDirection = transform.position - source.transform.position;
+                var horizontalDirection = transform.position - di.source.transform.position;
                 horizontalDirection.y = 0;
                 rb.AddForce(horizontalDirection.normalized * knockBack, ForceMode.VelocityChange);
             }
