@@ -14,10 +14,7 @@ public class CircleSpawner : MonoBehaviour {
     /// </summary>
     public AnimationCurve heightCDF;
 
-    private float timeSinceLastSpawn = 0f;
-
     void Start() {
-        timeSinceLastSpawn = timeBetweenSpawns;
         StartCoroutine(Spawn());
     }
 
