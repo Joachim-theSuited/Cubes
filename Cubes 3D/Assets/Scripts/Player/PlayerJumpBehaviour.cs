@@ -12,7 +12,6 @@ public class PlayerJumpBehaviour : MonoBehaviour {
 
     private Rigidbody _rigidbody;
     private ParticleSystem _jumpParticles;
-    private Animator _animator;
     private bool canJump = true;
 
     public float jumpForce = 250f;
@@ -22,7 +21,6 @@ public class PlayerJumpBehaviour : MonoBehaviour {
     void Start() {
         _rigidbody = GetComponent<Rigidbody>();
         _jumpParticles = GetComponent<ParticleSystem>();
-        _animator = GetComponentInChildren<Animator>();
     }
 	
     // Update is called once per frame
@@ -31,7 +29,9 @@ public class PlayerJumpBehaviour : MonoBehaviour {
             _jumpParticles.Emit(jumpParticleCount);
             _rigidbody.AddForce(Vector3.up * jumpForce);
             canJump = false;
-            _animator.SetTrigger("jump");
+
+            Animator animator = GetComponentInChildren<Animator>();
+            animator.SetTrigger("jump");
         }
     }
 

@@ -17,3 +17,6 @@ Target
 *.blend*
 !*.blend
 !*.blend.meta
+
+# VS Code is neat, but we not everyone uses it
+.vscode/

@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.UIElements;
 
+/// <summary>
+/// A generic listener, that triggers an action, when the user clicks on a collider on the screen.
+/// </summary>
 [RequireComponent(typeof(Collider))]
-public class ClickedOnListener : MonoBehaviour {
+public abstract class ClickedOnListener : MonoBehaviour {
 
 	private Collider _collider;
 
@@ -19,9 +22,10 @@ public class ClickedOnListener : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
 			if(Physics.Raycast(ray, out hit) && hit.collider == _collider) {
-				// TODO: trigger event
-				print("detected a click on this collider");
+				activate();
 			}
 		}
 	}
+
+	protected abstract void activate();
 }
