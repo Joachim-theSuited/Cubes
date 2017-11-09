@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: a4385540167a6734abbb446238322f2a
-timeCreated: 1504203106
+timeCreated: 1509650902
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - circleTemplate: {fileID: 4750312709483746, guid: 7cfc4149c0348aa41b585eb86c1b0880,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -22,7 +22,7 @@ public class AnimatedClub : ItemScript {
             if(damageReciever != null)
                 //using this.gameObject directly is problematic, when the weapon is above the target
                 //so we fall back onto the rigidbody - and hope there is one
-                damageReciever.ReceiveDamage(damage, GetComponentInParent<Rigidbody>().gameObject);
+                damageReciever.ReceiveDamage(new DamageInfo(damage, GetComponentInParent<Rigidbody>().gameObject));
             hits.Add(coll.rigidbody);
         }
     }

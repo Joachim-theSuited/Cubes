@@ -9,24 +9,24 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class DamageOnCollision : MonoBehaviour {
 
-	public float damage;
+    public float damage;
 
-	/// <summary>
-	/// Controls, up to what angle the objects are considered facing each other.
-	/// </summary>
-	public float maxAngle;
+    /// <summary>
+    /// Controls, up to what angle the objects are considered facing each other.
+    /// </summary>
+    public float maxAngle;
 
-	void reaction(Collider other) {
-		if (maxAngle > Vector3.Angle(other.transform.forward, transform.position - other.transform.position)) {
-			other.SendMessage(Messages.DAMAGE, damage, SendMessageOptions.DontRequireReceiver);
-		}
-	}
+    void reaction(Collider other) {
+        if(maxAngle > Vector3.Angle(other.transform.forward, transform.position - other.transform.position)) {
+            other.SendMessage(Messages.DAMAGE, new DamageInfo(damage, gameObject), SendMessageOptions.DontRequireReceiver);
+        }
+    }
 
-	void OnTriggerEnter(Collider other) {
-		reaction(other);
-	}
+    void OnTriggerEnter(Collider other) {
+        reaction(other);
+    }
 
-	void OnCollisionEnter(Collision collision) {
-		reaction(collision.collider);
-	}
+    void OnCollisionEnter(Collision collision) {
+        reaction(collision.collider);
+    }
 }
