@@ -8,9 +8,9 @@ using UnityEngine.SceneManagement;
 /// Sets the selected player model as DontDestroyOnLoad and loads the next scene.
 /// </summary>
 [RequireComponent(typeof(Collider))]
-public class CharacterSelectionListener : ClickedOnListener {
+public class CharacterSelectionListener : MonoBehaviour {
 
-	protected override void activate() {
+	void OnMouseDown() {
 		Transform firstChild = transform.GetChild(0);
 		firstChild.parent = null;
 		DontDestroyOnLoad(firstChild);
