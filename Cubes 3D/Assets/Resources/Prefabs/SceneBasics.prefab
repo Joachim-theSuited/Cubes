@@ -186,6 +186,7 @@ GameObject:
   - component: {fileID: 199942349445600190}
   - component: {fileID: 198152465894391930}
   - component: {fileID: 114357534795151900}
+  - component: {fileID: 114689238172175352}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1443,6 +1444,17 @@ MonoBehaviour:
   sideOffset: {x: 0.5, y: 0, z: 0}
   zoomSpeed: 100
   zoom: 0.2
+--- !u!114 &114689238172175352
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1203575018206492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df037dd04bac20848996f38a276f676d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114699491976402072
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6999,7 +7011,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -835921979
+  randomSeed: -808540528
   InitialModule:
     serializedVersion: 3
     enabled: 1

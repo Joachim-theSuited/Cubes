@@ -46,8 +46,10 @@ public class PlayerControls : MonoBehaviour {
 
 		// activate animation
 		Animator modelAnimator = GetComponentInChildren<Animator>();
-		modelAnimator.SetInteger("X", Mathf.CeilToInt(Input.GetAxis(Inputs.Horizontal)));
-		modelAnimator.SetInteger("Y", Mathf.CeilToInt(Input.GetAxis(Inputs.Vertical)));
+        if(modelAnimator != null) {
+            modelAnimator.SetInteger("X", Mathf.CeilToInt(Input.GetAxis(Inputs.Horizontal)));
+    		modelAnimator.SetInteger("Y", Mathf.CeilToInt(Input.GetAxis(Inputs.Vertical)));
+        }
 
         // rotate player with mouse movement
 		Vector3 rotateBy = new Vector3(0, Input.GetAxis(Inputs.MouseX), 0) * cameraRotationSpeed;

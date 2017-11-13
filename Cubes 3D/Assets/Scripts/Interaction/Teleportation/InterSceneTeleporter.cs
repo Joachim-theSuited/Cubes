@@ -22,6 +22,12 @@ public class InterSceneTeleporter : Teleporter {
     void OnTriggerEnter(Collider other) {
         Teleportable otherTeleportable = other.GetComponent<Teleportable>();
         if(otherTeleportable != null && otherTeleportable.lastTeleportedTo != this && targetScene != null) {
+            GameObject persistentPlayer = GameObject.FindWithTag(Tags.Persistent);
+            if(persistentPlayer != null) {
+                persistentPlayer.transform.parent = null;
+                DontDestroyOnLoad(persistentPlayer);
+            }
+
             SceneManager.LoadScene(targetScene);
             Scene sceneToSwitchTo = SceneManager.GetSceneByName(targetScene);
             
