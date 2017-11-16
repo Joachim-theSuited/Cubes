@@ -1398,7 +1398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   corpse: {fileID: 1315495003410378, guid: 2ea3fb26ec3d6490f90fe343941eaf56, type: 2}
-  hitAnimationTrigger: 
+  hitAnimationTrigger: gotHit
   knockBack: 10
   knockBackScalesWithDamage: 0
 --- !u!114 &114463472813701016
@@ -7011,7 +7011,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1923647912
+  randomSeed: 1446526915
   InitialModule:
     serializedVersion: 3
     enabled: 1

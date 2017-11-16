@@ -905,7 +905,13 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 23052705774545866, guid: 5ba9fee3c3b26514c88a8535107ac480,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 52b7d70b1de7c4ce09662b77c14d9fda, type: 2}
+    m_RemovedComponents:
+    - {fileID: 114394594235767430, guid: 5ba9fee3c3b26514c88a8535107ac480, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 5ba9fee3c3b26514c88a8535107ac480, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &868770817
@@ -1563,6 +1569,32 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1822192857}
   m_Script: {fileID: 11500000, guid: 043fc789d8d8747e6a938d7866edb839, type: 3}
+--- !u!1 &1699567193 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1651774428065710, guid: 5ba9fee3c3b26514c88a8535107ac480,
+    type: 2}
+  m_PrefabInternal: {fileID: 808964775}
+--- !u!114 &1699567195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1699567193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3d3ef1a5bbfb4e0a910fbbe5830b1f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterMode: 2
+  disablePixelLights: 1
+  textureSize: 256
+  clipPlaneOffset: 0.07
+  reflectLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  refractLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &1785706357
 GameObject:
   m_ObjectHideFlags: 0
