@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System;
+﻿using UnityEngine;
 
 /// <summary>
 /// Player jump behaviour.
@@ -13,8 +10,9 @@ public class PlayerJumpBehaviour : MonoBehaviour {
     private Rigidbody _rigidbody;
     private ParticleSystem _jumpParticles;
     private bool canJump = true;
+    private float chargeTime = 0f;
 
-    public float jumpForce = 250f;
+    public float jumpForce = 200f;
     public int jumpParticleCount = 50;
 
     // Use this for initialization
@@ -25,13 +23,17 @@ public class PlayerJumpBehaviour : MonoBehaviour {
 	
     // Update is called once per frame
     void Update() {
-        if(canJump && Input.GetButtonDown(Inputs.Jump)) {
-            _jumpParticles.Emit(jumpParticleCount);
-            _rigidbody.AddForce(Vector3.up * jumpForce);
-            canJump = false;
+        if(canJump && Input.GetButton(Inputs.Jump)) {
+            chargeTime += Time.deltaTime;
+        }
 
+        if(canJump && Input.GetButtonUp(Inputs.Jump)) {
+            _jumpParticles.Emit(jumpParticleCount);
+            _rigidbody.AddForce(Vector3.up * jumpForce * (1 + Mathf.Min(chargeTime, 2f)));
+            canJump = false;
             Animator animator = GetComponentInChildren<Animator>();
             animator.SetTrigger("jump");
+            chargeTime = 0;
         }
     }
 
