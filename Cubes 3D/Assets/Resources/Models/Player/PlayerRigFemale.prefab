@@ -340,7 +340,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4366463997691174}
-  - component: {fileID: 95877796840640776}
   m_Layer: 0
   m_Name: PlayerRigFemale
   m_TagString: Untagged
@@ -990,23 +989,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1840792792619296}
   m_Mesh: {fileID: 4300000, guid: 8aa1a51751a49d4439465f7fe90524da, type: 3}
---- !u!95 &95877796840640776
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1695956689136212}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 8aa1a51751a49d4439465f7fe90524da, type: 3}
-  m_Controller: {fileID: 9100000, guid: 7e57c79446ea3684d849196a4d258d60, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!137 &137128670115163928
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

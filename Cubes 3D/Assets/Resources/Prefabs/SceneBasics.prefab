@@ -140,7 +140,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4374461281692858}
-  - component: {fileID: 95566869329197438}
   m_Layer: 0
   m_Name: PlayerRig
   m_TagString: Untagged
@@ -187,6 +186,7 @@ GameObject:
   - component: {fileID: 198152465894391930}
   - component: {fileID: 114357534795151900}
   - component: {fileID: 114689238172175352}
+  - component: {fileID: 95214331638842752}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1230,17 +1230,17 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1739284707206218}
   m_Enabled: 1
---- !u!95 &95566869329197438
+--- !u!95 &95214331638842752
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1168326108524300}
+  m_GameObject: {fileID: 1203575018206492}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 8aa1a51751a49d4439465f7fe90524da, type: 3}
   m_Controller: {fileID: 9100000, guid: 7e57c79446ea3684d849196a4d258d60, type: 2}
-  m_CullingMode: 1
+  m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -7011,7 +7011,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1446526915
+  randomSeed: -365969693
   InitialModule:
     serializedVersion: 3
     enabled: 1

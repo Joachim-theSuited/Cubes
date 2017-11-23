@@ -8,20 +8,25 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class AcquirePersistentPlayer : MonoBehaviour {
 
-	void Start () {
-		GameObject foundObject = GameObject.FindWithTag(Tags.Persistent);
-		if (foundObject != null) {
+    IEnumerator Start() {
+        GameObject foundObject = GameObject.FindWithTag(Tags.Persistent);
+        if(foundObject != null) {
 
-			// this is a semi-dirty hack, that resets the mesh
-			// necessary to reset cloth components, which went crazy on scene change
-			Destroy(GameObject.FindWithTag(Tags.DebugDefault));
+            Destroy(GameObject.FindWithTag(Tags.DebugDefault));
 
-			GameObject newInstance = Instantiate(foundObject);
-			newInstance.transform.parent = transform;
-			newInstance.transform.localPosition = Vector3.zero;
-			newInstance.transform.localRotation = Quaternion.identity;
+            // this is a semi-dirty hack, that resets the mesh
+            // necessary to reset cloth components, which went crazy on scene change
+            // FIXME could be solved by temporatily disabling the cloth - though that crashs in unity's current version
+            GameObject newInstance = Instantiate(foundObject);
+            newInstance.transform.parent = transform;
+            newInstance.transform.localPosition = Vector3.zero;
+            newInstance.transform.localRotation = Quaternion.identity;
 
-			Destroy(foundObject);
-		}
-	}
+            Destroy(foundObject);
+
+            // stuff gets not properly deleted (and instantiated?) until end of frame
+            yield return new WaitForEndOfFrame();
+            GetComponent<Animator>().Rebind();
+        }
+    }
 }
