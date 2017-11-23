@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 /// </summary>
 [RequireComponent(typeof(Collider))]
 public class CharacterSelectionListener : MonoBehaviour {
-
+	
 	void OnMouseDown() {
 		Transform firstChild = transform.GetChild(0);
 		firstChild.parent = null;

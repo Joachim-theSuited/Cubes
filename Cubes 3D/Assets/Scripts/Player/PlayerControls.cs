@@ -5,11 +5,13 @@ using System;
 /// Basic controls for the player handles movement and rotation. Additional interaction with objects may be registered here but should be handled elsewhere.
 /// </summary>
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(AudioSource))]
 public class PlayerControls : MonoBehaviour {
     public float movementSpeed;
     public Camera referenceCamera;
 
-    Rigidbody _rigidbody;
+    private Rigidbody _rigidbody;
+    private AudioSource _wooshSource;
 
 	private Vector3 lastMovement;
 
@@ -21,6 +23,7 @@ public class PlayerControls : MonoBehaviour {
     // Use this for initialization
     void Start() {
         _rigidbody = GetComponent<Rigidbody>();
+        _wooshSource = GetComponent<AudioSource>();
 
 		// hide and lock cursor for player rotation
 		Cursor.visible = false;
@@ -56,6 +59,9 @@ public class PlayerControls : MonoBehaviour {
 		_rigidbody.MoveRotation(_rigidbody.rotation * Quaternion.Euler(rotateBy));
 
 		lastMovement = moveVector;
+
+        // create wooshSound while moving
+        _wooshSource.volume = moveVector.magnitude / Time.deltaTime / movementSpeed;
     }
 
 	public Vector3 getLastMovement() {
