@@ -51,6 +51,7 @@ public class PlayerSprintBehaviour : MonoBehaviour, IExpressibleAsFraction {
         if(!isSprinting) {
             isSprinting = true;
             controls.movementSpeed *= speedup;
+            controls.wooshVolumeFactor *= speedup;
         }
     }
 
@@ -58,6 +59,7 @@ public class PlayerSprintBehaviour : MonoBehaviour, IExpressibleAsFraction {
         if(isSprinting) {
             isSprinting = false;
             controls.movementSpeed /= speedup;
+            controls.wooshVolumeFactor /= speedup;
         }
     }
 

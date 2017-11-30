@@ -1560,6 +1560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 10
   referenceCamera: {fileID: 20376058169440694}
+  wooshVolumeFactor: 0.5
   cameraRotationSpeed: 5
 --- !u!120 &120010881242758920
 LineRenderer:
@@ -7092,7 +7093,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1896138175
+  randomSeed: -2077389562
   InitialModule:
     serializedVersion: 3
     enabled: 1
