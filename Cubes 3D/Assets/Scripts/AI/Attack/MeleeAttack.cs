@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// Allows AI to use weapons in melee combat. They are not very clever ans more or less just swing wildly.
+/// Allows AI to use weapons in melee combat. They are not very clever and more or less just swing wildly.
 /// </summary>
 public class MeleeAttack : MonoBehaviour {
 
