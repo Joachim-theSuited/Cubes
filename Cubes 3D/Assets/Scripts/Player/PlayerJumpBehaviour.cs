@@ -13,7 +13,6 @@ public class PlayerJumpBehaviour : MonoBehaviour {
     private float chargeTime = 0f;
 
     public float jumpForce = 200f;
-    public int jumpParticleCount = 50;
 
     // Use this for initialization
     void Start() {
@@ -28,7 +27,6 @@ public class PlayerJumpBehaviour : MonoBehaviour {
         }
 
         if(canJump && Input.GetButtonUp(Inputs.Jump)) {
-            _jumpParticles.Emit(jumpParticleCount);
             _rigidbody.AddForce(Vector3.up * jumpForce * (1 + Mathf.Min(chargeTime, 2f)));
             canJump = false;
             Animator animator = GetComponentInChildren<Animator>();
@@ -41,7 +39,8 @@ public class PlayerJumpBehaviour : MonoBehaviour {
         // when landing on a floor reenable jumping
         if(1 << collision.gameObject.layer == LayerMask.GetMask("Floors")) {
             canJump = true;
-            _jumpParticles.Emit(jumpParticleCount);
+            // can be moved into animation once we have a 'falling' animation state
+            _jumpParticles.Emit(50);
         }
     }
 }
