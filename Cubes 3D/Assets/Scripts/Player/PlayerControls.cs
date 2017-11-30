@@ -12,6 +12,7 @@ public class PlayerControls : MonoBehaviour {
 
     private Rigidbody _rigidbody;
     private AudioSource _wooshSource;
+    public float wooshVolumeFactor;
 
 	private Vector3 lastMovement;
 
@@ -61,7 +62,7 @@ public class PlayerControls : MonoBehaviour {
 		lastMovement = moveVector;
 
         // create wooshSound while moving
-        _wooshSource.volume = moveVector.magnitude / Time.deltaTime / movementSpeed;
+        _wooshSource.volume = (moveVector.magnitude / Time.deltaTime / movementSpeed) * wooshVolumeFactor;
     }
 
 	public Vector3 getLastMovement() {

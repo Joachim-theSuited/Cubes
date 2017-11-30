@@ -13,10 +13,10 @@ Temp
 # created binaries
 Target
 
-# temp Blender files but not Blender files themself
+# temp Blender files but not Blender files themselves
 *.blend*
 !*.blend
 !*.blend.meta
 
-# VS Code is neat, but we not everyone uses it
+# VS Code is neat, but not everyone is using it
 .vscode/
