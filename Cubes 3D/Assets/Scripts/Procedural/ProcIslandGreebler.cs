@@ -33,7 +33,7 @@ public class ProcIslandGreebler : MonoBehaviour, ProcIslandDecorator {
                 continue;
             }
             var obj = Instantiate(greebles[(int)Random.Range(0, greebles.Length - 0.5f)], island.transform); 
-            obj.transform.position = (mesh.vertices[idx]);
+            obj.transform.localPosition = (mesh.vertices[idx]);
             if(randomYRotation)
                 obj.transform.Rotate(0, Random.Range(0, 360), 0, Space.World);
             if(alignToMeshNormal)
