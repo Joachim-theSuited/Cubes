@@ -35,13 +35,17 @@ public class HitPoints : MonoBehaviour, AbstractDamageReceiver, IExpressibleAsFr
         Debug.Log(name + " health now at " + currentHealth);
 
         if(currentHealth <= 0) {
-            if(gameObject.tag != Tags.Player)
+            if(gameObject.tag != Tags.Player) {
                 Destroy(gameObject);
-            else // the camera depends on the player object, so it is only deactivated
+            } else {
+                // the camera depends on the player object, so it is only deactivated
                 gameObject.SetActive(false);
+                triggerDelayedGameOverMenu();
+            } 
             
-            if(corpse != null)
+            if(corpse != null) {
                 Instantiate(corpse, transform.position, Quaternion.identity);
+            }
         } else {
             var rb = GetComponent<Rigidbody>();
             if(rb != null) {
@@ -57,6 +61,14 @@ public class HitPoints : MonoBehaviour, AbstractDamageReceiver, IExpressibleAsFr
 
     float IExpressibleAsFraction.GetFraction() {
         return currentHealth / maxHealth;
+    }
+
+    private void triggerDelayedGameOverMenu() {
+        GameObject gameOverMenu = GameObject.Find("GameOverMenu");
+        if(gameOverMenu != null) {
+            EnableCanvasAfter enableAfter = gameOverMenu.AddComponent<EnableCanvasAfter>() as EnableCanvasAfter;
+            enableAfter.timeToEnable = 10f;
+        }
     }
 
 }
