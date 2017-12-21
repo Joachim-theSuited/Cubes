@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 using UnityEditor;
 
@@ -10,6 +9,9 @@ public class ProcIsland : MonoBehaviour {
     public float size;
 
     public float topHeight;
+
+    public bool generateColliderMesh;
+    public int colliderMeshResolution;
 
     [SpaceAttribute]
     public bool gaussian = true;
@@ -37,25 +39,35 @@ public class ProcIsland : MonoBehaviour {
         #endif
         // for now we assume a clean start in-game
 
-        var mesh = GenerateIslandMesh();
+        Perlin2D noise = new Perlin2D(noiseResolution);
+        var mesh = GenerateIslandMesh(noise, meshResolution);
 
         GetComponent<MeshFilter>().mesh = mesh;
 
         foreach(ProcIslandDecorator d in GetComponents<ProcIslandDecorator>()) {
             d.Decorate(this, mesh);
         }
+
+        if(generateColliderMesh) {
+            MeshCollider coll = GetComponent<MeshCollider>();
+            if(coll == null)
+                Debug.LogError("No Meshcollider found!");
+            else
+                coll.sharedMesh = GenerateIslandMesh(noise, colliderMeshResolution);
+        }
     }
 
-    Mesh GenerateIslandMesh() {
-        Perlin2D noise = new Perlin2D(noiseResolution);
+    Mesh GenerateIslandMesh(Perlin2D noise, int resolution) {
+        Func<int, int, int> coord2idx = (x, y) => (x + y * resolution);
+        Func<int, float> coord2float = c => (c / (float)(resolution - 1));
 
-        Vector3[] newVertices = new Vector3[meshResolution * meshResolution];
-        Vector2[] newUV = new Vector2[meshResolution * meshResolution];
-        int[] newTriangles = new int[3 * 2 * (meshResolution - 1) * (meshResolution - 1)];
+        Vector3[] newVertices = new Vector3[resolution * resolution];
+        Vector2[] newUV = new Vector2[resolution * resolution];
+        int[] newTriangles = new int[3 * 2 * (resolution - 1) * (resolution - 1)];
 
         // first we'll create points (and UVs) in a simple grid
-        for(int y = 0; y < meshResolution; ++y) {
-            for(int x = 0; x < meshResolution; ++x) {
+        for(int y = 0; y < resolution; ++y) {
+            for(int x = 0; x < resolution; ++x) {
                 Vector2 unitPos = new Vector2(coord2float(x), coord2float(y));
                 Vector2 centeredPos = unitPos - new Vector2(0.5f, 0.5f);
 
@@ -76,8 +88,8 @@ public class ProcIsland : MonoBehaviour {
         // 0___2
         //  | /
         // 1|/
-        for(int y = 0; y < meshResolution - 1; ++y) {
-            for(int x = 0; x < meshResolution - 1; ++x) {
+        for(int y = 0; y < resolution - 1; ++y) {
+            for(int x = 0; x < resolution - 1; ++x) {
                 newTriangles[triIdx] = coord2idx(x, y);
                 newTriangles[triIdx + 1] = coord2idx(x, y + 1);
                 newTriangles[triIdx + 2] = coord2idx(x + 1, y);
@@ -87,8 +99,8 @@ public class ProcIsland : MonoBehaviour {
         //    /|1
         //   / |
         // 2––––0
-        for(int y = 1; y < meshResolution; ++y) {
-            for(int x = 1; x < meshResolution; ++x) {
+        for(int y = 1; y < resolution; ++y) {
+            for(int x = 1; x < resolution; ++x) {
                 newTriangles[triIdx] = coord2idx(x, y);
                 newTriangles[triIdx + 1] = coord2idx(x, y - 1);
                 newTriangles[triIdx + 2] = coord2idx(x - 1, y);
@@ -113,13 +125,6 @@ public class ProcIsland : MonoBehaviour {
         return x * x * ((lerpPeakyness + 1) - lerpPeakyness * x);
     }
 
-    int coord2idx(int x, int y) {
-        return x + y * meshResolution;
-    }
-
-    float coord2float(int c) {
-        return c / (float)meshResolution;
-    }
 }
 
 #if (UNITY_EDITOR)
