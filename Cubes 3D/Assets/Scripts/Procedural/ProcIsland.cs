@@ -13,6 +13,8 @@ public class ProcIsland : MonoBehaviour {
     public bool generateColliderMesh;
     public int colliderMeshResolution;
 
+    public bool flatShading;
+
     [SpaceAttribute]
     public bool gaussian = true;
     public Vector2 peakyness;
@@ -25,8 +27,6 @@ public class ProcIsland : MonoBehaviour {
     [SpaceAttribute]
     public int noiseResolution;
     public float noiseStrength;
-
-    //public GameObject[] trees;
 
     void Start() {
         GenerateNewIsland();
@@ -51,66 +51,88 @@ public class ProcIsland : MonoBehaviour {
         if(generateColliderMesh) {
             MeshCollider coll = GetComponent<MeshCollider>();
             if(coll == null)
-                Debug.LogError("No Meshcollider found!");
+                Debug.LogError("No MeshCollider found!");
             else
                 coll.sharedMesh = GenerateIslandMesh(noise, colliderMeshResolution);
         }
+    }
+
+    Vector3 EvaluateToVertex(Perlin2D noise, float u, float v) {
+        Vector2 unitPos = new Vector2(u, v);
+        Vector2 centeredPos = unitPos - new Vector2(0.5f, 0.5f);
+
+        Vector3 newVert = new Vector3(centeredPos.x * size, 0, centeredPos.y * size);
+        newVert.y = topHeight * (1 + noiseStrength * noise.Eval(unitPos));
+        if(gaussian)
+            newVert.y *= Mathf.Exp(-centeredPos.x * centeredPos.x * peakyness.x - centeredPos.y * centeredPos.y * peakyness.y);
+        if(radialLerp)
+            newVert.y = Mathf.Lerp(newVert.y, baseHeight, _smoothstep(centeredPos.magnitude));
+
+        return newVert;
     }
 
     Mesh GenerateIslandMesh(Perlin2D noise, int resolution) {
         Func<int, int, int> coord2idx = (x, y) => (x + y * resolution);
         Func<int, float> coord2float = c => (c / (float)(resolution - 1));
 
-        Vector3[] newVertices = new Vector3[resolution * resolution];
-        Vector2[] newUV = new Vector2[resolution * resolution];
+        Vector3[] newVertices;
+        if(flatShading)
+            newVertices = new Vector3[3 * 2 * (resolution - 1) * (resolution - 1)];
+        else
+            newVertices = new Vector3[resolution * resolution];
         int[] newTriangles = new int[3 * 2 * (resolution - 1) * (resolution - 1)];
 
-        // first we'll create points (and UVs) in a simple grid
-        for(int y = 0; y < resolution; ++y) {
-            for(int x = 0; x < resolution; ++x) {
-                Vector2 unitPos = new Vector2(coord2float(x), coord2float(y));
-                Vector2 centeredPos = unitPos - new Vector2(0.5f, 0.5f);
-
-                Vector3 newVert = new Vector3(centeredPos.x * size, 0, centeredPos.y * size);
-                newVert.y = topHeight * (1 + noiseStrength * noise.Eval(unitPos));
-                if(gaussian)
-                    newVert.y *= Mathf.Exp(-centeredPos.x * centeredPos.x * peakyness.x - centeredPos.y * centeredPos.y * peakyness.y);
-                if(radialLerp)
-                    newVert.y = Mathf.Lerp(newVert.y, baseHeight, _smoothstep(centeredPos.magnitude));
-
-                newVertices[coord2idx(x, y)] = newVert;
-                newUV[coord2idx(x, y)] = new Vector2(coord2float(x), coord2float(y));
+        // for smooth shading vertices can be shared between triangles and we generate them up front
+        if(!flatShading) {
+            for(int y = 0; y < resolution; ++y) {
+                for(int x = 0; x < resolution; ++x) {
+                    newVertices[coord2idx(x, y)] = EvaluateToVertex(noise, coord2float(x), coord2float(y));
+                }
             }
-        }
 
-        // then the triangles
-        int triIdx = 0;
-        // 0___2
-        //  | /
-        // 1|/
-        for(int y = 0; y < resolution - 1; ++y) {
-            for(int x = 0; x < resolution - 1; ++x) {
-                newTriangles[triIdx] = coord2idx(x, y);
-                newTriangles[triIdx + 1] = coord2idx(x, y + 1);
-                newTriangles[triIdx + 2] = coord2idx(x + 1, y);
-                triIdx += 3;
+            int triIdx = 0; // write index for tris
+            for(int y = 0; y < resolution - 1; ++y) {
+                for(int x = 0; x < resolution - 1; ++x) {
+                    // 0___2
+                    //  | /
+                    // 1|/
+                    newTriangles[triIdx++] = coord2idx(x, y);
+                    newTriangles[triIdx++] = coord2idx(x, y + 1);
+                    newTriangles[triIdx++] = coord2idx(x + 1, y);
+                    //    /|1
+                    //   / |
+                    // 2––––0
+                    newTriangles[triIdx++] = coord2idx(x + 1, y + 1);
+                    newTriangles[triIdx++] = coord2idx(x + 1, y);
+                    newTriangles[triIdx++] = coord2idx(x, y + 1);
+                }
             }
+
         }
-        //    /|1
-        //   / |
-        // 2––––0
-        for(int y = 1; y < resolution; ++y) {
-            for(int x = 1; x < resolution; ++x) {
-                newTriangles[triIdx] = coord2idx(x, y);
-                newTriangles[triIdx + 1] = coord2idx(x, y - 1);
-                newTriangles[triIdx + 2] = coord2idx(x - 1, y);
-                triIdx += 3;
+        // for flat shading every triangle gets its own vertices, to store the face normal with every vertex
+        else {
+            for(int i = 0; i < newTriangles.Length; i++)
+                newTriangles[i] = i;
+
+            int vIdx = 0; // write index for verts
+            for(int y = 0; y < resolution - 1; ++y) {
+                for(int x = 0; x < resolution - 1; ++x) {
+                    // flat shading makes tris visible, so randomly flip, whether we split |/| or |\| to break regularity
+                    int flip = UnityEngine.Random.value > .5 ? 0 : 1;
+                    newVertices[vIdx++] = EvaluateToVertex(noise, coord2float(x), coord2float(y));
+                    newVertices[vIdx++] = EvaluateToVertex(noise, coord2float(x), coord2float(y + 1));
+                    newVertices[vIdx++] = EvaluateToVertex(noise, coord2float(x + 1), coord2float(y + flip));
+
+                    newVertices[vIdx++] = EvaluateToVertex(noise, coord2float(x + 1), coord2float(y + 1));
+                    newVertices[vIdx++] = EvaluateToVertex(noise, coord2float(x + 1), coord2float(y));
+                    newVertices[vIdx++] = EvaluateToVertex(noise, coord2float(x), coord2float(y + 1 - flip));
+
+                }
             }
         }
 
         Mesh mesh = new Mesh();
         mesh.vertices = newVertices;
-        mesh.uv = newUV;
         mesh.triangles = newTriangles;
 
         mesh.RecalculateBounds();
