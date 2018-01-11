@@ -32,7 +32,7 @@ public class PlayerControls : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    void FixedUpdate() {
         // get inputs; movement relative to camera
 		Vector3 inputVector = referenceCamera.transform.right * Input.GetAxis(Inputs.Horizontal) * 10 / 3f
 			+ referenceCamera.transform.forward * Input.GetAxis(Inputs.Vertical);
