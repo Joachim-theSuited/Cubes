@@ -54,6 +54,7 @@ public class ProjectBuildScript
 
 	private static void includeStatics(string targetDirectory) {
 		foreach(string si in staticIncludes) {
+			File.Delete(targetDirectory + si);
 			File.Copy(PROJECTROOT + si, targetDirectory + si);
 		}
 	}

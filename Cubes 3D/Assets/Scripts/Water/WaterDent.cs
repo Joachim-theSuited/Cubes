@@ -11,7 +11,6 @@ using UnityEngine;
 public class WaterDent : MonoBehaviour {
 
 	private MeshFilter meshFilter;
-	private MeshCollider meshCollider;
 	public GameObject dentingObject;
 	public float waveAmplitude;
 	public float waveFrequency;
@@ -21,7 +20,6 @@ public class WaterDent : MonoBehaviour {
 
 	void Start() {
 		meshFilter = GetComponent<MeshFilter>();
-		meshCollider = GetComponent<MeshCollider>();
 
 		waveRandoms = new float[meshFilter.mesh.vertices.Length];
 		for(int i = 0; i < waveRandoms.Length; i++) {
