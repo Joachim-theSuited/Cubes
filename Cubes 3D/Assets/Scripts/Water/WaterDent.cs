@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This component modifies a given mesh so it appears to have rolling waves.
+/// It also dents the water where a given GameObject touches it.
+/// </summary>
 [RequireComponent(typeof(MeshCollider))]
 [RequireComponent(typeof(MeshFilter))]
 public class WaterDent : MonoBehaviour {
