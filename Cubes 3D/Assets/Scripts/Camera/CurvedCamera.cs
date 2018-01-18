@@ -30,7 +30,7 @@ public class CurvedCamera : MonoBehaviour {
     public float zoom;
 
     void Update() {
-        zoom -= Input.GetAxis("Mouse ScrollWheel") * zoomSpeed / 100;
+        zoom -= Input.GetAxis(Inputs.LookY) * zoomSpeed / 100;
         zoom = Mathf.Clamp(zoom, 0, 1);
 
         transform.position = objectToFollow.position + getOffset(zoom);

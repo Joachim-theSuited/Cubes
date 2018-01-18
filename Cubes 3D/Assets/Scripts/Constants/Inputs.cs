@@ -14,8 +14,8 @@ public static class Inputs {
 
     public static readonly string Cancel = "Cancel";
 
-    public static readonly string MouseX = "Mouse X";
-    public static readonly string MouseY = "Mouse Y";
+    public static readonly string LookX = "Look X";
+    public static readonly string LookY = "Look Y";
 
     public static readonly string UseItem = "Fire1";
 	public static readonly string Interact = "Fire2";
