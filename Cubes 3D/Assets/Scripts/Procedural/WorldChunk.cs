@@ -19,6 +19,11 @@ public class WorldChunk : MonoBehaviour {
     [Tooltip("Prefab for new world chunks")]
     public PrefabReference spawn;
 
+    void Start() {
+        foreach(WorldChunkDecorator wcd in GetComponents<WorldChunkDecorator>())
+            wcd.Decorate(this);
+    }
+
     // when the player leaves the chunk, we want to extend the world in that direction
     void OnTriggerExit(Collider other) {
         if(other.tag == Tags.Player) {
