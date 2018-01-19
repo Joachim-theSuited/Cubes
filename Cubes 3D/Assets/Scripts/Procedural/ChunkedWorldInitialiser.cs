@@ -26,7 +26,7 @@ public class ChunkedWorldInitialiser : MonoBehaviour {
         int width = (int)(chunk.spawnDistance + extraTiles);
         for(int x = -width; x <= width; ++x) {
             for(int y = -width; y <= width; ++y) {
-                WorldChunk newChunk = chunk.SpawnAt(transform.position + x * Vector3.right * chunk.tileSize + y * Vector3.forward * chunk.tileSize);
+                var newChunk = chunk.SpawnAt(transform.position + x * Vector3.right * chunk.tileSize + y * Vector3.forward * chunk.tileSize);
                 if(newChunk != null)
                     newChunk.transform.SetParent(transform);
             }
