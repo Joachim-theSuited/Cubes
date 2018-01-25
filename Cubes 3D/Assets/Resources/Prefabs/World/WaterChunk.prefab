@@ -222,6 +222,7 @@ MonoBehaviour:
   islandPrefab: {fileID: 1567483889264748, guid: b7fbf778e3f824c5aaf0ac9e6cc36898,
     type: 2}
   probability: 0.2
+  spread: 0.9
   randomSeedOffset: 1337
 --- !u!114 &114685220929259462
 MonoBehaviour:
