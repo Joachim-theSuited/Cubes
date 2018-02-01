@@ -9,8 +9,23 @@ using UnityEngine.SceneManagement;
 /// </summary>
 [RequireComponent(typeof(Collider))]
 public class CharacterSelectionListener : MonoBehaviour {
+
+	public PointAtCursor pointAtCursor;
+
+	void Update() {
+		if(Input.GetButtonDown(Inputs.Interact)) {
+			RaycastHit hit;
+			if(pointAtCursor.cursorRaycast(out hit) && hit.collider.gameObject.Equals(gameObject)) {
+				selectAndChangeScene();
+			}
+		}
+	}
 	
 	void OnMouseDown() {
+		selectAndChangeScene();
+	}
+
+	private void selectAndChangeScene() {
 		Transform firstChild = transform.GetChild(0);
 		firstChild.parent = null;
 		DontDestroyOnLoad(firstChild);
@@ -21,4 +36,5 @@ public class CharacterSelectionListener : MonoBehaviour {
 
 		SceneManager.SetActiveScene(sceneToSwitchTo);
 	}
+
 }

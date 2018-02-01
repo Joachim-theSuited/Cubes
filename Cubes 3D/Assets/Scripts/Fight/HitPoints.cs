@@ -64,6 +64,7 @@ public class HitPoints : MonoBehaviour, AbstractDamageReceiver, IExpressibleAsFr
     }
 
     private void triggerDelayedGameOverMenu() {
+        // TODO: set focus for controller and keyboard input on GameOverMenu
         GameObject gameOverMenu = GameObject.Find("GameOverMenu");
         if(gameOverMenu != null) {
             EnableCanvasAfter enableAfter = gameOverMenu.AddComponent<EnableCanvasAfter>() as EnableCanvasAfter;
