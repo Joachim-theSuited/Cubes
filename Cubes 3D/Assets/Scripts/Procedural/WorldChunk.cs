@@ -10,14 +10,19 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class WorldChunk : MonoBehaviour {
 
-    [TooltipAttribute("Tiling size of the world grid (and thus chunks)")]
+    [Tooltip("Tiling size of the world grid (and thus chunks)")]
     public float tileSize;
 
-    [TooltipAttribute("Distance in tiles at which to spawn new chunks")]
+    [Tooltip("Distance in tiles at which to spawn new chunks")]
     public uint spawnDistance;
 
-    [TooltipAttribute("Prefab for new world chunks")]
-    public WorldChunk spawn;
+    [Tooltip("Prefab for new world chunks")]
+    public PrefabReference spawn;
+
+    void Start() {
+        foreach(WorldChunkDecorator wcd in GetComponents<WorldChunkDecorator>())
+            wcd.Decorate(this);
+    }
 
     // when the player leaves the chunk, we want to extend the world in that direction
     void OnTriggerExit(Collider other) {
@@ -53,12 +58,12 @@ public class WorldChunk : MonoBehaviour {
     /// Instantiate prefab at position, if not already filled.
     /// Return the new instance or null accordingly.
     /// </summary>
-    public WorldChunk SpawnAt(Vector3 position) {
+    public GameObject SpawnAt(Vector3 position) {
         // first check, if a chunk is already present
         if(Physics.CheckSphere(position, Mathf.Min(1, tileSize / 2), 1 << gameObject.layer, QueryTriggerInteraction.Collide))
             return null;
 
-        return Instantiate(spawn, position, Quaternion.identity);
+        return Instantiate(spawn.reference, position, Quaternion.identity);
     }
 
 }
