@@ -37,10 +37,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4486315011019558}
   - component: {fileID: 33926749134854310}
-  - component: {fileID: 64480651066219980}
   - component: {fileID: 23406542697047864}
   - component: {fileID: 114060360476679474}
-  m_Layer: 16
+  - component: {fileID: 64172943425713108}
+  m_Layer: 4
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 114685220929259462}
   - component: {fileID: 65906709666753312}
   - component: {fileID: 114390285444901904}
-  m_Layer: 16
+  m_Layer: 4
   m_Name: WaterChunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1265702177653648}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &64480651066219980
+--- !u!64 &64172943425713108
 MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -169,7 +169,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1250, y: 20, z: 1250}
+  m_Size: {x: 1250, y: 50, z: 1250}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65906709666753312
 BoxCollider:
