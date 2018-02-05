@@ -56,7 +56,7 @@ public class PlayerControls : MonoBehaviour {
         }
 
         // rotate player with mouse movement
-		Vector3 rotateBy = new Vector3(0, Input.GetAxis(Inputs.MouseX), 0) * cameraRotationSpeed;
+		Vector3 rotateBy = new Vector3(0, Input.GetAxis(Inputs.LookX), 0) * cameraRotationSpeed;
 		_rigidbody.MoveRotation(_rigidbody.rotation * Quaternion.Euler(rotateBy));
 
 		lastMovement = moveVector;

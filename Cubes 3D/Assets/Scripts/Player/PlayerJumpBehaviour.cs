@@ -37,7 +37,7 @@ public class PlayerJumpBehaviour : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision) {
         // when landing on a floor reenable jumping
-        if(1 << collision.gameObject.layer == LayerMask.GetMask("Floors")) {
+        if(1 << collision.gameObject.layer == LayerMask.GetMask(CubesLayers.Floors)) {
             canJump = true;
             // can be moved into animation once we have a 'falling' animation state
             _jumpParticles.Emit(50);
