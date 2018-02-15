@@ -15,7 +15,7 @@ public class ProjectBuildScript
     public static readonly string SCENELOCATION = "Assets/Scenes/";
 	public static readonly string PROJECTROOT = "../";
 
-	public static readonly string[] scenes = { SCENELOCATION + "Menu/MainMenu.unity", SCENELOCATION + "Menu/CharacterSelection.unity", SCENELOCATION + "Develop/Sandbox.unity", SCENELOCATION + "Develop/Neighborhood.unity" };
+	public static readonly string[] scenes = { SCENELOCATION + "Menu/MainMenu.unity", SCENELOCATION + "Menu/CharacterSelection.unity", SCENELOCATION + "Develop/Sandbox.unity", SCENELOCATION + "Develop/Neighborhood.unity", SCENELOCATION + "Develop/Islands.unity" };
 	public static readonly string[] staticIncludes = { "/README.md" };
 
 	[MenuItem("Build Tools/Open File Explorer in Target Directory")]
