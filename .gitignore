@@ -20,3 +20,8 @@ Target
 
 # VS Code is neat, but not everyone is using it
 .vscode/
+
+# baked lighting (has to be triggered by every developer)
+LightingData.asset
+LightingData.asset.meta
+ReflectionProbe*

@@ -43,7 +43,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -86,7 +86,8 @@ LightmapSettings:
     m_PVRFilteringAtrousColorSigma: 1
     m_PVRFilteringAtrousNormalSigma: 1
     m_PVRFilteringAtrousPositionSigma: 1
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000002, guid: 3e3d102ac4f9bbc488051d92280c4a1e,
+    type: 2}
   m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
@@ -610,7 +611,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 353411972}
-  m_LocalRotation: {x: -0.7348725, y: -0.031516373, z: -0.027970314, w: 0.6768951}
+  m_LocalRotation: {x: -0.73487246, y: -0.03151637, z: -0.02797031, w: 0.676895}
   m_LocalPosition: {x: 2.2727275, y: 0.14395162, z: 0.45454562}
   m_LocalScale: {x: 0.33235383, y: 0.33235395, z: 0.33235395}
   m_Children: []
