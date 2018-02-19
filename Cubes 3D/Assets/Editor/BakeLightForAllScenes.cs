@@ -5,7 +5,7 @@ using System.IO;
 
 public class BakeLightForAllScenes {
 
-    public static readonly string[] scenes = ProjectBuildScript.scenes;
+    public static readonly string[] scenes = ProjectBuildScript.constructSceneArray();
 
     [MenuItem("Automation/Bake Lightmap For All Scenes")]
     static void BakeLightmapForAllScenes() {
