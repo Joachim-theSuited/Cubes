@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 114689238172175352}
   - component: {fileID: 95214331638842752}
   - component: {fileID: 82260673010682334}
+  - component: {fileID: 114024033569249928}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1413,6 +1414,19 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.05
   m_Autodestruct: 0
+--- !u!114 &114024033569249928
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1203575018206492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715a9beaafbe149dfbf11bd41c2c46bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sinkAfterSeconds: 1
+  drags: {x: 0.5, y: 5}
 --- !u!114 &114152681015867578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1465,7 +1479,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 200
-  jumpParticleCount: 50
 --- !u!114 &114411889578168744
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7093,7 +7106,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -2077389562
+  randomSeed: 1497759124
   InitialModule:
     serializedVersion: 3
     enabled: 1
