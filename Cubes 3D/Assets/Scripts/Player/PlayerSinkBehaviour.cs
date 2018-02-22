@@ -27,13 +27,13 @@ public class PlayerSinkBehaviour : MonoBehaviour {
 
     void FixedUpdate() {
         // reset if there was movement or the player is on solid ground
-        if(_controls.getLastMovement().sqrMagnitude != 0 || Physics.CheckSphere(transform.position, .1f, CubesLayers.FloorsMask)) {
+        if(_controls.getLastMovement().sqrMagnitude != 0 || Physics.CheckSphere(transform.position, .1f, LayerMask.GetMask(CubesLayers.Floors))) {
             startSinkingTime = Time.time + sinkAfterSeconds;
             gameObject.layer = 0; // Default
             _rigidbody.drag = drags.x;
         }
         if(Time.time > startSinkingTime) {
-            gameObject.layer = CubesLayers.SinkingID;
+            gameObject.layer = LayerMask.NameToLayer(CubesLayers.Sinking);
             _rigidbody.drag = drags.y;
         }
     }
