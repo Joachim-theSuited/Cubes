@@ -14,6 +14,8 @@ public class PlayerJumpBehaviour : MonoBehaviour {
 
     public float jumpForce = 200f;
 
+    public readonly string[] jumpResetLayers = {CubesLayers.Floors, CubesLayers.Water};
+
     // Use this for initialization
     void Start() {
         _rigidbody = GetComponent<Rigidbody>();
@@ -37,7 +39,8 @@ public class PlayerJumpBehaviour : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision) {
         // when landing on a floor reenable jumping
-        if(1 << collision.gameObject.layer == LayerMask.GetMask(CubesLayers.Floors)) {
+        int layerMask = 1 << collision.gameObject.layer;
+        if((layerMask & LayerMask.GetMask(jumpResetLayers)) == layerMask) {
             canJump = true;
             // can be moved into animation once we have a 'falling' animation state
             _jumpParticles.Emit(50);
