@@ -86,7 +86,7 @@ LightmapSettings:
     m_PVRFilteringAtrousColorSigma: 1
     m_PVRFilteringAtrousNormalSigma: 1
     m_PVRFilteringAtrousPositionSigma: 1
-  m_LightingDataAsset: {fileID: 112000002, guid: 13d735614644a9c48ba6c39e527bc3bf,
+  m_LightingDataAsset: {fileID: 112000002, guid: 4affe345641b845c8b6756dbc64f8972,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -190,21 +190,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114400203279185556, guid: b5693355fb448b04aa0ba469d7265df7,
-        type: 2}
-      propertyPath: value
-      value: 
-      objectReference: {fileID: 459390582}
-    - target: {fileID: 114695728998553694, guid: b5693355fb448b04aa0ba469d7265df7,
-        type: 2}
-      propertyPath: value
-      value: 
-      objectReference: {fileID: 459390580}
     - target: {fileID: 114171448295907636, guid: b5693355fb448b04aa0ba469d7265df7,
         type: 2}
       propertyPath: player
       value: 
       objectReference: {fileID: 908881545}
+    - target: {fileID: 114695728998553694, guid: b5693355fb448b04aa0ba469d7265df7,
+        type: 2}
+      propertyPath: value
+      value: 
+      objectReference: {fileID: 459390580}
+    - target: {fileID: 114400203279185556, guid: b5693355fb448b04aa0ba469d7265df7,
+        type: 2}
+      propertyPath: value
+      value: 
+      objectReference: {fileID: 459390582}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b5693355fb448b04aa0ba469d7265df7, type: 2}
   m_IsPrefabParent: 0
