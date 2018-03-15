@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e31523325324449fbd8fcf3aed706fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  focusDistance: 10
 --- !u!212 &212165447588644356
 SpriteRenderer:
   m_ObjectHideFlags: 1
