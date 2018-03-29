@@ -28,14 +28,18 @@ public class PlayerSprintBehaviour : MonoBehaviour, IExpressibleAsFraction {
     }
 
     void Update() {
+        Animator animator = GetComponentInChildren<Animator>();
         if(isSprinting) { // sprinting -> use up stamina, until depleted
             stamina -= Time.deltaTime * staminaConsumptionPerSec;
             if(stamina <= 0f) {
                 stamina = 0f;
                 Deactivate();
             }
+            animator.SetBool("sprinting", true);
         } else { // not sprinting -> recover stamina
             stamina = Mathf.Min(maxStamina, stamina + Time.deltaTime * staminaRecoveryPerSec);
+            
+            animator.SetBool("sprinting", false);
         }
 
         // check whether sprinting was toggled and apply/remove speedup
