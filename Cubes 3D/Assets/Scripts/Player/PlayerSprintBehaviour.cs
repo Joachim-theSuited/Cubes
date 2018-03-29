@@ -35,11 +35,11 @@ public class PlayerSprintBehaviour : MonoBehaviour, IExpressibleAsFraction {
                 stamina = 0f;
                 Deactivate();
             }
-            animator.SetTrigger("sprinting");
+            animator.SetBool("sprinting", true);
         } else { // not sprinting -> recover stamina
             stamina = Mathf.Min(maxStamina, stamina + Time.deltaTime * staminaRecoveryPerSec);
             
-            animator.ResetTrigger("sprinting");
+            animator.SetBool("sprinting", false);
         }
 
         // check whether sprinting was toggled and apply/remove speedup
