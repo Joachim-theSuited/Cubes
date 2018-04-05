@@ -637,7 +637,7 @@ ModelImporter:
       name: fliegen2
       takeName: fliegen2
       firstFrame: 0
-      lastFrame: 60
+      lastFrame: 24.100002
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
