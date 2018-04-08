@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HitPoints : MonoBehaviour, AbstractDamageReceiver, IExpressibleAsFraction {
 
@@ -39,6 +40,7 @@ public class HitPoints : MonoBehaviour, AbstractDamageReceiver, IExpressibleAsFr
                 Destroy(gameObject);
             } else {
                 // the camera depends on the player object, so it is only deactivated
+                LevelTime.INSTANCE.stopTimer();
                 gameObject.SetActive(false);
                 triggerDelayedGameOverMenu();
             } 
@@ -71,5 +73,4 @@ public class HitPoints : MonoBehaviour, AbstractDamageReceiver, IExpressibleAsFr
             enableAfter.timeToEnable = 10f;
         }
     }
-
 }

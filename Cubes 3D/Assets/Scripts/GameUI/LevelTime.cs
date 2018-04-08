@@ -5,6 +5,8 @@ using System;
 [RequireComponent(typeof(Text))]
 public class LevelTime : MonoBehaviour {
 
+	public static LevelTime INSTANCE;
+
 	private Text text;
 
 	private float startTime = -1;
@@ -13,6 +15,7 @@ public class LevelTime : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		INSTANCE = this;
 		text = GetComponent<Text>();
 
 		startTimer();
@@ -22,7 +25,7 @@ public class LevelTime : MonoBehaviour {
 	void Update () {
 		if(running) {
 			lastTime = TimeSpan.FromSeconds(Time.time - startTime);
-			text.text = String.Format("{0:00}:{1:00}", lastTime.Minutes, lastTime.Seconds);
+			text.text = String.Format("{0:00}:{1:00}.{2:000}", lastTime.Minutes, lastTime.Seconds, lastTime.Milliseconds);
 		}
 	}
 
