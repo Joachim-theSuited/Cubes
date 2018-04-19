@@ -27,7 +27,7 @@ public class EnableCanvasAfter : MonoBehaviour {
 		if(timeElapsed > timeToEnable) {
 			_canvas.enabled = true;
 			Cursor.visible = true;
-			Cursor.lockState = CursorLockMode.Confined;
+			Cursor.lockState = CursorLockMode.None;
 
 			if(pauseMenuOverlay != null) {
 				// disable pause menu; would be redundant and may cause overlying UI elements

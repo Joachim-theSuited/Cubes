@@ -11,7 +11,7 @@ public class PauseMenuTrigger : MonoBehaviour {
 		if (Input.GetButtonDown(Inputs.Cancel)) {
 			GameFlow.PauseGame();
 			Cursor.visible = true;
-			Cursor.lockState = CursorLockMode.Confined;
+			Cursor.lockState = CursorLockMode.None;
 			GetComponent<Canvas>().enabled = true;
 			foreach(Button child in GetComponentsInChildren<Button>()) {
 				child.enabled = true;
