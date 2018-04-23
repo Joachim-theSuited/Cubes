@@ -9,9 +9,13 @@ using UnityEditor;
 public class ProcIsland : MonoBehaviour {
 
     public int meshResolution;
-    public float size;
+    public AnimationCurve sizeX;
+    float _sizeX;
+    public AnimationCurve sizeY;
+    float _sizeY;
 
-    public float topHeight;
+    public AnimationCurve topHeight;
+    float _topHeight;
 
     public bool generateColliderMesh;
     public int colliderMeshResolution;
@@ -20,7 +24,10 @@ public class ProcIsland : MonoBehaviour {
 
     [SpaceAttribute]
     public bool gaussian = true;
-    public Vector2 peakyness;
+    public AnimationCurve peakynessX;
+    float _peakynessX;
+    public AnimationCurve peakynessY;
+    float _peakynessY;
 
     [SpaceAttribute]
     public bool radialLerp = true;
@@ -29,10 +36,21 @@ public class ProcIsland : MonoBehaviour {
 
     [SpaceAttribute]
     public int noiseResolution;
-    public float noiseStrength;
+    
+    public AnimationCurve noiseStrength;
+    float _noiseStrength;
 
     void Start() {
         GenerateNewIsland();
+    }
+
+    void EvaluateRandomCurves() {
+        _sizeX = sizeX.Evaluate(UnityEngine.Random.value);
+        _sizeY = sizeY.Evaluate(UnityEngine.Random.value);
+        _topHeight = topHeight.Evaluate(UnityEngine.Random.value);
+        _peakynessX = peakynessX.Evaluate(UnityEngine.Random.value);
+        _peakynessY = peakynessY.Evaluate(UnityEngine.Random.value);
+        _noiseStrength = noiseStrength.Evaluate(UnityEngine.Random.value);
     }
 
     public void GenerateNewIsland() {
@@ -41,7 +59,8 @@ public class ProcIsland : MonoBehaviour {
             DestroyImmediate(transform.GetChild(0).gameObject);
         #endif
         // for now we assume a clean start in-game
-
+        
+        EvaluateRandomCurves();
         Perlin2D noise = new Perlin2D(noiseResolution);
         var mesh = GenerateIslandMesh(noise, meshResolution);
 
@@ -64,10 +83,10 @@ public class ProcIsland : MonoBehaviour {
         Vector2 unitPos = new Vector2(u, v);
         Vector2 centeredPos = unitPos - new Vector2(0.5f, 0.5f);
 
-        Vector3 newVert = new Vector3(centeredPos.x * size, 0, centeredPos.y * size);
-        newVert.y = topHeight * (1 + noiseStrength * noise.Eval(unitPos));
+        Vector3 newVert = new Vector3(centeredPos.x * _sizeX, 0, centeredPos.y * _sizeY);
+        newVert.y = _topHeight * (1 + _noiseStrength * noise.Eval(unitPos));
         if(gaussian)
-            newVert.y *= Mathf.Exp(-centeredPos.x * centeredPos.x * peakyness.x - centeredPos.y * centeredPos.y * peakyness.y);
+            newVert.y *= Mathf.Exp(-centeredPos.x * centeredPos.x * _peakynessX - centeredPos.y * centeredPos.y * _peakynessY);
         if(radialLerp)
             newVert.y = Mathf.Lerp(newVert.y, baseHeight, _smoothstep(centeredPos.magnitude));
 
