@@ -36,8 +36,25 @@ public class ProcIslandGreebler : MonoBehaviour, ProcIslandDecorator {
             obj.transform.localPosition = (mesh.vertices[idx]);
             if(randomYRotation)
                 obj.transform.Rotate(0, Random.Range(0, 360), 0, Space.World);
-            if(alignToMeshNormal)
-                obj.transform.rotation *= Quaternion.FromToRotation(Vector3.up, mesh.normals[idx]);
+            if(alignToMeshNormal){
+                if(!island.flatShading) {
+                    obj.transform.rotation *= Quaternion.FromToRotation(Vector3.up, mesh.normals[idx]);
+                } else {
+                    // flat shading means face normals, which is inaccurate at the vertices
+                    // we can cast against the collider mesh instead
+                    if(island.generateColliderMesh) {
+                        MeshCollider coll = island.GetComponent<MeshCollider>();
+                        RaycastHit hit;
+                        if( coll.Raycast(new Ray(obj.transform.position + new Vector3(0, coll.bounds.size.y, 0), Vector3.down), out hit, 100) ) {
+                            obj.transform.rotation *= Quaternion.FromToRotation(Vector3.up, hit.normal);
+                        } else {
+                            Debug.Log("Raycast didn't hit mesh.");
+                        }
+                    } else {
+                        Debug.LogWarning("Not aligning to mesh, as the normals can't be determined.");
+                    }
+                }
+            }
             
 
             --count;

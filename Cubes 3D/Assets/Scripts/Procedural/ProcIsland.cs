@@ -66,16 +66,21 @@ public class ProcIsland : MonoBehaviour {
 
         GetComponent<MeshFilter>().mesh = mesh;
 
-        foreach(ProcIslandDecorator d in GetComponents<ProcIslandDecorator>()) {
-            d.Decorate(this, mesh);
-        }
-
         if(generateColliderMesh) {
             MeshCollider coll = GetComponent<MeshCollider>();
             if(coll == null)
                 Debug.LogError("No MeshCollider found!");
             else
                 coll.sharedMesh = GenerateIslandMesh(noise, colliderMeshResolution);
+        }
+        
+        Invoke("tmp", 0.1f);
+    }
+
+    void tmp() {
+        var mesh = GetComponent<MeshFilter>().mesh;
+        foreach(ProcIslandDecorator d in GetComponents<ProcIslandDecorator>()) {
+            d.Decorate(this, mesh);
         }
     }
 
