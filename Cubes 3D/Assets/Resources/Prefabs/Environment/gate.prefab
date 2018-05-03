@@ -38,7 +38,6 @@ GameObject:
   - component: {fileID: 4724494286059366}
   - component: {fileID: 33308323038961808}
   - component: {fileID: 23040289111451594}
-  - component: {fileID: 95423608861295650}
   - component: {fileID: 64384401043007548}
   m_Layer: 0
   m_Name: gate
@@ -54,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1129306440299934}
   m_LocalRotation: {x: -0.000000059604645, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 43.29173, y: -0.49999478, z: -43.448483}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4915806051498812}
@@ -83,9 +82,11 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 508ab64dc89efc245a9cbf269a3424b3, type: 2}
   m_StaticBatchInfo:
@@ -98,6 +99,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -122,9 +124,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: c0039b2d5d37f4047bc7d8f2c1478287, type: 3}
 --- !u!65 &65640975800112874
@@ -139,23 +141,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 2, z: 3}
   m_Center: {x: 0, y: 1, z: 0}
---- !u!95 &95423608861295650
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1129306440299934}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: c0039b2d5d37f4047bc7d8f2c1478287, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114557527139158130
 MonoBehaviour:
   m_ObjectHideFlags: 1

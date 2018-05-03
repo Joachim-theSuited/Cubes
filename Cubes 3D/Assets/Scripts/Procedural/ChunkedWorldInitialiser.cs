@@ -12,10 +12,16 @@ using UnityEditor;
 /// </summary>
 public class ChunkedWorldInitialiser : MonoBehaviour {
 
+    public static Vector3 gateChunk;
+    public GameObject gateCompassIcon;
+    public float sceneChunkTileSize;
+
     public WorldChunk chunk;
 
     [TooltipAttribute("Add an extra border of this many chunks")]
     public uint extraTiles;
+
+    public AnimationCurve gateDistribution;
 
     // Use this for initialization
     void Start() {
@@ -31,6 +37,24 @@ public class ChunkedWorldInitialiser : MonoBehaviour {
                     newChunk.transform.SetParent(transform);
             }
         }
+
+        gateChunk = randomizeGateChunk();
+    }
+
+    private Vector3 randomizeGateChunk() {
+        Vector2 gateChunk = Random.insideUnitCircle;
+        int maxSpawnDistance = 50;
+        float chunkValue = Random.Range(0.0f, 1.0f);
+        while(chunkValue > gateDistribution.Evaluate(gateChunk.magnitude)) {
+            gateChunk = Random.insideUnitCircle;
+            chunkValue = Random.Range(0.0f, 1.0f);
+        }
+        Vector3 chunk = new Vector3((int) (gateChunk.x * maxSpawnDistance), 0, (int) (gateChunk.y * maxSpawnDistance));
+
+        // place compass marker at gate chunk
+        Instantiate(gateCompassIcon, chunk * sceneChunkTileSize, Quaternion.identity);
+
+        return chunk;
     }
 
 }

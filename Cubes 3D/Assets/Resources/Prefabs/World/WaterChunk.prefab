@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 114685220929259462}
   - component: {fileID: 65906709666753312}
   - component: {fileID: 114390285444901904}
+  - component: {fileID: 114534463443541114}
   m_Layer: 4
   m_Name: WaterChunk
   m_TagString: Untagged
@@ -224,6 +225,18 @@ MonoBehaviour:
   probability: 0.2
   spread: 0.9
   randomSeedOffset: 1337
+--- !u!114 &114534463443541114
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1649299852270348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 842973a9f2809994f9d02f1192a9d039, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gatePrefab: {fileID: 1129306440299934, guid: 3bc4abf7ded5098458792d543d92205f, type: 2}
 --- !u!114 &114685220929259462
 MonoBehaviour:
   m_ObjectHideFlags: 1
