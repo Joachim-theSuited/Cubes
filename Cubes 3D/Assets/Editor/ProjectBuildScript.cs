@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEditor.OSXStandalone;
 using System.Diagnostics;
 
 public class ProjectBuildScript {
@@ -28,7 +27,6 @@ public class ProjectBuildScript {
 
     [MenuItem("Build Tools/Windows Desktop Build")]
     static void BuildWindows() {
-		string[] scenes = constructSceneArray();
 		BuildPipeline.BuildPlayer(constructSceneArray(), GetBuildTarget(win, ".exe"), BuildTarget.StandaloneWindows64, BuildOptions.None);
 		includeStatics(GetBuildDirectory(win));
     }
