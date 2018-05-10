@@ -74,13 +74,25 @@ public class ProcIsland : MonoBehaviour {
                 coll.sharedMesh = GenerateIslandMesh(noise, colliderMeshResolution);
         }
         
-        Invoke("tmp", 0.1f);
+        // the MeshCollider is not yet initialised, but might be needed by ProcIslandGreebler
+        // therefore the decoration calls are deferred
+        needsDecoration = true;
     }
+    
+    // deferred decoration call
+    bool needsDecoration;
+    void LateUpdate() {
+        if(needsDecoration) {
+            #if (UNITY_EDITOR)
+                var mesh = GetComponent<MeshFilter>().sharedMesh;
+            #else
+                var mesh = GetComponent<MeshFilter>().mesh;
+            #endif
+            foreach(ProcIslandDecorator d in GetComponents<ProcIslandDecorator>()) {
+                d.Decorate(this, mesh);
+            }
 
-    void tmp() {
-        var mesh = GetComponent<MeshFilter>().mesh;
-        foreach(ProcIslandDecorator d in GetComponents<ProcIslandDecorator>()) {
-            d.Decorate(this, mesh);
+            needsDecoration=false;
         }
     }
 
