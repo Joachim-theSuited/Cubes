@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
+[ExecuteInEditMode]
 [RequireComponent(typeof(MeshFilter))]
 public class ProcIsland : MonoBehaviour {
 
