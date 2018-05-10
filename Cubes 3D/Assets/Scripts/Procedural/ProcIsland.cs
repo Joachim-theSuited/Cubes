@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
+[ExecuteInEditMode]
 [RequireComponent(typeof(MeshFilter))]
 public class ProcIsland : MonoBehaviour {
 
@@ -66,16 +67,33 @@ public class ProcIsland : MonoBehaviour {
 
         GetComponent<MeshFilter>().mesh = mesh;
 
-        foreach(ProcIslandDecorator d in GetComponents<ProcIslandDecorator>()) {
-            d.Decorate(this, mesh);
-        }
-
         if(generateColliderMesh) {
             MeshCollider coll = GetComponent<MeshCollider>();
             if(coll == null)
                 Debug.LogError("No MeshCollider found!");
             else
                 coll.sharedMesh = GenerateIslandMesh(noise, colliderMeshResolution);
+        }
+        
+        // the MeshCollider is not yet initialised, but might be needed by ProcIslandGreebler
+        // therefore the decoration calls are deferred
+        needsDecoration = true;
+    }
+    
+    // deferred decoration call
+    bool needsDecoration;
+    void LateUpdate() {
+        if(needsDecoration) {
+            #if (UNITY_EDITOR)
+                var mesh = GetComponent<MeshFilter>().sharedMesh;
+            #else
+                var mesh = GetComponent<MeshFilter>().mesh;
+            #endif
+            foreach(ProcIslandDecorator d in GetComponents<ProcIslandDecorator>()) {
+                d.Decorate(this, mesh);
+            }
+
+            needsDecoration=false;
         }
     }
 

@@ -7,6 +7,7 @@ using UnityEngine;
 /// Requires a trigger collider to determine when the player leaves the chunk and to check where a chunk is already placed.
 /// For the placement check to work, WorldChunks should be in a separate layer.
 /// </summary>
+[ExecuteInEditMode]
 [RequireComponent(typeof(Collider))]
 public class WorldChunk : MonoBehaviour {
 
