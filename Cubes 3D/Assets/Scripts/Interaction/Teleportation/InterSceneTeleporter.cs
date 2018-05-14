@@ -30,10 +30,10 @@ public class InterSceneTeleporter : Teleporter {
 
             SceneManager.LoadScene(targetScene);
             Scene sceneToSwitchTo = SceneManager.GetSceneByName(targetScene);
-            
+
             SceneManager.activeSceneChanged += _activeSceneChanged;
 
-            SceneManager.SetActiveScene(sceneToSwitchTo);
+            // SceneManager.SetActiveScene(sceneToSwitchTo);
         }
     }
 
