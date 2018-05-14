@@ -32,9 +32,6 @@ public class CharacterSelectionListener : MonoBehaviour {
 
 		const string gameScene = "Sandbox";
 		SceneManager.LoadScene(gameScene);
-		Scene sceneToSwitchTo = SceneManager.GetSceneByName(gameScene);
-
-		SceneManager.SetActiveScene(sceneToSwitchTo);
 	}
 
 }

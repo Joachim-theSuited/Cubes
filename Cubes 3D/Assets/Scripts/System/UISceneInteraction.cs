@@ -17,8 +17,6 @@ public class UISceneInteraction : MonoBehaviour {
 	public void SwitchToScene(string sceneName) {
 		GameFlow.ResumeGame();
 		SceneManager.LoadScene(sceneName);
-		Scene sceneToSwitchTo = SceneManager.GetSceneByName(sceneName);
-		SceneManager.SetActiveScene(sceneToSwitchTo);
 	}
 
 	public void ExitGame() {
