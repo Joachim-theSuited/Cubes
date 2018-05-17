@@ -25,3 +25,7 @@ Target
 LightingData.asset
 LightingData.asset.meta
 ReflectionProbe*
+
+# Unity Package Manager
+Packages/
+UnityPackageManager/

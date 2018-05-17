@@ -9,6 +9,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4374760c332c4d4b81e18d2207063ec, type: 3}
-  m_Name: FChunk
+  m_Name: ForestChunkRef
   m_EditorClassIdentifier: 
   reference: {fileID: 1840151507276316, guid: c84580655c4f6446883a82676ba66c4f, type: 2}

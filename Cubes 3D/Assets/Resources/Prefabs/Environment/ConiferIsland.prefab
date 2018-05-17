@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 64750851969483112}
   - component: {fileID: 114355120618345140}
   m_Layer: 16
-  m_Name: ForestIsland
+  m_Name: ConiferIsland
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
