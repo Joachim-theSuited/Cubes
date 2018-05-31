@@ -116,9 +116,11 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 7d5aa914201a5471c92b5869f74b03f7, type: 2}
   m_StaticBatchInfo:
@@ -131,6 +133,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -155,9 +158,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 5fb03b37fc1c27c4ba78e762cedc21ce, type: 3}
 --- !u!65 &65510435651635830
@@ -220,11 +223,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e21884d9b449f4994b6496dea6f10714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  islandPrefab: {fileID: 1567483889264748, guid: b7fbf778e3f824c5aaf0ac9e6cc36898,
-    type: 2}
+  randomSeedOffset: 1337
+  islandPrefabs:
+  - {fileID: 1006766634786850, guid: 813a12480f5f24b10881f6e1916c6b2a, type: 2}
+  - {fileID: 1567483889264748, guid: b7fbf778e3f824c5aaf0ac9e6cc36898, type: 2}
   probability: 0.2
   spread: 0.9
-  randomSeedOffset: 1337
+  tiling: 5
+  tileRandomness: 20
 --- !u!114 &114534463443541114
 MonoBehaviour:
   m_ObjectHideFlags: 1
