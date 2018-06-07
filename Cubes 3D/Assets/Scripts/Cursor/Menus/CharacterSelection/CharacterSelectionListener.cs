@@ -5,14 +5,21 @@ using UnityEngine.Experimental.UIElements;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Sets the selected player model as DontDestroyOnLoad and loads the next scene.
+/// Switches the selected character model to the PersistentPlayers below this GameObject.
 /// </summary>
 public class CharacterSelectionListener : CallingInteractionTrigger {
+
 	private void select() {
-		print("selected " + transform);
-		Transform firstChild = transform.GetChild(0);
-		firstChild.parent = null;
-		DontDestroyOnLoad(firstChild);
+		GameObject player = GameObject.FindWithTag(Tags.Player);
+
+		Transform selectedChar = Instantiate(transform.GetChild(0));
+
+		Destroy(player.transform.GetChild(player.transform.childCount-1).gameObject);
+
+		selectedChar.parent = player.transform;
+
+		selectedChar.transform.localPosition = Vector3.zero;
+		selectedChar.transform.localRotation = Quaternion.identity;
 	}
 
     protected override void callback() {
