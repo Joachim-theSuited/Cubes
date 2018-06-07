@@ -243,12 +243,12 @@ Prefab:
     - target: {fileID: 224643960173293578, guid: b5693355fb448b04aa0ba469d7265df7,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000057253303
+      value: -0.000049750637
       objectReference: {fileID: 0}
     - target: {fileID: 224643960173293578, guid: b5693355fb448b04aa0ba469d7265df7,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000035954028
+      value: -0.0000026559908
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b5693355fb448b04aa0ba469d7265df7, type: 2}
@@ -652,7 +652,7 @@ MonoBehaviour:
     type: 2}
   sceneChunkTileSize: 50
   chunk: {fileID: 114685220929259462, guid: 5acfefcbc1f47428aae961070ca611c0, type: 2}
-  extraTiles: 20
+  extraTiles: 0
   gateDistribution:
     serializedVersion: 2
     m_Curve:
