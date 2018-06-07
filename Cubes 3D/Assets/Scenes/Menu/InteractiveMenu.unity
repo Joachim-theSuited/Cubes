@@ -392,7 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d1adc3da909540b183e28c54424e61b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maximumReach: 100
+  maximumReach: 95
   freeReachRatio: 0.8
 --- !u!4 &58954880
 Transform:
