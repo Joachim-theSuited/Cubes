@@ -6,11 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu/MainMenu.unity
-    guid: b10f944f0fe70cf479c1ea620e0177af
-  - enabled: 1
-    path: Assets/Scenes/Menu/CharacterSelection.unity
-    guid: 3e2f5911f76cefd4ca4e0189ce44ec1d
+    path: Assets/Scenes/Menu/InteractiveMenu.unity
+    guid: 46e5b8faf1f944744b5c44ece174b389
   - enabled: 1
     path: Assets/Scenes/Develop/Sandbox.unity
     guid: 7662e4bb51bf7a54c99a06b5627f3767
@@ -20,3 +17,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Develop/Islands.unity
     guid: d2031b9036e4f426cbd0faee527338ab
+  m_configObjects: {}

@@ -16,7 +16,7 @@ public class ProjectBuildScript {
 	public static readonly string PROJECTROOT = "../";
 
 	// change starting scene if we ever decide to have a different first scene
-	public static readonly string startingScene = SCENELOCATION + "Menu/MainMenu.unity";
+	public static readonly string startingScene = SCENELOCATION + "Menu/InteractiveMenu.unity";
 	public static readonly string[] staticIncludes = { "/README.md" };
 
 	[MenuItem("Build Tools/Open File Explorer in Target Directory")]

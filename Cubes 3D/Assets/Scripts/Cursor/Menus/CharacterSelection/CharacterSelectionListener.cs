@@ -5,33 +5,24 @@ using UnityEngine.Experimental.UIElements;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Sets the selected player model as DontDestroyOnLoad and loads the next scene.
+/// Switches the selected character model to the PersistentPlayers below this GameObject.
 /// </summary>
-[RequireComponent(typeof(Collider))]
-public class CharacterSelectionListener : MonoBehaviour {
+public class CharacterSelectionListener : CallingInteractionTrigger {
 
-	public PointAtCursor pointAtCursor;
+	private void select() {
+		GameObject player = GameObject.FindWithTag(Tags.Player);
 
-	void Update() {
-		if(Input.GetButtonDown(Inputs.Interact)) {
-			RaycastHit hit;
-			if(pointAtCursor.cursorRaycast(out hit) && hit.collider.gameObject.Equals(gameObject)) {
-				selectAndChangeScene();
-			}
-		}
-	}
-	
-	void OnMouseDown() {
-		selectAndChangeScene();
+		Transform selectedChar = Instantiate(transform.GetChild(0));
+
+		Destroy(player.transform.GetChild(player.transform.childCount-1).gameObject);
+
+		selectedChar.parent = player.transform;
+
+		selectedChar.transform.localPosition = Vector3.zero;
+		selectedChar.transform.localRotation = Quaternion.identity;
 	}
 
-	private void selectAndChangeScene() {
-		Transform firstChild = transform.GetChild(0);
-		firstChild.parent = null;
-		DontDestroyOnLoad(firstChild);
-
-		const string gameScene = "Sandbox";
-		SceneManager.LoadScene(gameScene);
-	}
-
+    protected override void callback() {
+        select();
+    }
 }

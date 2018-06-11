@@ -16,7 +16,7 @@ public class InteractionTrigger : MonoBehaviour {
     /// </summary>
     public GameObject interactionIndicator;
 
-    bool canInteract = false;
+    protected bool canInteract = false;
 
     public void Start() {
         if(interactionIndicator != null)
