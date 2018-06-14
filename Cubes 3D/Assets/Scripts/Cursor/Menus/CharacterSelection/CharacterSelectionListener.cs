@@ -9,6 +9,8 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class CharacterSelectionListener : CallingInteractionTrigger {
 
+	public List<GameObject> toEnable;
+
 	private void select() {
 		GameObject player = GameObject.FindWithTag(Tags.Player);
 
@@ -22,7 +24,14 @@ public class CharacterSelectionListener : CallingInteractionTrigger {
 		selectedChar.transform.localRotation = Quaternion.identity;
 	}
 
+	private void enableLevelChanges() {
+		foreach(GameObject gameObject in toEnable) {
+			gameObject.SetActive(true);
+		}
+	}
+
     protected override void callback() {
         select();
+		enableLevelChanges();
     }
 }
