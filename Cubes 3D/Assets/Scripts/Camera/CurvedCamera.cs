@@ -20,6 +20,9 @@ public class CurvedCamera : MonoBehaviour {
     public Vector3 farPoint;
     public Vector3 sideOffset;
 
+    [Range(0, 1)]
+    public float fadeOutFollowedDistance;
+
     Vector3 delta {
         get { return farPoint - nearPoint; }
     }
@@ -35,6 +38,17 @@ public class CurvedCamera : MonoBehaviour {
 
         transform.position = objectToFollow.position + getOffset(zoom);
         transform.LookAt(transform.position - objectToFollow.rotation * new Vector3(delta.x, delta.y * zoom, delta.z));
+
+
+        if(zoom < fadeOutFollowedDistance) {
+            foreach(Renderer r in objectToFollow.GetComponentsInChildren(typeof(Renderer))) {
+                r.enabled = false;
+            }
+        } else {
+            foreach(Renderer r in objectToFollow.GetComponentsInChildren(typeof(Renderer))) {
+                r.enabled = true;
+            }
+        }
     }
 
     public Vector3 getOffset(float zoomFactor) {
