@@ -41,11 +41,11 @@ public class CurvedCamera : MonoBehaviour {
 
 
         if(zoom < fadeOutFollowedDistance) {
-            foreach(Renderer r in objectToFollow.GetComponentsInChildren(typeof(Renderer))) {
+            foreach(Renderer r in objectToFollow.GetComponentsInChildren(typeof(MeshRenderer))) {
                 r.enabled = false;
             }
         } else {
-            foreach(Renderer r in objectToFollow.GetComponentsInChildren(typeof(Renderer))) {
+            foreach(Renderer r in objectToFollow.GetComponentsInChildren(typeof(MeshRenderer))) {
                 r.enabled = true;
             }
         }
