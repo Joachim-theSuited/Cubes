@@ -290,7 +290,7 @@ Camera:
   m_GameObject: {fileID: 835164808}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 3
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -438,7 +438,7 @@ Prefab:
     - target: {fileID: 114620759922710760, guid: 9e8f2dd76cec6164094b5bceb7434148,
         type: 2}
       propertyPath: zoom
-      value: 0.6
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 114713002932631254, guid: 9e8f2dd76cec6164094b5bceb7434148,
         type: 2}
@@ -462,6 +462,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114620759922710760, guid: 9e8f2dd76cec6164094b5bceb7434148,
+        type: 2}
+      propertyPath: fadeOutObject
+      value: 
+      objectReference: {fileID: 1267466851}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9e8f2dd76cec6164094b5bceb7434148, type: 2}
   m_IsPrefabParent: 0
@@ -507,12 +512,12 @@ Prefab:
     - target: {fileID: 224643960173293578, guid: b5693355fb448b04aa0ba469d7265df7,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000048588307
+      value: -0.000040010724
       objectReference: {fileID: 0}
     - target: {fileID: 224643960173293578, guid: b5693355fb448b04aa0ba469d7265df7,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000021758315
+      value: 0.00002590324
       objectReference: {fileID: 0}
     - target: {fileID: 114171448295907636, guid: b5693355fb448b04aa0ba469d7265df7,
         type: 2}
@@ -532,6 +537,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b5693355fb448b04aa0ba469d7265df7, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1267466851 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1168326108524300, guid: 9e8f2dd76cec6164094b5bceb7434148,
+    type: 2}
+  m_PrefabInternal: {fileID: 919545921}
 --- !u!4 &1418278674 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4612295136830942, guid: 9e8f2dd76cec6164094b5bceb7434148,
