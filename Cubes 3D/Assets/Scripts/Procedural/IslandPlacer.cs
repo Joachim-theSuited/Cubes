@@ -8,8 +8,6 @@ using UnityEngine;
 /// </summary>
 public class IslandPlacer : MonoBehaviour, WorldChunkDecorator {
 
-    public int randomSeedOffset;
-
     public GameObject[] islandPrefabs;
 
     [Range(0, 1)]
@@ -63,7 +61,7 @@ public class IslandPlacer : MonoBehaviour, WorldChunkDecorator {
         flatIdx = diagonalRow == -1 ? 0 : (flatIdx * 4 + quadrant + 1);
 
         // the randomisation is based on the position, to always get the same results on regeneration
-        Random.InitState(flatIdx + randomSeedOffset);
+        Random.InitState(flatIdx + LevelConfigManager.Instance.config.randomSeedOffset);
 
         if(Random.value < probability && islandPrefabs.Length != 0) {
             // randomise position in chunk
