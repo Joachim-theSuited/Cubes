@@ -25,7 +25,7 @@ public class LevelConfigManager : Singleton<LevelConfigManager> {
 		}
 		config = newConf;
 		
-		SceneManager.LoadScene(newConf.sceneName);
+		SceneManager.LoadScene(newConf.sceneID);
 	}
 
 	public void PopLevel() {
@@ -38,7 +38,7 @@ public class LevelConfigManager : Singleton<LevelConfigManager> {
 			player.transform.position = config.playerStartPosition;
 		}
 
-		SceneManager.LoadScene(config.sceneName);
+		SceneManager.LoadScene(config.sceneID);
 	}
 	
 	protected LevelConfigManager() {}
@@ -47,7 +47,7 @@ public class LevelConfigManager : Singleton<LevelConfigManager> {
 
 	void Awake() {
 		config = (LevelConfig)ScriptableObject.CreateInstance(typeof(LevelConfig));
-		config.sceneName = SceneManager.GetActiveScene().name;
+		config.sceneID = SceneManager.GetActiveScene().buildIndex;
 		var player = GameObject.FindWithTag(Tags.Player);
 		if(player) {
 			config.playerStartPosition = player.transform.position;
