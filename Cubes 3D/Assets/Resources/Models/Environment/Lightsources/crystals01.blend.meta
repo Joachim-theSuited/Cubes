@@ -17,6 +17,7 @@ ModelImporter:
     400010: Cylinder_004
     2100000: unnamed
     2100002: Material_001
+    2100004: CrystalTransparent
     2300000: Cylinder
     2300002: Cylinder_001
     2300004: Cylinder_002
@@ -34,7 +35,12 @@ ModelImporter:
     4300008: Cylinder
     7400000: Default Take
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CrystalTransparent
+    second: {fileID: 2100000, guid: 0e6bf24d9b5b6884b8b171c2829e0def, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
