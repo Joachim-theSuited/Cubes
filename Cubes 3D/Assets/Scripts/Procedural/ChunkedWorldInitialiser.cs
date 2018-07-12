@@ -25,10 +25,26 @@ public class ChunkedWorldInitialiser : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        GameObject player = GameObject.FindWithTag(Tags.Player);
+        if(player) {
+            transform.position = player.transform.position;
+        }
         InitWorld();
     }
 
+    float AlignToTileSize(float pos) {
+        return Mathf.Round(pos / chunk.tileSize) * chunk.tileSize;
+    }
+
     public void InitWorld() {
+        // position might be init'ed from player position, but also influences generation
+        // for consistent results we want to ensure a certain alignment
+        Vector3 position = transform.position;
+        position.x = AlignToTileSize(position.x);
+        position.y = 0;
+        position.z = AlignToTileSize(position.z);
+        transform.position = position;
+
         int width = (int)(chunk.spawnDistance + extraTiles);
         for(int x = -width; x <= width; ++x) {
             for(int y = -width; y <= width; ++y) {
