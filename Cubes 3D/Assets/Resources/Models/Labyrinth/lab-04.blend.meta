@@ -1,0 +1,206 @@
+fileFormatVersion: 2
+guid: 0c3ff6376297cb142bda70389eb55819
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Plane
+    100004: Plane_001
+    100006: tree_ta_000
+    100008: tree_ta_001
+    100010: tree_ta_002
+    100012: tree_ta_003
+    100014: tree_ta_004
+    100016: tree_ta_005
+    100018: tree_ta_006
+    100020: tree_ta_007
+    100022: tree_ta_008
+    100024: tree_ta_009
+    100026: tree_ta_010
+    100028: tree_ta_011
+    100030: tree_ta_012
+    100032: tree_ta_013
+    100034: tree_ta_014
+    100036: tree_ta_015
+    100038: tree_ta_016
+    400000: //RootNode
+    400002: Plane
+    400004: Plane_001
+    400006: tree_ta_000
+    400008: tree_ta_001
+    400010: tree_ta_002
+    400012: tree_ta_003
+    400014: tree_ta_004
+    400016: tree_ta_005
+    400018: tree_ta_006
+    400020: tree_ta_007
+    400022: tree_ta_008
+    400024: tree_ta_009
+    400026: tree_ta_010
+    400028: tree_ta_011
+    400030: tree_ta_012
+    400032: tree_ta_013
+    400034: tree_ta_014
+    400036: tree_ta_015
+    400038: tree_ta_016
+    2100000: Material_006
+    2100002: Material_007
+    2100004: Material_000
+    2100006: Material_001
+    2100008: Material_008
+    2100010: Material_009
+    2100012: unnamed
+    2100014: Material_002
+    2100016: Material_003
+    2100018: Material_004
+    2100020: Material_005
+    2100022: Material_010
+    2100024: Material_011
+    2100026: Material_012
+    2100028: Material_013
+    2100030: Material_014
+    2100032: Material_015
+    2100034: Material_016
+    2100036: Material_017
+    2100038: Material_018
+    2100040: Material_019
+    2300000: Plane
+    2300002: Plane_001
+    2300004: tree_ta_000
+    2300006: tree_ta_001
+    2300008: tree_ta_002
+    2300010: tree_ta_003
+    2300012: tree_ta_004
+    2300014: tree_ta_005
+    2300016: tree_ta_006
+    2300018: tree_ta_007
+    2300020: tree_ta_008
+    2300022: tree_ta_009
+    2300024: tree_ta_010
+    2300026: tree_ta_011
+    2300028: tree_ta_012
+    2300030: tree_ta_013
+    2300032: tree_ta_014
+    2300034: tree_ta_015
+    2300036: tree_ta_016
+    3300000: Plane
+    3300002: Plane_001
+    3300004: tree_ta_000
+    3300006: tree_ta_001
+    3300008: tree_ta_002
+    3300010: tree_ta_003
+    3300012: tree_ta_004
+    3300014: tree_ta_005
+    3300016: tree_ta_006
+    3300018: tree_ta_007
+    3300020: tree_ta_008
+    3300022: tree_ta_009
+    3300024: tree_ta_010
+    3300026: tree_ta_011
+    3300028: tree_ta_012
+    3300030: tree_ta_013
+    3300032: tree_ta_014
+    3300034: tree_ta_015
+    3300036: tree_ta_016
+    4300000: tree_ta_014
+    4300002: tree_ta_010
+    4300004: tree_ta_009
+    4300006: tree_ta_008
+    4300008: tree_ta_005
+    4300010: tree_ta_004
+    4300012: tree_ta_002
+    4300014: Plane_001
+    4300016: Plane
+    4300018: tree_ta_000
+    4300020: tree_ta_001
+    4300022: tree_ta_003
+    4300024: tree_ta_006
+    4300026: tree_ta_007
+    4300028: tree_ta_011
+    4300030: tree_ta_012
+    4300032: tree_ta_013
+    4300034: tree_ta_015
+    4300036: tree_ta_016
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
