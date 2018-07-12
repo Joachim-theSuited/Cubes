@@ -22,6 +22,7 @@ public class CurvedCamera : MonoBehaviour {
 
     [Range(0, 1)]
     public float fadeOutFollowedDistance;
+    public GameObject fadeOutObject;
 
     Vector3 delta {
         get { return farPoint - nearPoint; }
@@ -40,13 +41,15 @@ public class CurvedCamera : MonoBehaviour {
         transform.LookAt(transform.position - objectToFollow.rotation * new Vector3(delta.x, delta.y * zoom, delta.z));
 
 
-        if(zoom < fadeOutFollowedDistance) {
-            foreach(Renderer r in objectToFollow.GetComponentsInChildren(typeof(MeshRenderer))) {
-                r.enabled = false;
-            }
-        } else {
-            foreach(Renderer r in objectToFollow.GetComponentsInChildren(typeof(MeshRenderer))) {
-                r.enabled = true;
+        if(fadeOutObject != null) {
+            if(zoom < fadeOutFollowedDistance) {
+                foreach(Renderer r in fadeOutObject.GetComponentsInChildren(typeof(SkinnedMeshRenderer))) {
+                    r.enabled = false;
+                }
+            } else {
+                foreach(Renderer r in fadeOutObject.GetComponentsInChildren(typeof(SkinnedMeshRenderer))) {
+                    r.enabled = true;
+                }
             }
         }
     }
