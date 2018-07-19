@@ -302,7 +302,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1001 &919545921
 Prefab:
@@ -655,6 +655,72 @@ Transform:
   m_PrefabParentObject: {fileID: 4612295136830942, guid: 9e8f2dd76cec6164094b5bceb7434148,
     type: 2}
   m_PrefabInternal: {fileID: 919545921}
+--- !u!1001 &1887932430
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4724494286059366, guid: 3bc4abf7ded5098458792d543d92205f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -32.755123
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724494286059366, guid: 3bc4abf7ded5098458792d543d92205f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.5546442
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724494286059366, guid: 3bc4abf7ded5098458792d543d92205f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 17.665287
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724494286059366, guid: 3bc4abf7ded5098458792d543d92205f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.000000059604645
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724494286059366, guid: 3bc4abf7ded5098458792d543d92205f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724494286059366, guid: 3bc4abf7ded5098458792d543d92205f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724494286059366, guid: 3bc4abf7ded5098458792d543d92205f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724494286059366, guid: 3bc4abf7ded5098458792d543d92205f, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1091980052109212, guid: 3bc4abf7ded5098458792d543d92205f, type: 2}
+      propertyPath: m_Name
+      value: DungeonEntry
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114557527139158130, guid: 3bc4abf7ded5098458792d543d92205f, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: 3bc4abf7ded5098458792d543d92205f, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &1887932431 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1091980052109212, guid: 3bc4abf7ded5098458792d543d92205f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1887932430}
+--- !u!114 &1887932432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1887932431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ca534e4dbe79a4fa6b41225303b92b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destination: {fileID: 0}
+  targetScene: InteractiveMenu
+  targetTeleporterName: DungeonPreviewGate
 --- !u!114 &2006301351 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114504915689305900, guid: 9e8f2dd76cec6164094b5bceb7434148,
