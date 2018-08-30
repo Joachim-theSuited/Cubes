@@ -13,31 +13,22 @@ public class LevelConfigManager : Singleton<LevelConfigManager> {
 	}
 
 	public void Load(LevelConfig newConf, LoadOption opt) {
-		var player = GameObject.FindWithTag(Tags.Player);
-		if(player) {
-			player.transform.position = newConf.playerStartPosition;
-		}
-
 		if(opt == LoadOption.PushConfig) {
-			history.Push(config);
+			var player = GameObject.FindWithTag(Tags.Player);
+			var pushConfig = ScriptableObject.Instantiate(config);
+			pushConfig.playerStartPosition = player.transform.position;
+			history.Push(pushConfig);	
 		} else if(opt == LoadOption.ClearLevelHistory) {
 			history.Clear();
 		}
-		config = newConf;
 		
+		config = newConf;
 		SceneManager.LoadScene(newConf.sceneID);
 	}
 
 	public void PopLevel() {
 		Debug.Assert(history.Count > 0, "No level to return to was found.");
-
 		config = history.Pop();
-		
-		var player = GameObject.FindWithTag(Tags.Player);
-		if(player) {
-			player.transform.position = config.playerStartPosition;
-		}
-
 		SceneManager.LoadScene(config.sceneID);
 	}
 	
@@ -49,11 +40,23 @@ public class LevelConfigManager : Singleton<LevelConfigManager> {
 		config = (LevelConfig)ScriptableObject.CreateInstance(typeof(LevelConfig));
 		config.sceneID = SceneManager.GetActiveScene().buildIndex;
 		var player = GameObject.FindWithTag(Tags.Player);
-		if(player) {
-			config.playerStartPosition = player.transform.position;
-		}
-
+		config.playerStartPosition = player.transform.position;
+		
 		history = new Stack<LevelConfig>();
+	}
+
+	void UpdatePlayerPositionCallback(Scene fromScene, Scene toScene) {
+		var player = GameObject.FindWithTag(Tags.Player);
+		player.transform.position = config.playerStartPosition;
+	
+	}
+
+	void OnEnable() {
+		SceneManager.activeSceneChanged += UpdatePlayerPositionCallback;
+	}
+
+	void OnDisable() {
+		SceneManager.activeSceneChanged -= UpdatePlayerPositionCallback;
 	}
 
 }
