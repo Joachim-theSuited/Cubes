@@ -681,14 +681,6 @@ Prefab:
       propertyPath: m_Name
       value: DungeonSconce (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 4793093261722752, guid: ed2a8398b8c1a014c8d71f0f19f01fcf, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 90.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4793093261722752, guid: ed2a8398b8c1a014c8d71f0f19f01fcf, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -89.89101
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ed2a8398b8c1a014c8d71f0f19f01fcf, type: 2}
   m_IsPrefabParent: 0
