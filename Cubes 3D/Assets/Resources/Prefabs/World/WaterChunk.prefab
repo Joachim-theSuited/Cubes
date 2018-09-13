@@ -223,7 +223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e21884d9b449f4994b6496dea6f10714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomSeedOffset: 1337
   islandPrefabs:
   - {fileID: 1006766634786850, guid: 813a12480f5f24b10881f6e1916c6b2a, type: 2}
   - {fileID: 1567483889264748, guid: b7fbf778e3f824c5aaf0ac9e6cc36898, type: 2}
@@ -243,6 +242,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gatePrefab: {fileID: 1129306440299934, guid: 3bc4abf7ded5098458792d543d92205f, type: 2}
+  dungeonGatePrefab: {fileID: 1273996540805266, guid: 2efa67346973d004990ed3bb2effc4c6,
+    type: 2}
 --- !u!114 &114685220929259462
 MonoBehaviour:
   m_ObjectHideFlags: 1

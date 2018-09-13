@@ -13,7 +13,9 @@ using UnityEditor;
 public class ChunkedWorldInitialiser : MonoBehaviour {
 
     public static Vector3 gateChunk;
+    public static Vector3 dungeonGateChunk;
     public GameObject gateCompassIcon;
+    public GameObject dungeonEntryCompassIcon;
     public float sceneChunkTileSize;
 
     public WorldChunk chunk;
@@ -54,10 +56,11 @@ public class ChunkedWorldInitialiser : MonoBehaviour {
             }
         }
 
-        gateChunk = randomizeGateChunk();
+        gateChunk = randomizeGateChunk(gateCompassIcon);
+        dungeonGateChunk = randomizeGateChunk(dungeonEntryCompassIcon);
     }
 
-    private Vector3 randomizeGateChunk() {
+    private Vector3 randomizeGateChunk(GameObject compassIcon) {
         Vector2 gateChunk = Random.insideUnitCircle;
         int maxSpawnDistance = 50;
         float chunkValue = Random.Range(0.0f, 1.0f);
@@ -68,11 +71,10 @@ public class ChunkedWorldInitialiser : MonoBehaviour {
         Vector3 chunk = new Vector3((int) (gateChunk.x * maxSpawnDistance), 0, (int) (gateChunk.y * maxSpawnDistance));
 
         // place compass marker at gate chunk
-        Instantiate(gateCompassIcon, chunk * sceneChunkTileSize, Quaternion.identity);
+        Instantiate(compassIcon, chunk * sceneChunkTileSize, Quaternion.identity);
 
         return chunk;
     }
-
 }
 
 #if UNITY_EDITOR

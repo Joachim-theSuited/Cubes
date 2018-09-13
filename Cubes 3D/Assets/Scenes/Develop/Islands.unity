@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -285,12 +285,12 @@ Prefab:
     - target: {fileID: 224643960173293578, guid: b5693355fb448b04aa0ba469d7265df7,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000049750637
+      value: 0.000006599274
       objectReference: {fileID: 0}
     - target: {fileID: 224643960173293578, guid: b5693355fb448b04aa0ba469d7265df7,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0000026559908
+      value: 0.000021511813
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b5693355fb448b04aa0ba469d7265df7, type: 2}
@@ -743,6 +743,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gateCompassIcon: {fileID: 1706925324714992, guid: 7dd183e1e6c974d4890fd75870b453a4,
+    type: 2}
+  dungeonEntryCompassIcon: {fileID: 1351569920012048, guid: 538c789bc8bfb89429849b46784c1199,
     type: 2}
   sceneChunkTileSize: 50
   chunk: {fileID: 114685220929259462, guid: 5acfefcbc1f47428aae961070ca611c0, type: 2}
