@@ -13,9 +13,9 @@ using UnityEditor;
 public class ChunkedWorldInitialiser : MonoBehaviour {
 
     public static Vector3 gateChunk;
-    public static Vector3 dungeonGateChunk;
+    public static Vector3 dungeonChunk;
     public GameObject gateCompassIcon;
-    public GameObject dungeonEntryCompassIcon;
+    public GameObject dungeonCompassIcon;
     public float sceneChunkTileSize;
 
     public WorldChunk chunk;
@@ -57,7 +57,7 @@ public class ChunkedWorldInitialiser : MonoBehaviour {
         }
 
         gateChunk = randomizeGateChunk(gateCompassIcon);
-        dungeonGateChunk = randomizeGateChunk(dungeonEntryCompassIcon);
+        dungeonChunk = randomizeGateChunk(dungeonCompassIcon);
     }
 
     private Vector3 randomizeGateChunk(GameObject compassIcon) {

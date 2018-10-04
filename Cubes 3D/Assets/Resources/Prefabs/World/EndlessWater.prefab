@@ -179,6 +179,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gateCompassIcon: {fileID: 1706925324714992, guid: 7dd183e1e6c974d4890fd75870b453a4,
     type: 2}
+  dungeonCompassIcon: {fileID: 1351569920012048, guid: 538c789bc8bfb89429849b46784c1199,
+    type: 2}
   sceneChunkTileSize: 50
   chunk: {fileID: 114685220929259462, guid: 5acfefcbc1f47428aae961070ca611c0, type: 2}
   extraTiles: 0

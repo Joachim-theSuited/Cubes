@@ -4,7 +4,7 @@ using UnityEngine;
 public class GatePlacer : MonoBehaviour, WorldChunkDecorator {
 
     public GameObject gatePrefab;
-    public GameObject dungeonGatePrefab;
+    public GameObject dungeonPrefab;
 
     void WorldChunkDecorator.Decorate(WorldChunk chunk) {
         Vector3 normedPosition = chunk.transform.position / chunk.tileSize;
@@ -13,8 +13,8 @@ public class GatePlacer : MonoBehaviour, WorldChunkDecorator {
             Instantiate(gatePrefab, chunk.transform);
         }
 
-        if((int) normedPosition.x == ChunkedWorldInitialiser.dungeonGateChunk.x && (int) normedPosition.z == ChunkedWorldInitialiser.dungeonGateChunk.z) {
-            Instantiate(dungeonGatePrefab, chunk.transform);
+        if((int) normedPosition.x == ChunkedWorldInitialiser.dungeonChunk.x && (int) normedPosition.z == ChunkedWorldInitialiser.dungeonChunk.z) {
+            Instantiate(dungeonPrefab, chunk.transform);
         }
     }
 }

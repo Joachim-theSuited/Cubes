@@ -9,7 +9,7 @@ public class LevelConfigManager : Singleton<LevelConfigManager> {
 
 	public enum LoadOption {
 		PushConfig,
-		ClearLevelHistory,
+		ClearLevelHistory
 	}
 
 	public void Load(LevelConfig newConf, LoadOption opt) {
