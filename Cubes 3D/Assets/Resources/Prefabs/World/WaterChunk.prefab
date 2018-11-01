@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 842973a9f2809994f9d02f1192a9d039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gatePrefab: {fileID: 1129306440299934, guid: 3bc4abf7ded5098458792d543d92205f, type: 2}
+  gatePrefab: {fileID: 1413056825956022, guid: c68041a77d388184494c4c90cd16e92a, type: 2}
   dungeonPrefab: {fileID: 1873131493740706, guid: 2b6e28d786a5aa9428ab47b2c379b93d,
     type: 2}
 --- !u!114 &114685220929259462
