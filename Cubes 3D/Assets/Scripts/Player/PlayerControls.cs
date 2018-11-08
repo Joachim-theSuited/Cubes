@@ -31,6 +31,17 @@ public class PlayerControls : MonoBehaviour {
 		Cursor.lockState = CursorLockMode.Locked;
     }
 
+    void Update()
+    {
+        if(Input.GetKeyUp(KeyCode.F12))
+        {
+            if(Cursor.lockState == CursorLockMode.Locked)
+                Cursor.lockState = CursorLockMode.None;
+            else
+                Cursor.lockState = CursorLockMode.Locked;
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate() {
         // get inputs; movement relative to camera
