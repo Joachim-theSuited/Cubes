@@ -108,7 +108,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4530350047247082}
-  - component: {fileID: 95939634099741342}
   m_Layer: 0
   m_Name: Gate
   m_TagString: Untagged
@@ -179,7 +178,6 @@ GameObject:
   - component: {fileID: 4556211364199768}
   - component: {fileID: 65784265846464216}
   - component: {fileID: 114869288934257670}
-  - component: {fileID: 114729528314193834}
   m_Layer: 0
   m_Name: GateTrigger
   m_TagString: Untagged
@@ -734,24 +732,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!95 &95939634099741342
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1413056825956022}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: c0039b2d5d37f4047bc7d8f2c1478287, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!102 &102453467164425170
 TextMesh:
   serializedVersion: 3
@@ -991,17 +971,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Continue Playing
---- !u!114 &114729528314193834
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1548540154330046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3aa17987f7e54784d9b4f09b61b866ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114738086012433412
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1078,7 +1047,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114729528314193834}
+      - m_Target: {fileID: 0}
         m_MethodName: ResumeGame
         m_Mode: 1
         m_Arguments:

@@ -341,6 +341,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1413056825956022, guid: c68041a77d388184494c4c90cd16e92a, type: 2}
+      propertyPath: m_Name
+      value: ExitGate
+      objectReference: {fileID: 0}
+    - target: {fileID: 114808143299863226, guid: c68041a77d388184494c4c90cd16e92a,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c68041a77d388184494c4c90cd16e92a, type: 2}
   m_IsPrefabParent: 0
@@ -627,6 +636,67 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 298836966}
   m_Mesh: {fileID: 4300000, guid: cce0af763858b4fa5b9dbb3d9ca3752a, type: 3}
+--- !u!1001 &339192194
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4530350047247082, guid: c68041a77d388184494c4c90cd16e92a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4530350047247082, guid: c68041a77d388184494c4c90cd16e92a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4530350047247082, guid: c68041a77d388184494c4c90cd16e92a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4530350047247082, guid: c68041a77d388184494c4c90cd16e92a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4530350047247082, guid: c68041a77d388184494c4c90cd16e92a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4530350047247082, guid: c68041a77d388184494c4c90cd16e92a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4530350047247082, guid: c68041a77d388184494c4c90cd16e92a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4530350047247082, guid: c68041a77d388184494c4c90cd16e92a, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1413056825956022, guid: c68041a77d388184494c4c90cd16e92a, type: 2}
+      propertyPath: m_Name
+      value: MenuSelectGate
+      objectReference: {fileID: 0}
+    - target: {fileID: 102453467164425170, guid: c68041a77d388184494c4c90cd16e92a,
+        type: 2}
+      propertyPath: m_Text
+      value: Level Select
+      objectReference: {fileID: 0}
+    - target: {fileID: 1548540154330046, guid: c68041a77d388184494c4c90cd16e92a, type: 2}
+      propertyPath: m_Name
+      value: MenuSelectGateTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 1548540154330046, guid: c68041a77d388184494c4c90cd16e92a, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 114869288934257670, guid: c68041a77d388184494c4c90cd16e92a, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: c68041a77d388184494c4c90cd16e92a, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &353411972
 GameObject:
   m_ObjectHideFlags: 0
@@ -5764,6 +5834,25 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 718655961}
   m_Mesh: {fileID: 4300000, guid: cce0af763858b4fa5b9dbb3d9ca3752a, type: 3}
+--- !u!1 &797979878 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1548540154330046, guid: c68041a77d388184494c4c90cd16e92a,
+    type: 2}
+  m_PrefabInternal: {fileID: 339192194}
+--- !u!114 &797979879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 797979878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ca534e4dbe79a4fa6b41225303b92b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destination: {fileID: 0}
+  targetScene: LevelSelectMenu
+  targetTeleporterName: MenuGateTrigger
 --- !u!1001 &869076355
 Prefab:
   m_ObjectHideFlags: 0
