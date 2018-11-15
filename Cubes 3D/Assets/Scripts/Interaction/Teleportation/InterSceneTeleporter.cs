@@ -22,11 +22,15 @@ public class InterSceneTeleporter : Teleporter {
     void OnTriggerEnter(Collider other) {
         Teleportable otherTeleportable = other.GetComponent<Teleportable>();
         if(otherTeleportable != null && otherTeleportable.lastTeleportedTo != this && targetScene != null) {
-            GameObject persistentPlayer = GameObject.FindWithTag(Tags.Persistent);
-            if(persistentPlayer != null) {
-                persistentPlayer.transform.parent = null;
-                DontDestroyOnLoad(persistentPlayer);
+
+            foreach(GameObject persistentTagged in GameObject.FindGameObjectsWithTag(Tags.Persistent)) {
+                if(persistentTagged.GetComponentInParent<Collider>().Equals(other)) {
+                    persistentTagged.transform.parent = null;
+                    DontDestroyOnLoad(persistentTagged);
+                }
             }
+
+            
 
             SceneManager.LoadScene(targetScene);
             SceneManager.activeSceneChanged += _activeSceneChanged;
