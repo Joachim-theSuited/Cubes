@@ -12,6 +12,11 @@ public class CharacterSelectionListener : CallingInteractionTrigger {
 	public List<GameObject> toEnable;
 
 	private void select() {
+		// delete old persistent player to prevent them littering DontDestroyOnLoad
+		if(AcquirePersistentPlayer.PERSISTENT_PLAYER != null) {
+			Destroy(AcquirePersistentPlayer.PERSISTENT_PLAYER);
+		} 
+
 		GameObject player = GameObject.FindWithTag(Tags.Player);
 
 		Transform selectedChar = Instantiate(transform.GetChild(0));
@@ -22,6 +27,10 @@ public class CharacterSelectionListener : CallingInteractionTrigger {
 
 		selectedChar.transform.localPosition = Vector3.zero;
 		selectedChar.transform.localRotation = Quaternion.identity;
+
+		AcquirePersistentPlayer.PERSISTENT_PLAYER = Instantiate(transform.GetChild(0)).gameObject;
+		AcquirePersistentPlayer.PERSISTENT_PLAYER.SetActive(false);
+		print("PERSISTENT_PLAYER is: " + AcquirePersistentPlayer.PERSISTENT_PLAYER);
 	}
 
 	private void enableLevelChanges() {
