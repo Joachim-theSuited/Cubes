@@ -345,11 +345,6 @@ Prefab:
       propertyPath: m_Name
       value: ExitGate
       objectReference: {fileID: 0}
-    - target: {fileID: 114808143299863226, guid: c68041a77d388184494c4c90cd16e92a,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c68041a77d388184494c4c90cd16e92a, type: 2}
   m_IsPrefabParent: 0
