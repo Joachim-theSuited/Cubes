@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class CharacterSelectionListener : CallingInteractionTrigger {
 
+	public Avatar avatar;
 	public List<GameObject> toEnable;
 
 	private void select() {
@@ -22,6 +23,10 @@ public class CharacterSelectionListener : CallingInteractionTrigger {
 
 		selectedChar.transform.localPosition = Vector3.zero;
 		selectedChar.transform.localRotation = Quaternion.identity;
+
+		Animator playerAnimator = player.GetComponent<Animator>();
+		playerAnimator.avatar = avatar;
+		playerAnimator.Rebind();
 	}
 
 	private void enableLevelChanges() {

@@ -6324,6 +6324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionIndicator: {fileID: 966722892}
+  avatar: {fileID: 9000000, guid: 48db7edc9ee6f4efe9dd1e5411aec58b, type: 3}
   toEnable:
   - {fileID: 1425412683}
 --- !u!136 &1124661323
@@ -12416,6 +12417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionIndicator: {fileID: 1811455944}
+  avatar: {fileID: 9000000, guid: 8aa1a51751a49d4439465f7fe90524da, type: 3}
   toEnable:
   - {fileID: 1425412683}
 --- !u!136 &2100972752
