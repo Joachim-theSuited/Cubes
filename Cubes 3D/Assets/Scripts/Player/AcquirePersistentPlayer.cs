@@ -28,8 +28,6 @@ public class AcquirePersistentPlayer : MonoBehaviour {
             // stuff gets not properly deleted (and instantiated?) until end of frame
             yield return new WaitForEndOfFrame();
             GetComponent<Animator>().Rebind();
-        } else {
-            print("no PERSISTENT_PLAYER found");
         }
     }
 }

@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class CharacterSelectionListener : CallingInteractionTrigger {
 
+	public Avatar avatar;
 	public List<GameObject> toEnable;
 
 	private void select() {
@@ -30,7 +31,9 @@ public class CharacterSelectionListener : CallingInteractionTrigger {
 
 		AcquirePersistentPlayer.PERSISTENT_PLAYER = Instantiate(transform.GetChild(0)).gameObject;
 		AcquirePersistentPlayer.PERSISTENT_PLAYER.SetActive(false);
-		print("PERSISTENT_PLAYER is: " + AcquirePersistentPlayer.PERSISTENT_PLAYER);
+		Animator playerAnimator = player.GetComponent<Animator>();
+		playerAnimator.avatar = avatar;
+		playerAnimator.Rebind();
 	}
 
 	private void enableLevelChanges() {
