@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 /// <summary>
 /// This Teleporter allows teleportation to InterSceneTeleporters in different scenes.
@@ -26,8 +27,15 @@ public class InterSceneTeleporter : Teleporter {
                 DontDestroyOnLoad(AcquirePersistentPlayer.PERSISTENT_PLAYER);
             }
 
-            SceneManager.LoadScene(targetScene);
-            SceneManager.activeSceneChanged += _activeSceneChanged;
+            if(GetComponent<AudioSource>() != null) {
+                AudioSource audioSource = GetComponent<AudioSource>();
+                audioSource.Play();
+                StartCoroutine(WaitForAudioPlayed(audioSource.clip.length));
+            } else {
+                SceneManager.LoadScene(targetScene);
+                SceneManager.activeSceneChanged += _activeSceneChanged;
+            }
+
         }
     }
 
@@ -51,5 +59,12 @@ public class InterSceneTeleporter : Teleporter {
 
         // unsubscribe self
         SceneManager.activeSceneChanged -= _activeSceneChanged;
+    }
+
+    IEnumerator WaitForAudioPlayed(float toWait) {
+        yield return new WaitForSeconds(toWait);
+
+        SceneManager.LoadScene(targetScene);
+        SceneManager.activeSceneChanged += _activeSceneChanged;
     }
 }

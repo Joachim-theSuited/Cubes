@@ -34,6 +34,10 @@ public class CharacterSelectionListener : CallingInteractionTrigger {
 		Animator playerAnimator = player.GetComponent<Animator>();
 		playerAnimator.avatar = avatar;
 		playerAnimator.Rebind();
+
+		if(GetComponent<AudioSource>() != null) {
+			GetComponent<AudioSource>().Play();
+		}
 	}
 
 	private void enableLevelChanges() {
