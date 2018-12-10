@@ -362,6 +362,16 @@ Prefab:
       propertyPath: m_Text
       value: Exit
       objectReference: {fileID: 0}
+    - target: {fileID: 114808143299863226, guid: c68041a77d388184494c4c90cd16e92a,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 278247350}
+    - target: {fileID: 114808143299863226, guid: c68041a77d388184494c4c90cd16e92a,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResumeGame
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c68041a77d388184494c4c90cd16e92a, type: 2}
   m_IsPrefabParent: 0
@@ -576,6 +586,22 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
+--- !u!1 &278247346 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1548540154330046, guid: c68041a77d388184494c4c90cd16e92a,
+    type: 2}
+  m_PrefabInternal: {fileID: 112675338}
+--- !u!114 &278247350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 278247346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa17987f7e54784d9b4f09b61b866ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &298836966
 GameObject:
   m_ObjectHideFlags: 0
