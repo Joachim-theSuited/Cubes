@@ -128,7 +128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4530350047247082}
   m_Layer: 0
-  m_Name: Gate
+  m_Name: SimpleGate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -197,7 +197,6 @@ GameObject:
   - component: {fileID: 4556211364199768}
   - component: {fileID: 65784265846464216}
   - component: {fileID: 82963066707098452}
-  - component: {fileID: 114234085580761060}
   m_Layer: 0
   m_Name: MenuSelectGateTrigger
   m_TagString: Untagged
@@ -1019,13 +1018,8 @@ TextMesh:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 1304732735100464}
-  m_Text: Level Select
-=======
   m_GameObject: {fileID: 1301129035424852}
-  m_Text: Text
->>>>>>> origin/develop
+  m_Text: Level Select
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -1072,33 +1066,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Exit Game
-<<<<<<< HEAD
---- !u!114 &114234085580761060
-=======
 --- !u!114 &114290082691700504
->>>>>>> origin/develop
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 1548540154330046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55ca534e4dbe79a4fa6b41225303b92b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destination: {fileID: 0}
-  targetScene: LevelSelectMenu
-  targetTeleporterName: MenuGateTrigger
-=======
   m_GameObject: {fileID: 1301129035424852}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ace9dd0195e8443bb7e93315268f3fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
->>>>>>> origin/develop
 --- !u!114 &114325366072482076
 MonoBehaviour:
   m_ObjectHideFlags: 1
