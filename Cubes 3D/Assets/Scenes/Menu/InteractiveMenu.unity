@@ -345,6 +345,23 @@ Prefab:
       propertyPath: m_Name
       value: ExitGate
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172928981481990, guid: c68041a77d388184494c4c90cd16e92a, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4446742869313904, guid: c68041a77d388184494c4c90cd16e92a, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 102992379790832294, guid: c68041a77d388184494c4c90cd16e92a,
+        type: 2}
+      propertyPath: m_Text
+      value: Exit
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c68041a77d388184494c4c90cd16e92a, type: 2}
   m_IsPrefabParent: 0
@@ -673,6 +690,15 @@ Prefab:
     - target: {fileID: 1413056825956022, guid: c68041a77d388184494c4c90cd16e92a, type: 2}
       propertyPath: m_Name
       value: MenuSelectGate
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: 
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 102992379790832294, guid: c68041a77d388184494c4c90cd16e92a,
+        type: 2}
+      propertyPath: m_Text
+      value: Select Level
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c68041a77d388184494c4c90cd16e92a, type: 2}
@@ -6292,6 +6318,25 @@ Transform:
   m_PrefabParentObject: {fileID: 4410615633820456, guid: 94928408e4fc93642a93d12fcb92b106,
     type: 2}
   m_PrefabInternal: {fileID: 995644361}
+--- !u!1 &1113232854 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1548540154330046, guid: c68041a77d388184494c4c90cd16e92a,
+    type: 2}
+  m_PrefabInternal: {fileID: 339192194}
+--- !u!114 &1113232855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1113232854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ca534e4dbe79a4fa6b41225303b92b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destination: {fileID: 0}
+  targetScene: LevelSelectMenu
+  targetTeleporterName: MenuGateTrigger
 --- !u!1 &1124661320
 GameObject:
   m_ObjectHideFlags: 0
