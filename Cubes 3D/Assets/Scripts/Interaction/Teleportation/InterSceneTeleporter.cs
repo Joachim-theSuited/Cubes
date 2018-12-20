@@ -36,6 +36,10 @@ public class InterSceneTeleporter : Teleporter {
                 SceneManager.activeSceneChanged += _activeSceneChanged;
             }
 
+            GameObject player = GameObject.FindGameObjectWithTag(Tags.Player);
+            player.GetComponent<PlayerControls>().enabled = false;
+            player.GetComponent<PlayerJumpBehaviour>().enabled = false;
+            player.GetComponent<PlayerSprintBehaviour>().enabled = false;
         }
     }
 
@@ -62,7 +66,14 @@ public class InterSceneTeleporter : Teleporter {
     }
 
     IEnumerator WaitForAudioPlayed(float toWait) {
-        yield return new WaitForSeconds(toWait);
+        float waited = 0;
+        Camera mainCamera = GameObject.FindGameObjectWithTag(Tags.MainCamera).GetComponent<Camera>();
+        float originalFOV = mainCamera.fieldOfView;
+        while(waited < toWait) {
+            mainCamera.fieldOfView = Mathf.Lerp(originalFOV, 1, Mathf.Pow(waited / toWait, 2));
+            yield return new WaitForFixedUpdate();
+            waited += Time.deltaTime;
+        }
 
         SceneManager.LoadScene(targetScene);
         SceneManager.activeSceneChanged += _activeSceneChanged;
