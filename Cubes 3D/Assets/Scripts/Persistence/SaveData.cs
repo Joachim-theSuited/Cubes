@@ -24,8 +24,8 @@ public class SaveData {
         Dictionary<string, string> dictionary = new Dictionary<string, string>();
         dictionary.Add("unlockedLevels", unlockedLevels.ToString());
         for (int i = 0; i < levelTimes.Length; i++) {
-            // TODO: format times properly
-            dictionary.Add(String.Format("levelTimes[{0}]", i), levelTimes[i].ToString());
+            TimeSpan timeSpan = TimeSpan.FromSeconds(levelTimes[i]);
+            dictionary.Add(String.Format("levelTimes[{0}]", i), String.Format("{0:00}:{1:00}.{2:000}", timeSpan.Minutes, timeSpan.Seconds, timeSpan.Milliseconds));
         }
 
         return dictionary;
