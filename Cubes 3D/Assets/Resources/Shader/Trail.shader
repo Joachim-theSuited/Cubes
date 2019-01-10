@@ -4,12 +4,14 @@
         _OffsetX ("X Offset", float) = 0.2
         _ScaleY ("Y Scale", float) = 4
 	}
+
+	
 	SubShader
 	{
-		Tags { "Queue"="Transparent" "RenderType"="Transparent"  }
-        Blend SrcAlpha OneMinusSrcAlpha
-        LOD 100
-
+		Tags { "Queue"="Transparent" "RenderType"="Transparent" "IgnoreProjector"="True" "PreviewType"="Plane" }
+		Blend SrcAlpha OneMinusSrcAlpha
+		Lighting Off
+		
 		Pass
 		{
 			CGPROGRAM
@@ -40,7 +42,9 @@
                 else
                     pq.x /= 1 - _OffsetX;
                 float d = length(pq);
-                c.a -= d;
+				//clip(1 - d - 0.2 * smoothstep(0, 1, pq.x) * sin(25 * pq.y + _Time.w));
+				c.a = 0.75 - d;
+				clip(c.a - 0.2);
 				return c;
 			}
 			ENDCG
