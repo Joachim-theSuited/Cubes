@@ -153,11 +153,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114414376355373370, guid: ae4c913a8bb0f4c6fbc9183df60bbb0b,
-        type: 2}
-      propertyPath: maxGoalSpawnDistance
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ae4c913a8bb0f4c6fbc9183df60bbb0b, type: 2}
   m_IsPrefabParent: 0
@@ -337,7 +332,7 @@ Prefab:
     - target: {fileID: 224643960173293578, guid: b5693355fb448b04aa0ba469d7265df7,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000017429096
+      value: 0.00002412516
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b5693355fb448b04aa0ba469d7265df7, type: 2}

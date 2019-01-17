@@ -187,6 +187,7 @@ MonoBehaviour:
     prefab: {fileID: 1342468938745402, guid: a3d5dfe53ea634daaa3f6439e1d0f8ae, type: 2}
   chunk: {fileID: 114685220929259462, guid: 5acfefcbc1f47428aae961070ca611c0, type: 2}
   extraTiles: 0
+  maxGoalSpawnDistance: 25
   gateDistribution:
     serializedVersion: 2
     m_Curve:

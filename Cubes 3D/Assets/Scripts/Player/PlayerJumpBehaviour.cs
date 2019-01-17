@@ -16,6 +16,8 @@ public class PlayerJumpBehaviour : MonoBehaviour {
 
     public readonly string[] jumpResetLayers = {CubesLayers.Floors, CubesLayers.Water};
 
+    public AudioSource jumpSound;
+
     // Use this for initialization
     void Start() {
         _rigidbody = GetComponent<Rigidbody>();
@@ -29,6 +31,7 @@ public class PlayerJumpBehaviour : MonoBehaviour {
         }
 
         if(canJump && Input.GetButtonUp(Inputs.Jump)) {
+            jumpSound.Play();
             _rigidbody.AddForce(Vector3.up * jumpForce * (1 + Mathf.Min(chargeTime, 2f)));
             canJump = false;
             Animator animator = GetComponentInChildren<Animator>();
