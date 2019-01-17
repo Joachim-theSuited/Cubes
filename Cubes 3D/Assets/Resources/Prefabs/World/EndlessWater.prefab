@@ -177,11 +177,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3d4f6ac38bf3456494a08a31d772316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gateCompassIcon: {fileID: 1706925324714992, guid: 7dd183e1e6c974d4890fd75870b453a4,
-    type: 2}
-  dungeonCompassIcon: {fileID: 1351569920012048, guid: 538c789bc8bfb89429849b46784c1199,
-    type: 2}
-  sceneChunkTileSize: 50
+  gate:
+    compassIcon: {fileID: 1706925324714992, guid: 7dd183e1e6c974d4890fd75870b453a4,
+      type: 2}
+    prefab: {fileID: 1682411521657204, guid: 781d333c53dad4546b3b0dfedad9b73b, type: 2}
+  dungeon:
+    compassIcon: {fileID: 1351569920012048, guid: 538c789bc8bfb89429849b46784c1199,
+      type: 2}
+    prefab: {fileID: 1342468938745402, guid: a3d5dfe53ea634daaa3f6439e1d0f8ae, type: 2}
   chunk: {fileID: 114685220929259462, guid: 5acfefcbc1f47428aae961070ca611c0, type: 2}
   extraTiles: 0
   gateDistribution:

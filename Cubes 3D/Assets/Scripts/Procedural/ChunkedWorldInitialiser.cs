@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 #if (UNITY_EDITOR)
 using UnityEditor;
@@ -12,16 +10,23 @@ using UnityEditor;
 /// </summary>
 public class ChunkedWorldInitialiser : MonoBehaviour {
 
-    public static Vector3 gateChunk;
-    public static Vector3 dungeonChunk;
-    public GameObject gateCompassIcon;
-    public GameObject dungeonCompassIcon;
-    public float sceneChunkTileSize;
+    [System.Serializable]
+    public class GoalConfig 
+    {
+        public GameObject compassIcon;
+        public GameObject prefab;
+    }
+
+    public GoalConfig gate;
+    public GoalConfig dungeon;
 
     public WorldChunk chunk;
 
     [TooltipAttribute("Add an extra border of this many chunks")]
     public uint extraTiles;
+
+    [TooltipAttribute("Maximum distance in chunks of the gate and dungeon to the players start position")]
+    public int maxGoalSpawnDistance;
 
     public AnimationCurve gateDistribution;
 
@@ -39,6 +44,10 @@ public class ChunkedWorldInitialiser : MonoBehaviour {
     }
 
     public void InitWorld() {
+        // spawn the goals first, the other chunk check to avoid them
+        RandomizeGoalChunk(gate);
+        RandomizeGoalChunk(dungeon);
+
         // position might be init'ed from player position, but also influences generation
         // for consistent results we want to ensure a certain alignment
         Vector3 position = transform.position;
@@ -55,25 +64,22 @@ public class ChunkedWorldInitialiser : MonoBehaviour {
                     newChunk.transform.SetParent(transform);
             }
         }
-
-        gateChunk = randomizeGateChunk(gateCompassIcon);
-        dungeonChunk = randomizeGateChunk(dungeonCompassIcon);
     }
 
-    private Vector3 randomizeGateChunk(GameObject compassIcon) {
+    private Vector3 RandomizeGoalChunk(GoalConfig goal) {
         Vector2 gateChunk = Random.insideUnitCircle;
-        int maxSpawnDistance = 50;
+        
         float chunkValue = Random.Range(0.0f, 1.0f);
         while(chunkValue > gateDistribution.Evaluate(gateChunk.magnitude)) {
             gateChunk = Random.insideUnitCircle;
             chunkValue = Random.Range(0.0f, 1.0f);
         }
-        Vector3 chunk = new Vector3((int) (gateChunk.x * maxSpawnDistance), 0, (int) (gateChunk.y * maxSpawnDistance));
+        Vector3 chunkPosition = new Vector3((int) (gateChunk.x * maxGoalSpawnDistance), 0, (int) (gateChunk.y * maxGoalSpawnDistance));
 
-        // place compass marker at gate chunk
-        Instantiate(compassIcon, chunk * sceneChunkTileSize, Quaternion.identity);
+        Instantiate(goal.compassIcon, chunkPosition * this.chunk.tileSize, Quaternion.identity);
+        Instantiate(goal.prefab, chunkPosition * this.chunk.tileSize, Quaternion.identity);
 
-        return chunk;
+        return chunkPosition;
     }
 }
 
