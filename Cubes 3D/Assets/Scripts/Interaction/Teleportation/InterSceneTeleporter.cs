@@ -25,21 +25,21 @@ public class InterSceneTeleporter : Teleporter {
         if(otherTeleportable != null && otherTeleportable.lastTeleportedTo != this && targetScene != null) {
             if(AcquirePersistentPlayer.PERSISTENT_PLAYER != null) {
                 DontDestroyOnLoad(AcquirePersistentPlayer.PERSISTENT_PLAYER);
-            }
 
-            if(GetComponent<AudioSource>() != null) {
-                AudioSource audioSource = GetComponent<AudioSource>();
-                audioSource.Play();
-                StartCoroutine(WaitForAudioPlayed(audioSource.clip.length));
-            } else {
-                SceneManager.LoadScene(targetScene);
-                SceneManager.activeSceneChanged += _activeSceneChanged;
-            }
+                if(GetComponent<AudioSource>() != null) {
+                    AudioSource audioSource = GetComponent<AudioSource>();
+                    audioSource.Play();
+                    StartCoroutine(WaitForAudioPlayed(audioSource.clip.length));
+                } else {
+                    SceneManager.LoadScene(targetScene);
+                    SceneManager.activeSceneChanged += _activeSceneChanged;
+                }
 
-            GameObject player = GameObject.FindGameObjectWithTag(Tags.Player);
-            player.GetComponent<PlayerControls>().enabled = false;
-            player.GetComponent<PlayerJumpBehaviour>().enabled = false;
-            player.GetComponent<PlayerSprintBehaviour>().enabled = false;
+                GameObject player = GameObject.FindGameObjectWithTag(Tags.Player);
+                player.GetComponent<PlayerControls>().enabled = false;
+                player.GetComponent<PlayerJumpBehaviour>().enabled = false;
+                player.GetComponent<PlayerSprintBehaviour>().enabled = false;
+            }
         }
     }
 
