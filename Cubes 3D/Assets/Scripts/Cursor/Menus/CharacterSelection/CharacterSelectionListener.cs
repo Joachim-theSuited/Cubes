@@ -22,7 +22,11 @@ public class CharacterSelectionListener : CallingInteractionTrigger {
 
 		Transform selectedChar = Instantiate(transform.GetChild(0));
 
-		Destroy(player.transform.GetChild(player.transform.childCount-1).gameObject);
+		for(int i = 0; i < player.transform.childCount; i++) {
+			if(player.transform.GetChild(i).tag.Equals(Tags.DebugDefault)) {
+				Destroy(player.transform.GetChild(i).gameObject);
+			}
+		}
 
 		selectedChar.parent = player.transform;
 
