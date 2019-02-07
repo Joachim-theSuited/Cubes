@@ -17,6 +17,10 @@ public class PlayerJumpBehaviour : MonoBehaviour {
     public readonly string[] jumpResetLayers = {CubesLayers.Floors, CubesLayers.Water};
 
     public AudioSource jumpSound;
+    public AudioSource impactSound;
+
+    private float dropStart;
+    private float lastFrameAltitudeChange;
 
     // Use this for initialization
     void Start() {
@@ -38,15 +42,26 @@ public class PlayerJumpBehaviour : MonoBehaviour {
             animator.SetTrigger("jump");
             chargeTime = 0;
         }
+
+        if(lastFrameAltitudeChange > 0 && _rigidbody.velocity.y < 0) {
+            dropStart = _rigidbody.position.y;
+        }
+        lastFrameAltitudeChange = _rigidbody.velocity.y;
     }
 
     void OnCollisionEnter(Collision collision) {
         // when landing on a floor reenable jumping
         int layerMask = 1 << collision.gameObject.layer;
-        if((layerMask & LayerMask.GetMask(jumpResetLayers)) == layerMask) {
+        if((layerMask & LayerMask.GetMask(jumpResetLayers)) == layerMask && dropStart - _rigidbody.position.y > 0.5f) {
             canJump = true;
             // can be moved into animation once we have a 'falling' animation state
             _jumpParticles.Emit(50);
+        }
+
+        // play impact sound only when dropped a certain height
+        if(dropStart - _rigidbody.position.y > 0.5f) {
+            impactSound.Play();
+            dropStart = -1000;
         }
     }
 }
