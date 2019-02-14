@@ -59,9 +59,10 @@ public class PlayerJumpBehaviour : MonoBehaviour {
         }
 
         // play impact sound only when dropped a certain height
-        if(dropStart - _rigidbody.position.y > 0.5f) {
-            impactSound.Play();
-            dropStart = -1000;
+        ImpactSoundDispatch impactSoundDispatch = collision.transform.GetComponent<ImpactSoundDispatch>();
+        if(impactSoundDispatch != null && dropStart - _rigidbody.position.y > 0.5f) {
+            impactSoundDispatch.playRandomlyDrawn();
+            dropStart -= 1000;
         }
     }
 }
