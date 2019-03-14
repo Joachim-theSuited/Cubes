@@ -153,20 +153,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114340017849818774, guid: 2b6e28d786a5aa9428ab47b2c379b93d,
-        type: 2}
-      propertyPath: uiMinimap
-      value: 
-      objectReference: {fileID: 760152906}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b6e28d786a5aa9428ab47b2c379b93d, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &760152906 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114031430513099434, guid: b5693355fb448b04aa0ba469d7265df7,
-    type: 2}
-  m_PrefabInternal: {fileID: 972049100}
-  m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &776340432
 Prefab:
   m_ObjectHideFlags: 0
@@ -442,12 +431,12 @@ Prefab:
     - target: {fileID: 224643960173293578, guid: b5693355fb448b04aa0ba469d7265df7,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0000091163
+      value: 0.000014556119
       objectReference: {fileID: 0}
     - target: {fileID: 224643960173293578, guid: b5693355fb448b04aa0ba469d7265df7,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000017665292
+      value: -0.0000022012093
       objectReference: {fileID: 0}
     - target: {fileID: 114031430513099434, guid: b5693355fb448b04aa0ba469d7265df7,
         type: 2}
