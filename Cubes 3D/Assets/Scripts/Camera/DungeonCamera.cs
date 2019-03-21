@@ -19,6 +19,12 @@ public class DungeonCamera : MonoBehaviour {
 	float ccZoomSpeed;
 	float tLerp;
 
+	 // disable meshes of the head when zoomed in
+	string[] componentsToDeactivate = {
+		"PersistentPlayer/PlayerRig/Kopf",
+		"PersistentPlayer/PlayerRig/Hair",
+	};
+
 	// Use this for initialization
 	void Start () {
 		enabled = false;
@@ -54,6 +60,15 @@ public class DungeonCamera : MonoBehaviour {
 
 	IEnumerator ZoomOut()
 	{
+		foreach (string componentName in componentsToDeactivate)
+		{
+			Transform subcomponent = player.transform.Find(componentName);
+			if (subcomponent)
+				subcomponent.gameObject.SetActive(true);
+			else
+				Debug.Log("Did not find " +  componentName + " on player");
+		}
+
 		do 
 		{
 			tLerp += Time.deltaTime / transitionTime;
@@ -70,12 +85,23 @@ public class DungeonCamera : MonoBehaviour {
 		zoomCoroutine = null;
 	}
 	
-	// Update is called once per frame
+	// zooms in after activation
 	void Update () 
 	{
 		tLerp += Time.deltaTime / transitionTime;
 		curvedCamera.nearPoint =  Vector3.Lerp(ccNearPoint, new Vector3(0, targetHeigth, 0), tLerp);
 		curvedCamera.sideOffset = Vector3.Lerp(ccSideOffset, Vector3.zero, tLerp);
 		curvedCamera.zoom = Mathf.Lerp(ccZoom, 0, tLerp);
+		if (tLerp > 1)
+		{
+			foreach (string componentName in componentsToDeactivate)
+			{
+				Transform subcomponent = player.transform.Find(componentName);
+				if (subcomponent)
+					subcomponent.gameObject.SetActive(false);
+				else
+					Debug.Log("Did not find " +  componentName + " on player");
+			}
+		}
 	}
 }
