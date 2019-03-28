@@ -26,7 +26,7 @@ public class DungeonCamera : MonoBehaviour {
 	};
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		enabled = false;
 		player = GameObject.FindWithTag(Tags.Player);
 		curvedCamera = GetComponent<CurvedCamera>();
