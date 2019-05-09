@@ -321,7 +321,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   islandPrefabs:
   - {fileID: 1006766634786850, guid: 813a12480f5f24b10881f6e1916c6b2a, type: 2}
-  - {fileID: 1567483889264748, guid: b7fbf778e3f824c5aaf0ac9e6cc36898, type: 2}
+  - {fileID: 1568945824752956, guid: 354c8318998f044f8815fe4fd459a03a, type: 2}
+  - {fileID: 1124402282810886, guid: 7af48b186bfab4032b79de7e5904e202, type: 2}
+  - {fileID: 1346604145971690, guid: 81a4f789fe60c4bb1a49a023b8af69d2, type: 2}
   probability: 0.2
   spread: 0.9
   tiling: 5
