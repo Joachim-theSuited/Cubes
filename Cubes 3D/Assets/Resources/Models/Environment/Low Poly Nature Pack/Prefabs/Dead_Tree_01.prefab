@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4228667597350962}
   - component: {fileID: 33335799382056530}
   - component: {fileID: 23674247463595668}
+  - component: {fileID: 65680711832145812}
   m_Layer: 0
   m_Name: Dead_Tree_01
   m_TagString: Untagged
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1427499956730670}
   m_LocalRotation: {x: -0.6644947, y: -0.24175778, z: -0.297794, w: 0.6413413}
-  m_LocalPosition: {x: 16.325352, y: -0.16789508, z: -8.587945}
+  m_LocalPosition: {x: 32.629314, y: 14.433524, z: -30.16}
   m_LocalScale: {x: 54.598316, y: 54.598312, z: 30.701086}
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,3 +84,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1427499956730670}
   m_Mesh: {fileID: 4300000, guid: 15f36eb159f783749a4789656cfeffdf, type: 3}
+--- !u!65 &65680711832145812
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1427499956730670}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.005, y: 0.005, z: 0.21756744}
+  m_Center: {x: 0, y: 0, z: 0.10841264}

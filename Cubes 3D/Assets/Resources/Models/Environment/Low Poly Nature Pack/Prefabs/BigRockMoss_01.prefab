@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4881573186557454}
   - component: {fileID: 33664378140407268}
   - component: {fileID: 23415112788965076}
+  - component: {fileID: 64080511577976888}
   m_Layer: 0
   m_Name: BigRockMoss_01
   m_TagString: Untagged
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1878572750835670}
   m_LocalRotation: {x: -0.69863206, y: 0.109147996, z: 0.109147996, w: 0.698632}
-  m_LocalPosition: {x: 1.7606764, y: 1.3828487, z: -6.6518564}
+  m_LocalPosition: {x: 18.06464, y: 15.984268, z: -28.223911}
   m_LocalScale: {x: 261.2001, y: 261.2001, z: 261.2001}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,4 +83,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1878572750835670}
+  m_Mesh: {fileID: 4300000, guid: 3bc34dd15753061449ac31ce2eab3325, type: 3}
+--- !u!64 &64080511577976888
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1878572750835670}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 3bc34dd15753061449ac31ce2eab3325, type: 3}

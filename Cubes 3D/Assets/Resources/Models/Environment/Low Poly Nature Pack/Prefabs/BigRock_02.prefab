@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4607642730772450}
   - component: {fileID: 33717136050337196}
   - component: {fileID: 23657239362784176}
+  - component: {fileID: 64464154452939094}
   m_Layer: 0
   m_Name: BigRock_02
   m_TagString: Untagged
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1842124867269794}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -20.70822, y: 0.6484515, z: -5.6258225}
+  m_LocalPosition: {x: -4.404257, y: 15.249871, z: -27.197878}
   m_LocalScale: {x: 154.96179, y: 84.997185, z: 17.33862}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,4 +83,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1842124867269794}
+  m_Mesh: {fileID: 4300000, guid: f71518bfb136151408e459d6f0e60556, type: 3}
+--- !u!64 &64464154452939094
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1842124867269794}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: f71518bfb136151408e459d6f0e60556, type: 3}
