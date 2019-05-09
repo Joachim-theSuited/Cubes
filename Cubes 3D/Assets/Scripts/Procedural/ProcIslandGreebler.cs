@@ -16,51 +16,61 @@ public class ProcIslandGreebler : MonoBehaviour, ProcIslandDecorator {
     public bool randomYRotation;
 
     [TooltipAttribute("Stop after this many fails")]
-    public int maxFails;
+    const int maxFails = 100;
 
-    void ProcIslandDecorator.Decorate(ProcIsland island, Mesh mesh) {
-        if(greebles.Length == 0)
+    void ProcIslandDecorator.Decorate(ProcIsland island, Mesh mesh)
+    {
+        if (greebles.Length == 0)
+        {
+            Debug.Log("No greebles assigned on " + gameObject.name);
             return;
+        }
 
+        MeshCollider coll = island.GetComponent<MeshCollider>();
         int count = (int)Random.Range(countMinMax.x, countMinMax.y + 0.1f);
         int fails = 0;
-        while(count > 0) {
-            int idx = Random.Range(0, mesh.vertices.Length);
-            if(mesh.vertices[idx].y < heightMinMax.x || mesh.vertices[idx].y > heightMinMax.y) {
+        while (count > 0)
+        {
+            Vector3 randomPosition = new Vector3(
+                    coll.bounds.min.x + Random.Range(0, coll.bounds.size.x),
+                    coll.bounds.max.y + 1,
+                    coll.bounds.min.z + Random.Range(0, coll.bounds.size.z));
+
+            RaycastHit hit;
+            if (coll.Raycast(new Ray(randomPosition, Vector3.down), out hit, 100))
+            {
+                randomPosition.y = hit.point.y;
+            }
+            else
+            {
+                Debug.Log("Raycast didn't hit mesh.");
                 ++fails;
-                if(fails >= maxFails)
+                if (fails >= maxFails)
                     break;
                 continue;
             }
-            var obj = Instantiate(greebles[(int)Random.Range(0, greebles.Length - 0.5f)], island.transform); 
-            obj.transform.localPosition = (mesh.vertices[idx]);
-            if(randomYRotation)
-                obj.transform.Rotate(0, Random.Range(0, 360), 0, Space.World);
-            if(alignToMeshNormal){
-                if(!island.flatShading) {
-                    obj.transform.rotation *= Quaternion.FromToRotation(Vector3.up, mesh.normals[idx]);
-                } else {
-                    // flat shading means face normals, which is inaccurate at the vertices
-                    // we can cast against the collider mesh instead
-                    if(island.generateColliderMesh) {
-                        MeshCollider coll = island.GetComponent<MeshCollider>();
-                        RaycastHit hit;
-                        if( coll.Raycast(new Ray(obj.transform.position + new Vector3(0, coll.bounds.size.y, 0), Vector3.down), out hit, 100) ) {
-                            obj.transform.rotation *= Quaternion.FromToRotation(Vector3.up, hit.normal);
-                        } else {
-                            Debug.Log("Raycast didn't hit mesh.");
-                        }
-                    } else {
-                        Debug.LogWarning("Not aligning to mesh, as the normals can't be determined.");
-                    }
-                }
+
+            if (randomPosition.y < heightMinMax.x || randomPosition.y > heightMinMax.y)
+            {
+                ++fails;
+                if (fails >= maxFails)
+                    break;
+                continue;
             }
-            
+
+            var greeble = Instantiate(greebles[(int)Random.Range(0, greebles.Length - 0.5f)], island.transform); 
+            greeble.transform.position = randomPosition;
+            if (alignToMeshNormal)
+            {
+                greeble.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+            }
+            if (randomYRotation)
+                greeble.transform.Rotate(0, Random.Range(0, 360), 0, Space.World);
 
             --count;
         }
 
-        if(count > 0)
+        if (count > 0)
             Debug.Log("Stopped after " + fails + " fails, had " + count + " more objects to place.");
     }
 

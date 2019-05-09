@@ -7,6 +7,7 @@ using UnityEditor;
 
 [ExecuteInEditMode]
 [RequireComponent(typeof(MeshFilter))]
+[RequireComponent(typeof(MeshCollider))]
 public class ProcIsland : MonoBehaviour {
 
     public int meshResolution;
@@ -17,9 +18,6 @@ public class ProcIsland : MonoBehaviour {
 
     public AnimationCurve topHeight;
     float _topHeight;
-
-    public bool generateColliderMesh;
-    public int colliderMeshResolution;
 
     public bool flatShading;
 
@@ -65,15 +63,10 @@ public class ProcIsland : MonoBehaviour {
         Perlin2D noise = new Perlin2D(noiseResolution);
         var mesh = GenerateIslandMesh(noise, meshResolution);
 
-        GetComponent<MeshFilter>().mesh = mesh;
+        GetComponent<MeshFilter>().sharedMesh = mesh;
 
-        if(generateColliderMesh) {
-            MeshCollider coll = GetComponent<MeshCollider>();
-            if(coll == null)
-                Debug.LogError("No MeshCollider found!");
-            else
-                coll.sharedMesh = GenerateIslandMesh(noise, colliderMeshResolution);
-        }
+        MeshCollider coll = GetComponent<MeshCollider>();
+        coll.sharedMesh = mesh;
         
         // the MeshCollider is not yet initialised, but might be needed by ProcIslandGreebler
         // therefore the decoration calls are deferred
