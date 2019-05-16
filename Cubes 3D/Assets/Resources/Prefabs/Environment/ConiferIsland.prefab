@@ -199,8 +199,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  generateColliderMesh: 1
-  colliderMeshResolution: 8
   flatShading: 1
   gaussian: 1
   peakynessX:
@@ -299,7 +297,6 @@ MonoBehaviour:
   heightMinMax: {x: 0.3, y: 5}
   alignToMeshNormal: 0
   randomYRotation: 1
-  maxFails: 100
 --- !u!114 &114898408960871844
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -312,22 +309,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   greebles:
-  - {fileID: 100000, guid: a13888409b37c444aac5658a3f47a54c, type: 3}
-  - {fileID: 100002, guid: a13888409b37c444aac5658a3f47a54c, type: 3}
-  - {fileID: 100004, guid: a13888409b37c444aac5658a3f47a54c, type: 3}
-  - {fileID: 100006, guid: a13888409b37c444aac5658a3f47a54c, type: 3}
-  - {fileID: 100008, guid: a13888409b37c444aac5658a3f47a54c, type: 3}
-  - {fileID: 100010, guid: a13888409b37c444aac5658a3f47a54c, type: 3}
-  - {fileID: 100012, guid: a13888409b37c444aac5658a3f47a54c, type: 3}
-  - {fileID: 100014, guid: a13888409b37c444aac5658a3f47a54c, type: 3}
-  - {fileID: 100016, guid: a13888409b37c444aac5658a3f47a54c, type: 3}
-  - {fileID: 100018, guid: a13888409b37c444aac5658a3f47a54c, type: 3}
-  - {fileID: 100020, guid: a13888409b37c444aac5658a3f47a54c, type: 3}
+  - {fileID: 1883522371509644, guid: 8bd3fcd0c2a7f4422be2dad0a148e0da, type: 2}
+  - {fileID: 1216932887888786, guid: 883cbb47b0b274d499db3dcbadd827fd, type: 2}
+  - {fileID: 1279605225556032, guid: f9c027c21dee44e97a95001b4f2d4427, type: 2}
+  - {fileID: 1464534226209708, guid: 3902698c593224c1c880140d2d6712cb, type: 2}
+  - {fileID: 1956586452993688, guid: 3fa00b2944d264c86b256fe59256ca5a, type: 2}
+  - {fileID: 1000378991599738, guid: ddf67678308724183815e109acb966ad, type: 2}
+  - {fileID: 1395444605417638, guid: 742420b38fc7b41688dcdcf1535b82db, type: 2}
+  - {fileID: 1121950521153284, guid: 50216de4bf92c475082a6f980522e14d, type: 2}
+  - {fileID: 1585216902653982, guid: 64464699fb5924d44bbc51850c13b433, type: 2}
+  - {fileID: 1062205491636424, guid: 8cacc830a21504bd1b9288113683f757, type: 2}
+  - {fileID: 1784639572375594, guid: d1e4ff19b689d4e69b37b553e775ccf8, type: 2}
   countMinMax: {x: 10, y: 50}
   heightMinMax: {x: 0.1, y: 10}
   alignToMeshNormal: 0
   randomYRotation: 1
-  maxFails: 100
 --- !u!114 &114954145910359660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -347,4 +343,3 @@ MonoBehaviour:
   heightMinMax: {x: 0, y: 0.2}
   alignToMeshNormal: 1
   randomYRotation: 1
-  maxFails: 100
