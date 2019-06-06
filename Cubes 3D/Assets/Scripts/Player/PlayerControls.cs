@@ -33,13 +33,24 @@ public class PlayerControls : MonoBehaviour {
 
     void Update()
     {
-        if(Input.GetKeyUp(KeyCode.F12))
+#if UNITY_EDITOR
+        if (Input.GetKeyUp(KeyCode.F12))
         {
-            if(Cursor.lockState == CursorLockMode.Locked)
+            if (Cursor.lockState == CursorLockMode.Locked)
                 Cursor.lockState = CursorLockMode.None;
             else
                 Cursor.lockState = CursorLockMode.Locked;
         }
+
+        if (Input.GetKeyUp(KeyCode.F11))
+        {
+            movementSpeed *= 16;
+        }
+        if (Input.GetKeyUp(KeyCode.F9))
+        {
+            movementSpeed /= 16;
+        }
+#endif        
     }
 
     // Update is called once per frame

@@ -29,5 +29,11 @@ public class AcquirePersistentPlayer : MonoBehaviour {
             yield return new WaitForEndOfFrame();
             GetComponent<Animator>().Rebind();
         }
+#if UNITY_EDITOR
+        else
+        {
+            PERSISTENT_PLAYER = GameObject.FindWithTag(Tags.DebugDefault);
+        }
+#endif
     }
 }
