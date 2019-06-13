@@ -133,7 +133,6 @@ MonoBehaviour:
   heightMinMax: {x: 0, y: 0.2}
   alignToMeshNormal: 1
   randomYRotation: 1
-  maxFails: 100
 --- !u!114 &114833027975674278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -145,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 842973a9f2809994f9d02f1192a9d039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gatePrefab: {fileID: 1108065229924142, guid: ccb8b112908f81b4a892ea1896eccdbb, type: 2}
+  gatePrefab: {fileID: 1285531134862496, guid: 46edaa0ccd1074135ac2fcd0192b968e, type: 2}
 --- !u!114 &114953015147118946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -230,8 +229,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  generateColliderMesh: 1
-  colliderMeshResolution: 8
   flatShading: 1
   gaussian: 1
   peakynessX:

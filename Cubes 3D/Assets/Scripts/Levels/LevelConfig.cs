@@ -16,6 +16,9 @@ public class LevelConfig : ScriptableObject {
 		set {scenePath = SceneUtility.GetScenePathByBuildIndex(value); }
 	}
 
+	[NonNegative]
+	public int number;
+
 	public int randomSeedOffset;
 
 	public Vector3 playerStartPosition;

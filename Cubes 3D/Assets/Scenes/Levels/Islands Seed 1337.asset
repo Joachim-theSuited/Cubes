@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Name: Islands Seed 1337
   m_EditorClassIdentifier: 
   scenePath: Assets/Scenes/Develop/Islands.unity
+  number: 1
   randomSeedOffset: 1337
   playerStartPosition: {x: 0, y: 0, z: 0}

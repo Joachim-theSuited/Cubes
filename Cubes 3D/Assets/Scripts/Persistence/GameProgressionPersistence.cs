@@ -13,12 +13,21 @@ static class GameProgressionPersistence {
     public static void saveProgress(SaveData saveData) {
         StreamWriter writer = new StreamWriter(PROGRESS_FILE);
         SERIALIZER.Serialize(writer, saveData);
+        Debug.Log("Saving" + saveData);
         writer.Close();
     }
 
     public static SaveData loadProgress() {
-        StreamReader reader = new StreamReader(PROGRESS_FILE);
-        return (SaveData) SERIALIZER.Deserialize(reader);
+        try
+        {
+            StreamReader reader = new StreamReader(PROGRESS_FILE);
+            return (SaveData) SERIALIZER.Deserialize(reader);
+        } 
+        catch (FileNotFoundException)
+        {
+            Debug.Log("Failed to load, falling back");
+            return SaveData.DEFAULT;
+        }
     }
 
 }
