@@ -8,16 +8,29 @@ public class WorldSpaceLabelBackgroundScaler : MonoBehaviour
 	void Start ()
 	{
 		var textMesh = transform.parent.GetComponent<TextMesh>();
+		float lineWidth = 0;
 		float width = 0;
+		float lineHeight = 0;
 		float height = 0;
 		foreach(char c in textMesh.text)
 		{
 			CharacterInfo characterInfo;
 			bool success = textMesh.font.GetCharacterInfo(c, out characterInfo, textMesh.fontSize, textMesh.fontStyle);
 			Debug.Assert(success);
-			width += characterInfo.advance;
-			height = Mathf.Max(height, characterInfo.glyphHeight);
+			lineWidth += characterInfo.advance;
+			lineHeight = Mathf.Max(lineHeight, characterInfo.glyphHeight);
+			if (c == '\n')
+			{
+				width = Mathf.Max(width, lineWidth);
+				lineWidth = 0;
+				height += lineHeight;
+				height += textMesh.lineSpacing;
+				lineHeight = 0;
+			}
 		}
+		width = Mathf.Max(width, lineWidth);
+		height += lineHeight;
+
 		// add a bit of a border
 		width += width/textMesh.text.Length;
 		height *= 1.5f;

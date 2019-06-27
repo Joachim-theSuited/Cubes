@@ -30,4 +30,37 @@ public class SaveData {
 
         return dictionary;
     }
+
+    public bool IsUnlocked(int levelNumber)
+    {
+        return (unlockedLevels & (1 << levelNumber)) != 0;
+    }
+
+    public float GetBestTime(int levelNumber)
+    {
+        if (levelNumber < levelTimes.Length)
+        {
+            return levelTimes[levelNumber];
+        }
+        return -1;
+    }
+
+    public void LevelFinished(int levelNumber, float timeInSeconds)
+    {
+        unlockedLevels |= 1 << (levelNumber + 1);
+
+        int oldLength = levelTimes.Length;
+        if (oldLength <= levelNumber)
+        {
+            Array.Resize(ref levelTimes, levelNumber + 1);
+            for (int i = oldLength; i < levelTimes.Length; ++i)
+                levelTimes[i] = -1;
+        }
+
+        if (levelTimes[levelNumber] == -1)
+            levelTimes[levelNumber] = timeInSeconds;
+        else
+            levelTimes[levelNumber] = Math.Min(levelTimes[levelNumber], timeInSeconds);
+    }
+
 }

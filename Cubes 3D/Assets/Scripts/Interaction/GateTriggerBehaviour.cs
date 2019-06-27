@@ -23,20 +23,7 @@ public class GateTriggerBehaviour : MonoBehaviour {
 
 			SaveData save = GameProgressionPersistence.loadProgress();
 			LevelConfig currentLevel = LevelConfigManager.Instance.config;
-			save.unlockedLevels |= 1 << currentLevel.number;
-			int oldLength = save.levelTimes.Length;
-			if (oldLength < currentLevel.number)
-			{
-				Array.Resize(ref save.levelTimes, currentLevel.number + 1);
-				for (int i = oldLength; i <= currentLevel.number; ++i)
-					save.levelTimes[i] = -1;
-			}
-
-			if (save.levelTimes[currentLevel.number] == -1)
-				save.levelTimes[currentLevel.number] = (float)LevelTime.INSTANCE.elapsedTime().TotalSeconds;
-			else
-				save.levelTimes[currentLevel.number] = Math.Min(save.levelTimes[currentLevel.number], (float)LevelTime.INSTANCE.elapsedTime().TotalSeconds);
-			
+			save.LevelFinished(currentLevel.number, (float)LevelTime.INSTANCE.elapsedTime().TotalSeconds);			
 			GameProgressionPersistence.saveProgress(save);
 
 			GetComponent<InterSceneTeleporter>().enabled = true;
