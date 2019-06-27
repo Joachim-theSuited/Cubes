@@ -50,6 +50,11 @@ public class ProjectBuildScript {
 		return GetBuildDirectory(platform) + String.Format("/Cubes3D{2}", DateTime.Today.ToString("yyyy_MM_dd"), platform, fileExtension);
 	}
 
+	[MenuItem("Build Tools/Open Save Game")]
+	static void OpenSaveGame() {
+		Process.Start(Path.GetFullPath(GameProgressionPersistence.PROGRESS_FILE));
+	}
+
 	private static void includeStatics(string targetDirectory) {
 		foreach(string si in staticIncludes) {
 			File.Delete(targetDirectory + si);
