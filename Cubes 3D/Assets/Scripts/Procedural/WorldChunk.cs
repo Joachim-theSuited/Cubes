@@ -44,15 +44,18 @@ public class WorldChunk : MonoBehaviour {
 
     /// <param name="direction">Direction to spawn in. Must be normalised and in the xz plane</param>
     void SpawnInDirection(Vector3 direction) {
-        Vector3 spawnLineCentre = transform.position + direction * spawnDistance * tileSize;
-        Vector3 spawnLine = new Vector3(-direction.z, 0, direction.x); // orthogonal, when in xz plane
+        for(int dist = Mathf.Max(1, (int)spawnDistance - 2); dist <= spawnDistance; ++dist)
+        {
+            Vector3 spawnLineCentre = transform.position + direction * dist * tileSize;
+            Vector3 spawnLine = new Vector3(-direction.z, 0, direction.x); // orthogonal, when in xz plane
 
-        // place one in the centre
-        SpawnAt(spawnLineCentre);
-        // and extend prependicular in both directions (we're building the side of a square)
-        for(int i = 1; i <= spawnDistance; ++i) {
-            SpawnAt(spawnLineCentre + spawnLine * i * tileSize);
-            SpawnAt(spawnLineCentre - spawnLine * i * tileSize);
+            // place one in the centre
+            SpawnAt(spawnLineCentre);
+            // and extend prependicular in both directions (we're building the side of a square)
+            for(int i = 1; i <= dist; ++i) {
+                SpawnAt(spawnLineCentre + spawnLine * i * tileSize);
+                SpawnAt(spawnLineCentre - spawnLine * i * tileSize);
+            }
         }
     }
 
