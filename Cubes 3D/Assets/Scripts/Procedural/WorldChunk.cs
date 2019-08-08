@@ -21,6 +21,7 @@ public class WorldChunk : MonoBehaviour {
     public PrefabReference spawn;
 
     void Start() {
+        Random.InitState(LevelConfigManager.Instance.config.randomSeedOffset + ((int)transform.position.x << 16) + (int)transform.position.z);
         foreach(WorldChunkDecorator wcd in GetComponents<WorldChunkDecorator>())
             wcd.Decorate(this);
     }
