@@ -45,6 +45,7 @@ public class ChunkedWorldInitialiser : MonoBehaviour {
 
     public void InitWorld() {
         // spawn the goals first, the other chunk check to avoid them
+        Random.InitState(LevelConfigManager.Instance.config.randomSeedOffset);
         RandomizeGoalChunk(gate);
         RandomizeGoalChunk(dungeon);
 
