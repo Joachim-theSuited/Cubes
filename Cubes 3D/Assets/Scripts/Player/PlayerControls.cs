@@ -9,6 +9,7 @@ using System;
 public class PlayerControls : MonoBehaviour {
     public float movementSpeed;
     public Camera referenceCamera;
+    public float rotationSpeed;
 
     private Rigidbody _rigidbody;
     private AudioSource _wooshSource;
@@ -78,7 +79,7 @@ public class PlayerControls : MonoBehaviour {
         }
 
         // rotate player with mouse movement
-		Vector3 rotateBy = new Vector3(0, Input.GetAxis(Inputs.LookX), 0) * cameraRotationSpeed;
+		Vector3 rotateBy = new Vector3(0, Input.GetAxis(Inputs.LookX) * Time.fixedDeltaTime * rotationSpeed, 0) * cameraRotationSpeed;
 		_rigidbody.MoveRotation(_rigidbody.rotation * Quaternion.Euler(rotateBy));
 
 		lastMovement = moveVector;
