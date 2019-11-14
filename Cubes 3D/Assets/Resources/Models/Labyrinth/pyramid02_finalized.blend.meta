@@ -1,22 +1,28 @@
 fileFormatVersion: 2
 guid: 1460ddf3d0e024a41b648e8c7c78ae1d
 ModelImporter:
-  serializedVersion: 23
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: Labyrinth
     100002: Pyramid
     100004: //RootNode
+    100006: PyramidInner
     400000: Labyrinth
     400002: Pyramid
     400004: //RootNode
+    400006: PyramidInner
     2100000: Material
     2100002: unnamed
+    2100004: Material_001
     2300000: Labyrinth
     2300002: Pyramid
+    2300004: PyramidInner
     3300000: Labyrinth
     3300002: Pyramid
+    3300004: PyramidInner
     4300000: Pyramid
     4300002: Labyrinth
+    4300004: PyramidInner
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
@@ -70,8 +76,6 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -91,6 +95,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
