@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 64750851969483112}
   - component: {fileID: 114355120618345140}
   - component: {fileID: 114728706994255484}
+  - component: {fileID: 114836471564426912}
   m_Layer: 16
   m_Name: ConiferIsland
   m_TagString: Untagged
@@ -297,6 +298,23 @@ MonoBehaviour:
   heightMinMax: {x: 0.3, y: 5}
   alignToMeshNormal: 0
   randomYRotation: 1
+--- !u!114 &114836471564426912
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1006766634786850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e7bfd1215ab44c529eb8afd601d1444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  greebles:
+  - {fileID: 1222326262714260, guid: 0179e4c1c6a59d946a14fb33de8d894e, type: 2}
+  countMinMax: {x: 0, y: 1}
+  heightMinMax: {x: 0.5, y: 10}
+  alignToMeshNormal: 0
+  randomYRotation: 1
 --- !u!114 &114898408960871844
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -320,7 +338,7 @@ MonoBehaviour:
   - {fileID: 1585216902653982, guid: 64464699fb5924d44bbc51850c13b433, type: 2}
   - {fileID: 1062205491636424, guid: 8cacc830a21504bd1b9288113683f757, type: 2}
   - {fileID: 1784639572375594, guid: d1e4ff19b689d4e69b37b553e775ccf8, type: 2}
-  countMinMax: {x: 10, y: 50}
+  countMinMax: {x: 5, y: 20}
   heightMinMax: {x: 0.1, y: 10}
   alignToMeshNormal: 0
   randomYRotation: 1
