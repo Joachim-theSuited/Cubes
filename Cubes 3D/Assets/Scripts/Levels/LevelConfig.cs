@@ -23,4 +23,6 @@ public class LevelConfig : ScriptableObject {
 
 	public Vector3 playerStartPosition;
 
+	public GameObject dungeon;
+
 }

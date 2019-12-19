@@ -37,7 +37,7 @@ public class LevelConfigManager : Singleton<LevelConfigManager> {
 	Stack<LevelConfig> history;
 
 	void Awake() {
-		config = (LevelConfig)ScriptableObject.CreateInstance(typeof(LevelConfig));
+		config = ScriptableObject.CreateInstance<LevelConfig>();
 		config.sceneID = SceneManager.GetActiveScene().buildIndex;
 		var player = GameObject.FindWithTag(Tags.Player);
 		config.playerStartPosition = player.transform.position;

@@ -15,3 +15,4 @@ MonoBehaviour:
   number: 1
   randomSeedOffset: 1337
   playerStartPosition: {x: 0, y: 0, z: 0}
+  dungeon: {fileID: 1873131493740706, guid: 2b6e28d786a5aa9428ab47b2c379b93d, type: 2}
