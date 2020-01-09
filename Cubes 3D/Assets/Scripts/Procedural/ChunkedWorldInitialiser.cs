@@ -91,7 +91,7 @@ public class ChunkedWorldInitialiser : MonoBehaviour
         Vector3 chunkPosition = new Vector3((int)(gateChunk.x * maxGoalSpawnDistance), 0, (int)(gateChunk.y * maxGoalSpawnDistance));
 
         Instantiate(goal.compassIcon, chunkPosition * this.chunk.tileSize, Quaternion.identity);
-        Instantiate(goal.prefab, chunkPosition * this.chunk.tileSize, Quaternion.identity);
+        Instantiate(goal.prefab, (chunkPosition * this.chunk.tileSize) + goal.prefab.transform.position, Quaternion.identity);
 
         return chunkPosition;
     }
