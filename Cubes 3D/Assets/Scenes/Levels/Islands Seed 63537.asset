@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Islands Seed 63537
   m_EditorClassIdentifier: 
   scenePath: Assets/Scenes/Develop/Islands.unity
-  number: 0
+  number: 2
   randomSeedOffset: 63537
   playerStartPosition: {x: 0, y: 0, z: 0}
   dungeon: {fileID: 1175328944793524, guid: 72f4d93ac63066d48af79667afbd4053, type: 2}
