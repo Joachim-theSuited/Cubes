@@ -22181,6 +22181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 10
   referenceCamera: {fileID: 963630131}
+  rotationSpeed: 45
   wooshVolumeFactor: 0.25
   cameraRotationSpeed: 5
 --- !u!114 &1459046123
