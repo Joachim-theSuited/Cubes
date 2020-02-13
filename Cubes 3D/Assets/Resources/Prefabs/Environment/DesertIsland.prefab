@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114293733229765746}
   - component: {fileID: 114282511471155064}
   - component: {fileID: 114838273800751974}
+  - component: {fileID: 114724580211616256}
   m_Layer: 16
   m_Name: DesertIsland
   m_TagString: Untagged
@@ -186,8 +187,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  generateColliderMesh: 1
-  colliderMeshResolution: 8
   flatShading: 1
   gaussian: 1
   peakynessX:
@@ -288,7 +287,6 @@ MonoBehaviour:
   heightMinMax: {x: 0, y: 0.5}
   alignToMeshNormal: 0
   randomYRotation: 1
-  maxFails: 100
 --- !u!114 &114293733229765746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -301,6 +299,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: {r: 0.8867924, g: 0.86147815, b: 0.3973834, a: 1}
+--- !u!114 &114724580211616256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1568945824752956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e7bfd1215ab44c529eb8afd601d1444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  greebles:
+  - {fileID: 100000, guid: 4184a3a2d955b084a9ae46d85f296cae, type: 3}
+  countMinMax: {x: 0, y: 1}
+  heightMinMax: {x: 0.5, y: 10}
+  alignToMeshNormal: 0
+  randomYRotation: 1
 --- !u!114 &114838273800751974
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -318,4 +333,3 @@ MonoBehaviour:
   heightMinMax: {x: 0.3, y: 5}
   alignToMeshNormal: 0
   randomYRotation: 1
-  maxFails: 100
