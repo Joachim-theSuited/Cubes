@@ -16,7 +16,6 @@ public class BackgroundMusicManager : MonoBehaviour
         if (audioSource.clip == LAST_CLIP)
         {
             audioSource.time = LAST_POSITION;
-            print("seeking to " + audioSource.time);
         }
     }
 
