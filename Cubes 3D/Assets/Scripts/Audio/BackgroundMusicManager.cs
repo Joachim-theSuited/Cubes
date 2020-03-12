@@ -19,7 +19,8 @@ public class BackgroundMusicManager : MonoBehaviour
         }
     }
 
-    void Update() {
+    void Update()
+    {
         AudioSource audioSource = GetComponent<AudioSource>();
         LAST_CLIP = audioSource.clip;
         LAST_POSITION = GetComponent<AudioSource>().time;
