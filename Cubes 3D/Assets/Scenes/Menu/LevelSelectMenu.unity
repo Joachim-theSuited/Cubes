@@ -10256,6 +10256,62 @@ Transform:
   m_PrefabParentObject: {fileID: 4833958589147012, guid: ebd5f6247693a1e4ca7019ffd1612467,
     type: 2}
   m_PrefabInternal: {fileID: 1328774510}
+--- !u!1001 &1329494417
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4321484403701808, guid: c6d0833ed0bec49b39300e28f92be215, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 26.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321484403701808, guid: c6d0833ed0bec49b39300e28f92be215, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321484403701808, guid: c6d0833ed0bec49b39300e28f92be215, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -11.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321484403701808, guid: c6d0833ed0bec49b39300e28f92be215, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321484403701808, guid: c6d0833ed0bec49b39300e28f92be215, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321484403701808, guid: c6d0833ed0bec49b39300e28f92be215, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321484403701808, guid: c6d0833ed0bec49b39300e28f92be215, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321484403701808, guid: c6d0833ed0bec49b39300e28f92be215, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744583934862002, guid: c6d0833ed0bec49b39300e28f92be215, type: 2}
+      propertyPath: m_Name
+      value: LevelTeleporterGate (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114841470073959294, guid: c6d0833ed0bec49b39300e28f92be215,
+        type: 2}
+      propertyPath: targetLevel
+      value: 
+      objectReference: {fileID: 11400000, guid: cca506c6a046a2a4f803f5f08cf2ac14,
+        type: 2}
+    - target: {fileID: 4321484403701808, guid: c6d0833ed0bec49b39300e28f92be215, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c6d0833ed0bec49b39300e28f92be215, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1331073697
 Prefab:
   m_ObjectHideFlags: 0

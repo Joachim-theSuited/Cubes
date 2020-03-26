@@ -802,7 +802,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4006440955783924}
   m_Layer: 0
-  m_Name: PyramidLabyrinth02Prefab
+  m_Name: PyramidLabyrinth02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
