@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e5e06dd677448388f8f03b69cdf527, type: 3}
+  m_Name: ForestLevel3
+  m_EditorClassIdentifier: 
+  scenePath: Assets/Scenes/Develop/Islands.unity
+  number: 6
+  randomSeedOffset: 13246
+  playerStartPosition: {x: 0, y: 0, z: 0}
+  dungeon: {fileID: 1782232531388972, guid: 9f9771af27cce4cf3b8035577a1c6bcc, type: 2}
