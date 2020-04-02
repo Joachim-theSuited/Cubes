@@ -8,25 +8,30 @@ ModelImporter:
     100004: Pyramid
     100006: //RootNode
     100008: Labyrinth
+    100010: PyramidInner
     400000: Entry
     400002: LabPiece_004
     400004: Pyramid
     400006: //RootNode
     400008: Labyrinth
+    400010: PyramidInner
     2100000: unnamed
     2100002: Material
     2300000: Entry
     2300002: LabPiece_004
     2300004: Pyramid
     2300006: Labyrinth
+    2300008: PyramidInner
     3300000: Entry
     3300002: LabPiece_004
     3300004: Pyramid
     3300006: Labyrinth
+    3300008: PyramidInner
     4300000: Entry
     4300002: Pyramid
     4300004: LabPiece_004
     4300006: Labyrinth
+    4300008: PyramidInner
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
