@@ -9,7 +9,6 @@ public class DungeonMap : MonoBehaviour {
 	void Interact()
 	{
 		minimapCover.BroadcastMessage("Uncover", SendMessageOptions.DontRequireReceiver);
-		Destroy(this.gameObject);	
 	}
-	
+
 }
